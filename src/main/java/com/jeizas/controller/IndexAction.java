@@ -13,7 +13,7 @@ public class IndexAction implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Logger logger = Logger.getLogger(IndexAction.class);
 	
-	@RequestMapping(value="/hello",method=RequestMethod.GET)
+	@RequestMapping(value="/inde",method=RequestMethod.GET)
 	public String index(){
 		logger.info("啦啦啦");
 		return "index";
