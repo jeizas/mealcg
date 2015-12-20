@@ -47,7 +47,6 @@
 		<!-- <slf4j.version>1.7.10</slf4j.version> -->
 		<log4j.version>1.2.17</log4j.version>
 	</properties>
-	<!-- maven打成war包放到tomcat目录下，即可运行 -->
 	
 	<build>
 		<finalName>ROOT</finalName>
@@ -66,15 +65,170 @@
 			</testResource>
 		</testResources>
 		<plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>2.6</version>
-            <configuration>
-                <failOnMissingWebXml>false</failOnMissingWebXml>
-            </configuration>
-        </plugin>
-    </plugins>
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-war-plugin</artifactId>
+			    <version>2.6</version>
+			    <configuration>
+			        <failOnMissingWebXml>false</failOnMissingWebXml>
+			    </configuration>
+			</plugin>
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-surefire-plugin</artifactId>
+			    <configuration>
+			        <testFailureIgnore>true</testFailureIgnore>           
+	 		    </configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+	                  <compilerArguments>
+	                   <extdirs>webapp/WEB-INF/lib</extdirs>
+	                 </compilerArguments> 
+				</configuration>
+			</plugin>
+			<!-- 清理插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>delete-WEB-INF-lib</id>
+						<phase>pre-clean</phase>
+						<configuration>
+							<tasks>
+								<echo message="删除webapp/WEB-INF/lib" />
+								<delete dir="webapp/WEB-INF/lib" />
+								<echo message="删除webapp/WEB-INF/classes" />
+								<delete dir="webapp/WEB-INF/classes" />
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>
+								webapp/WEB-INF/lib
+							</outputDirectory>
+							<overWriteReleases>
+								true
+							</overWriteReleases>
+							<excludeScope>provided</excludeScope>
+							<overWriteIfNewer>
+								true
+							</overWriteIfNewer>
+							<overWriteSnapshots>
+								true
+							</overWriteSnapshots>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<webappDirectory>${basedir}/webapp</webappDirectory>
+					<warSourceDirectory>${basedir}/webapp</warSourceDirectory>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<verbose>true</verbose>
+					<encoding>UTF-8</encoding>
+					<compilerArguments>
+						<sourcepath>${project.basedir}/src/main/java</sourcepath>
+					</compilerArguments>
+				</configuration>
+			</plugin>
+
+			<!-- jar插件, 设定manifest文件内容 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addDefaultImplementationEntries>
+								true
+							</addDefaultImplementationEntries>
+							<addDefaultSpecificationEntries>
+								true
+							</addDefaultSpecificationEntries>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<!-- 生成源码包 -->
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-source-plugin</artifactId> 
+				<version>2.1.2</version> <executions> <execution> <id>attach-sources</id> 
+				<phase>verify</phase> <goals> <goal>jar-no-fork</goal> </goals> </execution> 
+				</executions> </plugin> -->
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<!-- <plugin> <artifactId>maven-javadoc-plugin</artifactId> <version>2.4</version> 
+				<configuration> <encoding>UTF-8</encoding> </configuration> </plugin> -->
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-dependency-plugin</artifactId>
+										<versionRange>[2.0,)</versionRange>
+										<goals>
+											<goal>copy-dependencies</goal>
+											<goal>unpack</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 	<dependencies>
 		<!-- junit测试包 -->
