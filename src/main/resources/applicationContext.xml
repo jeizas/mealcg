@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:context="http://www.springframework.org/schema/context"  xmlns:aop="http://www.springframework.org/schema/aop" 
+    xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+      http://www.springframework.org/schema/tx
+      http://www.springframework.org/schema/tx/spring-tx-4.1.xsd      
+      http://www.springframework.org/schema/context    
+      http://www.springframework.org/schema/context/spring-context.xsd   
+      http://www.springframework.org/schema/aop 
+	  http://www.springframework.org/schema/aop/spring-aop-3.0.xsd  
+      http://www.springframework.org/schema/mvc    
+      http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">  
+
+	<!-- 加载数据库属性配置文件 -->
+	<context:property-placeholder location="classpath*:/env.properties" />
+
+	<!-- 数据库连接池c3p0配置 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="jdbcUrl" value="${jdbc.url}"></property>
+		<property name="driverClass" value="${jdbc.driverClassName}"></property>
+		<property name="user" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+		<property name="maxPoolSize" value="50"></property>
+		<property name="minPoolSize" value="5"></property>
+		<property name="initialPoolSize" value="1"></property>
+		<property name="maxIdleTime" value="20"></property>
+	</bean>
+		
+	<context:annotation-config/>
+	
+	<!-- session工厂 -->
+	<bean id="sessionFactory"  
+        class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">  
+        <property name="dataSource" ref="dataSource" />  
+        <property name="configLocation" value="WEB-INF/classes/hibernate.cfg.xml"/>
+		<!-- 自动扫描注解方式配置的hibernate类文件 -->
+		<property name="packagesToScan">
+			<list>
+				<value>com.jeizas.entity.*</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 自动加载构建bean -->
+	<context:component-scan base-package="com.jeizas" />
+	
+	 <!-- 事务管理器 -->  
+    <bean id="transactionManager"  
+        class="org.springframework.orm.hibernate4.HibernateTransactionManager">  
+        <property name="sessionFactory" ref="sessionFactory"></property>  
+    </bean>  
+      
+    <!-- 事务代理类 -->  
+    <bean id="transactionBese"  
+        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"  
+        lazy-init="true" abstract="true">  
+        <property name="transactionManager" ref="transactionManager"></property>  
+        <property name="transactionAttributes">  
+            <props>  
+                <prop key="add*">PROPAGATION_REQUIRED,-Exception</prop>  
+                <prop key="update*">PROPAGATION_REQUIRED,-Exception</prop>  
+                <prop key="insert*">PROPAGATION_REQUIRED,-Exception</prop>  
+                <prop key="modify*">PROPAGATION_REQUIRED,-Exception</prop>  
+                <prop key="delete*">PROPAGATION_REQUIRED,-Exception</prop>  
+                <prop key="del*">PROPAGATION_REQUIRED,-Exception</prop>  
+                <prop key="get*">PROPAGATION_NEVER</prop>  
+            </props>  
+        </property>  
+    </bean>  
+</beans>
