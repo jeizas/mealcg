@@ -4,10 +4,10 @@
 	<rule>
 		<!-- 首页 -->
 		<from>^(\/?)$</from>
-		<to>inde</to>
+		<to>index</to>
 	</rule>
 	<rule>
 		<from>index\.(html|do|action)?$</from>
-		<to>inde</to>
+		<to>hello</to>
 	</rule>
 </urlrewrite>
