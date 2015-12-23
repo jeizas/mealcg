@@ -31,5 +31,4 @@ public class IndexAction implements Serializable{
 		logger.info(user.getAddr());
 		return "index";
 	}
-
 }

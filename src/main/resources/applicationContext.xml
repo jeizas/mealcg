@@ -47,27 +47,9 @@
 	<!-- 自动加载构建bean -->
 	<context:component-scan base-package="com.jeizas" />
 	
-	 <!-- 事务管理器 -->  
-    <bean id="transactionManager"  
-        class="org.springframework.orm.hibernate4.HibernateTransactionManager">  
-        <property name="sessionFactory" ref="sessionFactory"></property>  
-    </bean>  
-      
-    <!-- 事务代理类 -->  
-    <bean id="transactionBese"  
-        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"  
-        lazy-init="true" abstract="true">  
-        <property name="transactionManager" ref="transactionManager"></property>  
-        <property name="transactionAttributes">  
-            <props>  
-                <prop key="add*">PROPAGATION_REQUIRED,-Exception</prop>  
-                <prop key="update*">PROPAGATION_REQUIRED,-Exception</prop>  
-                <prop key="insert*">PROPAGATION_REQUIRED,-Exception</prop>  
-                <prop key="modify*">PROPAGATION_REQUIRED,-Exception</prop>  
-                <prop key="delete*">PROPAGATION_REQUIRED,-Exception</prop>  
-                <prop key="del*">PROPAGATION_REQUIRED,-Exception</prop>  
-                <prop key="get*">PROPAGATION_NEVER</prop>  
-            </props>  
-        </property>  
-    </bean>  
+	<!-- transaction manager configurations, single source transaction -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
 </beans>

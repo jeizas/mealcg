@@ -109,9 +109,9 @@
 		<img src="static/img/bg-login.jpg" style="height:100%; width:100%;posision:fixed"/>
 		<div id="window">
 			<p>登录</p>
-			<div class="in"><td><input id="user" type="text" name="email" placeholder="手机号／邮箱／用户名"  style="padding-left:10px;font-size:16px;color:grey;"class="textInput"/></td></div>
+			<div class="in"><td><input id="email" type="text"placeholder="邮箱"  style="padding-left:10px;font-size:16px;color:grey;"class="textInput"/></td></div>
 			<div id="blank"></div>
-			<div class="in"><td id="password" ><input type="text" name="password" placeholder="密码"  style="padding-left:10px;font-size:16px;color:grey;"class="textInput"/></td></div>
+			<div class="in"><td><input type="text" id="password"  placeholder="密码"  style="padding-left:10px;font-size:16px;color:grey;"class="textInput"/></td></div>
 			<a href="#"><div id="btn-log" class="login">登陆</div></a>
 			<a href="#"><div id="new" class="login">注册</div></a>	
 		</div>
@@ -126,5 +126,6 @@
 	<script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="static/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="static/js/index.js"></script>
+	<script type="text/javascript" src="static/js/md5.js"></script>
 </body>
 </html>

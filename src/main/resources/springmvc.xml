@@ -28,7 +28,7 @@
 
 	<!-- 返回JSON模版 -->
 	
-	<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
             <list>
@@ -50,7 +50,7 @@
                 </bean>
             </list>
         </property>
-    </bean> -->
+    </bean>
 
 	<!-- SpringMVC上传文件时,需配置MultipartResolver处理器 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

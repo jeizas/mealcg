@@ -30,7 +30,7 @@ public class MD5Utils {
     } 
 	
 	public static void main(String [] args){
-		System.out.println(MD5Utils.getMD5("lili123", 32));
+		System.out.println(MD5Utils.getMD5("2222", 32));
 
 	}
 }

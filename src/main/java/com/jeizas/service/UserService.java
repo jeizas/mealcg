@@ -19,5 +19,9 @@ public class UserService extends BaseService<User>{
 	public UserDao getDao() {
 		return (UserDao)super.getDao();
 	}
+	
+	public User findUser(String email, String pwd){
+		return getDao().findUser(email, pwd);
+	}
 
 }

@@ -10,4 +10,24 @@ $(function() {
 		$('#alogin').addClass("hide");
 		$('#half_gray').addClass("hide");
 	});
+	$('#btn-log').click(function(){
+		var email = $('#email').val();
+		var password = hex_md5($('#password').val());
+//		console.log(email+"--"+password);
+		$.ajax({
+    		type:"post",
+    		asyn:false,
+    		url:"/alogin",
+    		data:{email:email,pwd:password},
+    		dataType: "json",
+    		success:function(data){
+    			switch(data.errorCode){
+    				case 0: alert('success'); break;
+    				case 1: $.messager.alert('错误',"参数错误！"); break;
+    				case 2: $.messager.alert('错误',"没有登录！"); break;
+    				case 3: $.messager.alert('错误',"没有如此的用户！"); break;
+    			}
+    		},
+    	});
+	})
 })

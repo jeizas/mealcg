@@ -21,14 +21,14 @@
 	            <li class="dropdown active">
 	          <a href="javascript:;" id="username" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 登录/注册 <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	            <li><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>登录/注册</li>
-	            <li><span class="glyphicon glyphicon-user" aria-hidden="true"> </span> 个人中心 </li>
-	            <li><span class="glyphicon glyphicon-file" aria-hidden="true"></span>   我的订单</li>
+	            <li><a href="javascript:;"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>登录/注册</a></li>
+	            <li><a href="javascript:;"><span class="glyphicon glyphicon-user" aria-hidden="true"> </span> 个人中心 </a></li>
+	            <li><a href="javascript:;"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>   我的订单</a></li>
 	            <li class="divider"></li>
-	            <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span> 我的收藏  </li>
-	            <li><span class="glyphicon glyphicon-flag" aria-hidden="true"></span>  我的地址 </li>
+	            <li><a href="javascript:;"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> 我的收藏  </a></li>
+	            <li><a href="javascript:;"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span>  我的地址 </a></li>
 	            <li class="divider"></li> 
-	            <li><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>退出登录</li>
+	            <li><a href="javascript;:"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>退出登录</a></li>
 	            </ul>
 	        </ul>
 	        <!-- 搜索功能 -->

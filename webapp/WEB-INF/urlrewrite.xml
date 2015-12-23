@@ -7,7 +7,12 @@
 		<to>index</to>
 	</rule>
 	<rule>
-		<from>index\.(html|do|action)?$</from>
+		<from>^/index\.(html|do|action)?$</from>
 		<to>hello</to>
+	</rule>
+	<rule>
+		<note>登录</note>
+		<from>^/alogin$</from>
+		<to>login</to>
 	</rule>
 </urlrewrite>

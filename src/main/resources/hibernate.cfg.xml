@@ -9,13 +9,13 @@
 		<property name="jdbc.batch_size">20</property>
 		<property name="connection.autocommit">true</property>
 		
-		<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property><!-- 解决日志问题-->
+		<property name="hibernate.temp.use_jdbc_metadata_defaults">true</property><!-- 解决日志问题-->
 		
 		<property name="show_sql">true</property>
 		<property name="hibernate.connection.release_mode">after_transaction</property><!-- 释放连接池 -->
 
 
-		<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property><!-- 解决日志问题-->
+		<property name="hibernate.temp.use_jdbc_metadata_defaults">true</property><!-- 解决日志问题-->
 		<property name="connection.useUnicode">true</property>
 		<property name="connection.characterEncoding">UTF-8</property>
 
