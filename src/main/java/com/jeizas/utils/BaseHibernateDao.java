@@ -21,7 +21,6 @@ import org.hibernate.transform.AliasToBeanResultTransformer;
 import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 
-
 /**
  * Dao基类(所有业务Dao必须继承该类)
  * @since	2.0
