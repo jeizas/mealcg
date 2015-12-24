@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.jeizas.utils.Constants;
+
 /**
  * 用户表
  */
@@ -35,6 +37,14 @@ public class User implements Serializable{
 	
 	public User(){
 		super();
+	}
+	public User(String email, String pwd, String loginIp){
+		this.email = email;
+		this.pwd = pwd;
+		this.grpId = 0;
+		this.loginIp = loginIp;
+		this.sdate = new Date();
+		this.deleted = Constants.DELETED_NO;
 	}
 	
 	@Id
