@@ -20,4 +20,9 @@
 		<from>^/aregest$</from>
 		<to>reg</to>
 	</rule>
+	<rule>
+		<note>退出登录</note>
+		<from>^/alogout$</from>
+		<to>logout</to>
+	</rule>
 </urlrewrite>

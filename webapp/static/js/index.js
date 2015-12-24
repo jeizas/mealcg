@@ -10,10 +10,10 @@ $(function() {
 		$('#alogin').addClass("hide");
 		$('#half_gray').addClass("hide");
 	});
+	//登录
 	$('#btn-log').click(function(){
 		var email = $('#email').val();
 		var password = hex_md5($('#password').val());
-//		console.log(email+"--"+password);
 		$.ajax({
     		type:"post",
     		asyn:false,
@@ -22,7 +22,12 @@ $(function() {
     		dataType: "json",
     		success:function(data){
     			switch(data.errorCode){
-    				case 0: alert('success'); break;
+    				case 0:
+    					$('#alogin').addClass("hide");
+    					$('#half_gray').addClass("hide"); 
+    					var name = email.split("@");
+    					$('#username').text(name[0]);
+    					break;
     				case 1: alert("参数错误！"); break;
     				case 2: $alert("没有登录！"); break;
     				case 3: alert("没有如此的用户！"); break;
@@ -30,6 +35,7 @@ $(function() {
     		},
     	});
 	})
+	//注册
 	$('#btn-reg').click(function(){
 		var email = $('#email').val();
 		var password = hex_md5($('#password').val());

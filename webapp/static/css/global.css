@@ -12,4 +12,5 @@
 	left: 0;
 	z-index: 50;
 }
-li span{margin-left:20px;margin-right:10px;}
+li a span{margin-left:8px;margin-right:6px;}
+.dropdown-toggle{width: 120px;}

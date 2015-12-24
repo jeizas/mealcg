@@ -29,6 +29,13 @@ public class LoginAction implements Serializable{
 	@Autowired
 	private UserService userService;
 	
+	/**
+	 * 用户登录
+	 * @param email
+	 * @param pwd
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping(value="/login",method=RequestMethod.POST)
 	public @ResponseBody Map<String,Object> login(String email, String pwd, HttpSession session){
 		Integer errorCode = ErrorCodes.SUCCESS;
@@ -49,6 +56,15 @@ public class LoginAction implements Serializable{
 		retMap.put("errorCode",errorCode);
 		return retMap;
 	}
+	
+	/**
+	 * 用户注册
+	 * @param request
+	 * @param session
+	 * @param email
+	 * @param pwd
+	 * @return
+	 */
 	@RequestMapping(value="/reg",method=RequestMethod.POST)
 	public @ResponseBody Map<String, Object> regest(HttpServletRequest request, HttpSession session,String email, String pwd){
 		Integer errorCode = ErrorCodes.SUCCESS;
@@ -68,5 +84,17 @@ public class LoginAction implements Serializable{
 		}
 		retMap.put("errorCode",errorCode);
 		return retMap;
+	}
+	/**
+	 * 用户注销
+	 * @param session
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="/logout",method=RequestMethod.GET)
+	public String logout(HttpSession session, HttpServletRequest request){
+		logger.info("用户["+session.getAttribute(SessionKeys.USER_ID)+"]注销登录...");
+		session.invalidate();
+		return "redirect:/";
 	}
 }
