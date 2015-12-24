@@ -15,4 +15,9 @@
 		<from>^/alogin$</from>
 		<to>login</to>
 	</rule>
+	<rule>
+		<note>注册</note>
+		<from>^/aregest$</from>
+		<to>reg</to>
+	</rule>
 </urlrewrite>

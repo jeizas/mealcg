@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -37,7 +38,7 @@ public class LoginAction implements Serializable{
 			User user = userService.findUser(email, pwd);
 			if(user != null){
 				session.setAttribute(SessionKeys.USER_ID, user.getId());
-				session.setAttribute(SessionKeys.USER_PHONE_VERIFY, user.getPhone());
+//				session.setAttribute(SessionKeys.USER_PHONE_VERIFY, user.getPhone());
 			}else {
 				errorCode = ErrorCodes.INVALID_LOGIN;
 			}
@@ -48,5 +49,24 @@ public class LoginAction implements Serializable{
 		retMap.put("errorCode",errorCode);
 		return retMap;
 	}
-
+	@RequestMapping(value="/reg",method=RequestMethod.POST)
+	public @ResponseBody Map<String, Object> regest(HttpServletRequest request, HttpSession session,String email, String pwd){
+		Integer errorCode = ErrorCodes.SUCCESS;
+		Map<String,Object> retMap = new HashMap<String, Object>();
+		if(StringUtil.isValid(email) && StringUtil.isAllValid(pwd)){
+			logger.info("Email["+email+"]正在注册...");
+			User user = new User(email, pwd,request.getRemoteAddr());
+			User tmp = userService.insert(user);
+			if(tmp != null){
+				session.setAttribute(SessionKeys.USER_ID, tmp.getId());
+//				session.setAttribute(SessionKeys.USER_PHONE_VERIFY, tmp.getPhone());
+			}else{
+				errorCode = ErrorCodes.INVALID_DB_INSERT;
+			}
+		}else{
+			errorCode = ErrorCodes.INVALID_PARAM;
+		}
+		retMap.put("errorCode",errorCode);
+		return retMap;
+	}
 }
