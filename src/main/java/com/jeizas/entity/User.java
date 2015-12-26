@@ -22,6 +22,10 @@ public class User implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
+	public static final Integer TYPE_DEFAULT = 0;
+	public static final Integer TYPE_USER = 1;
+	public static final Integer TYPE_BUSINESS = 2;
+	
 	private Integer id;
 	private String name;
 	private String nick;
@@ -45,6 +49,8 @@ public class User implements Serializable{
 		this.loginIp = loginIp;
 		this.sdate = new Date();
 		this.deleted = Constants.DELETED_NO;
+		this.nick = email.split("@")[0];
+		this.grpId = TYPE_DEFAULT;
 	}
 	
 	@Id
@@ -56,14 +62,14 @@ public class User implements Serializable{
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	@Column(name = "name")
+	@Column(name = "name",length=64)
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	@Column(name = "nick")
+	@Column(name = "nick",length=32)
 	public String getNick() {
 		return nick;
 	}
@@ -77,14 +83,14 @@ public class User implements Serializable{
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	@Column(name = "addr")
+	@Column(name = "addr",length=64)
 	public String getAddr() {
 		return addr;
 	}
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
-	@Column(name = "phone")
+	@Column(name = "phone",length=11)
 	public String getPhone() {
 		return phone;
 	}

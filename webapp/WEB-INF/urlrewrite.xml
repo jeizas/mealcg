@@ -25,4 +25,51 @@
 		<from>^/alogout$</from>
 		<to>logout</to>
 	</rule>
+	<!-- 用户 -->
+	<rule>
+		<note>用户个人中心</note>
+		<from>^/homeu$</from>
+		<to>uhome</to>
+	</rule>
+	<rule>
+		<note>用户订单</note>
+		<from>^/orderu$</from>
+		<to>uorder</to>
+	</rule>
+	<rule>
+		<note>用户收藏</note>
+		<from>^/collectu$</from>
+		<to>ucollect</to>
+	</rule>
+	<rule>
+		<note>用户地址</note>
+		<from>^/addru$</from>
+		<to>uaddr</to>
+	</rule>
+	<!--  商家 -->
+	<rule>
+		<note>商家登录</note>
+		<from>^/bus$</from>
+		<to>indexb</to>
+	</rule>
+	<rule>
+		<note>商家订单管理</note>
+		<from>^/orderb$</from>
+		<to>border</to>
+	</rule>
+	<rule>
+		<note>商家餐品管理</note>
+		<from>^/menub$</from>
+		<to>bmenu</to>
+	</rule>
+	<rule>
+		<note>商家个人中心</note>
+		<from>^/homeb$</from>
+		<to>bhome</to>
+	</rule>
+	<rule>
+		<note>商家添加新的餐品</note>
+		<from>^/addf$</from>
+		<to>fadd</to>
+	</rule>
 </urlrewrite>

@@ -22,7 +22,7 @@ public class LoginTest {
 	
 	@Test
 	public void testIndexs() throws Exception{
-		User user = userService.findUser("jeizas","67c3538b882b557b3ff9ec72bd6f1ab6"); // .findRecordByProperty("id", 1);
+		User user = userService.findUser("jeizas","67c3538b882b557b3ff9ec72bd6f1ab6",1); // .findRecordByProperty("id", 1);
 		logger.info(user);
 	}
 
