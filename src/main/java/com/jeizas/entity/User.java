@@ -28,6 +28,9 @@ public class User implements Serializable{
 	public static final Integer TYPE_USER = 1;
 	public static final Integer TYPE_BUSINESS = 2;
 	
+	public static final Integer FLAG_NO = 0;
+	public static final Integer FLAG_YES = 1;
+	
 	private Integer id;
 	private String name;
 	private String nick;
@@ -53,6 +56,7 @@ public class User implements Serializable{
 		this.deleted = Constants.DELETED_NO;
 		this.nick = email.split("@")[0];
 		this.grpId = TYPE_DEFAULT;
+		this.flag = FLAG_NO;
 	}
 	
 	@Id

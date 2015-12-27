@@ -25,7 +25,7 @@
 		<from>^/alogout$</from>
 		<to>logout</to>
 	</rule>
-	<!-- 用户 -->
+	<!-- 用户页面 -->
 	<rule>
 		<note>用户个人中心</note>
 		<from>^/homeu$</from>
@@ -46,7 +46,7 @@
 		<from>^/addru$</from>
 		<to>uaddr</to>
 	</rule>
-	<!--  商家 -->
+	<!--  商家页面 -->
 	<rule>
 		<note>商家登录</note>
 		<from>^/bus$</from>
@@ -72,9 +72,20 @@
 		<from>^/addf$</from>
 		<to>fadd</to>
 	</rule>
+	<!-- 商家修改 信息 -->
 	<rule>
 		<note>商家修改店名</note>
 		<from>^/namem$</from>
 		<to>mname</to>
+	</rule>
+	<rule>
+		<note>商家修改电话号码</note>
+		<from>^/phonem$</from>
+		<to>mphone</to>
+	</rule>
+	<rule>
+		<note>商家修地址</note>
+		<from>^/addrm$</from>
+		<to>maddr</to>
 	</rule>
 </urlrewrite>

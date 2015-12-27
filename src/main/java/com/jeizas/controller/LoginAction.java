@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.jws.soap.SOAPBinding.Use;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -47,6 +48,7 @@ public class LoginAction implements Serializable{
 				session.setAttribute(SessionKeys.USER_ID, user.getId());
 				session.setAttribute(SessionKeys.USER_NICK, user.getNick());
 				session.setAttribute(SessionKeys.USER_NAME, user.getName());
+				session.setAttribute(SessionKeys.BUS_FLAG, user.getFlag());
 			}else {
 				errorCode = ErrorCodes.INVALID_LOGIN;
 			}
@@ -74,7 +76,10 @@ public class LoginAction implements Serializable{
 			logger.info("Email["+email+"]正在注册...");
 			User user = new User(email, pwd,request.getRemoteAddr());
 			user.setGrpId(type);
-			user.setName(type == 2 ? "我的店铺" : "");
+			if(type == User.TYPE_BUSINESS){
+				user.setName("我的店铺");
+				user.setFlag(User.FLAG_NO);
+			}
 			User tmp = userService.insert(user);
 			if(tmp != null){
 				session.setAttribute(SessionKeys.USER_ID, tmp.getId());
