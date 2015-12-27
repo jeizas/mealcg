@@ -47,7 +47,6 @@ public class LoginAction implements Serializable{
 				session.setAttribute(SessionKeys.USER_ID, user.getId());
 				session.setAttribute(SessionKeys.USER_NICK, user.getNick());
 				session.setAttribute(SessionKeys.USER_NAME, user.getName());
-//				session.setAttribute(SessionKeys.USER_PHONE_VERIFY, user.getPhone());
 			}else {
 				errorCode = ErrorCodes.INVALID_LOGIN;
 			}
@@ -71,15 +70,15 @@ public class LoginAction implements Serializable{
 	public @ResponseBody Map<String, Object> regest(HttpServletRequest request, HttpSession session,String email, String pwd, Integer type){
 		Integer errorCode = ErrorCodes.SUCCESS;
 		Map<String,Object> retMap = new HashMap<String, Object>();
-		if(StringUtil.isValid(email) && StringUtil.isAllValid(pwd)){
+		if(StringUtil.isValid(email) && StringUtil.isAllValid(pwd) && type !=null && type > 0){
 			logger.info("Email["+email+"]正在注册...");
 			User user = new User(email, pwd,request.getRemoteAddr());
 			user.setGrpId(type);
+			user.setName(type == 2 ? "我的店铺" : "");
 			User tmp = userService.insert(user);
 			if(tmp != null){
 				session.setAttribute(SessionKeys.USER_ID, tmp.getId());
 				session.setAttribute(SessionKeys.USER_NICK, tmp.getNick());
-//				session.setAttribute(SessionKeys.USER_PHONE_VERIFY, tmp.getPhone());
 			}else{
 				errorCode = ErrorCodes.INVALID_DB_INSERT;
 			}

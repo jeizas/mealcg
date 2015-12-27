@@ -72,4 +72,9 @@
 		<from>^/addf$</from>
 		<to>fadd</to>
 	</rule>
+	<rule>
+		<note>商家修改店名</note>
+		<from>^/namem$</from>
+		<to>mname</to>
+	</rule>
 </urlrewrite>

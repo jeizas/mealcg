@@ -14,8 +14,7 @@
     <script type="text/javascript" src="static/bootstrap/js/jquery.min.js"></script>
 	<script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="static/js/jquery-1.8.3.min.js"></script>
-	<script type="text/javascript" src="static/js/index.js"></script>
-	<script type="text/javascript" src="static/js/md5.js"></script>
+	<script type="text/javascript" src="static/js/homeb.js"></script>
 </head>
 <body>
 	<%@ include file="/WEB-INF/view/common/navb.jsp"%>
@@ -25,12 +24,12 @@
 	    <div class="row">
 	    <img src="/static/img/cake.jpg" class="col-md-4 user-img ">
 	    <div class="col-md-8 info">
-	       <span class="title"><strong>店名：</strong></span><span class="info-con">好美味蛋糕店</span><a href="＃"><small>［修改］</small></a>
-	        <br><span class="title"><strong>手机号码：</strong></span><span class="info-con">1582345806</span><a href="＃"><small>［修改］</small></a>
+	       <span class="title"><strong>店名：</strong></span><span class="info-con" id="busName">好美味蛋糕店</span><a href="javascript:;" id="modifyName"><small>［修改］</small></a>
+	        <br><span class="title"><strong>手机号码：</strong></span><span class="info-con">1582345806</span><a href="javascript:;" id="modifyPhone"><small>［修改］</small></a>
 	        <br><span class="title"><strong>总单数：</strong></span><span class="info-con">1200</span></div>
 	    </div>
 	    <div class="row info-sec">
-	        <span class="title"><strong>餐馆地址：</strong></span><span class="info-con">环城北路88号</span><a href="＃"><small>［修改］</small></a>
+	        <span class="title"><strong>餐馆地址：</strong></span><span class="info-con">环城北路88号</span><a href="javascript:;" id="modifyAddr"><small>［修改］</small></a>
 	        <br><span class="title"><strong>热销商品：</strong></span>
 	            <ul class="info-order">
 	                <li><a href="">张麻子大饼</a></li>

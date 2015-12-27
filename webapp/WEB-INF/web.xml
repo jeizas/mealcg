@@ -52,20 +52,7 @@
     <servlet-name>springMVC</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-  
-<!--   <filter>
-    <filter-name>UrlRewriteFilter</filter-name>
-    <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
-    <init-param>
-	  <param-name>confPath</param-name>
-	  <param-value>/WEB-INF/urlrewrite.xml</param-value>
-	</init-param>
-  </filter>
-  <filter-mapping>
-	 <filter-name>UrlRewriteFilter</filter-name>
-	 <url-pattern>/*</url-pattern>
-  </filter-mapping> -->
-  <!-- urlrewrite -->
+
 	<filter>
 		<filter-name>UrlRewriteFilter</filter-name>
 		<filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
@@ -79,13 +66,6 @@
 			<param-name>statusPath</param-name>
 			<param-value>/urlrewrite</param-value>
 		</init-param>
-
-		<!-- 禁用 status 页面 -->
-		<!-- <init-param>
-			<param-name>statusEnabled</param-name>
-			<param-value>true</param-value>
-		</init-param> -->
-
 	</filter>
 	<filter-mapping>
 		<filter-name>UrlRewriteFilter</filter-name>
