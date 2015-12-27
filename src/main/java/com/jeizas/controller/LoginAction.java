@@ -37,15 +37,16 @@ public class LoginAction implements Serializable{
 	 * @return
 	 */
 	@RequestMapping(value="/login",method=RequestMethod.POST)
-	public @ResponseBody Map<String,Object> login(String email, String pwd, HttpSession session){
+	public @ResponseBody Map<String,Object> login(String email, String pwd,Integer type, HttpSession session){
 		Integer errorCode = ErrorCodes.SUCCESS;
 		Map<String,Object> retMap = new HashMap<String,Object>();
 		if(StringUtil.isAllValid(email) && StringUtil.isAllValid(pwd)){
 			logger.info("Email["+email+"]正在登...");
-			User user = userService.findUser(email, pwd);
+			User user = userService.findUser(email, pwd, type);
 			if(user != null){
 				session.setAttribute(SessionKeys.USER_ID, user.getId());
-//				session.setAttribute(SessionKeys.USER_PHONE_VERIFY, user.getPhone());
+				session.setAttribute(SessionKeys.USER_NICK, user.getNick());
+				session.setAttribute(SessionKeys.USER_NAME, user.getName());
 			}else {
 				errorCode = ErrorCodes.INVALID_LOGIN;
 			}
@@ -66,16 +67,18 @@ public class LoginAction implements Serializable{
 	 * @return
 	 */
 	@RequestMapping(value="/reg",method=RequestMethod.POST)
-	public @ResponseBody Map<String, Object> regest(HttpServletRequest request, HttpSession session,String email, String pwd){
+	public @ResponseBody Map<String, Object> regest(HttpServletRequest request, HttpSession session,String email, String pwd, Integer type){
 		Integer errorCode = ErrorCodes.SUCCESS;
 		Map<String,Object> retMap = new HashMap<String, Object>();
-		if(StringUtil.isValid(email) && StringUtil.isAllValid(pwd)){
+		if(StringUtil.isValid(email) && StringUtil.isAllValid(pwd) && type !=null && type > 0){
 			logger.info("Email["+email+"]正在注册...");
 			User user = new User(email, pwd,request.getRemoteAddr());
+			user.setGrpId(type);
+			user.setName(type == 2 ? "我的店铺" : "");
 			User tmp = userService.insert(user);
 			if(tmp != null){
 				session.setAttribute(SessionKeys.USER_ID, tmp.getId());
-//				session.setAttribute(SessionKeys.USER_PHONE_VERIFY, tmp.getPhone());
+				session.setAttribute(SessionKeys.USER_NICK, tmp.getNick());
 			}else{
 				errorCode = ErrorCodes.INVALID_DB_INSERT;
 			}
@@ -93,7 +96,7 @@ public class LoginAction implements Serializable{
 	 */
 	@RequestMapping(value="/logout",method=RequestMethod.GET)
 	public String logout(HttpSession session, HttpServletRequest request){
-		logger.info("用户["+session.getAttribute(SessionKeys.USER_ID)+"]注销登录...");
+		logger.info("["+session.getAttribute(SessionKeys.USER_ID)+"]注销登录...");
 		session.invalidate();
 		return "redirect:/";
 	}
