@@ -11,24 +11,39 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.jeizas.utils.Constants;
+
 @Entity
 @Table(name="food", catalog="meal")
 public class Food implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	
+	public static final String FIELD_ID = "id";
+	public static final Integer PUBLISH_NO = 0;
+	public static final Integer PUBLISH_YES = 1;
  
 	private Integer id;
 	private Integer busId;
-	private Integer busName;
+	private String  busName;
 	private String name;
 	private String dsc;
 	private Integer money;
 	private Integer isNew;
 	private Date adate;
+	private String img;
+	private Integer publish;
 	private Integer deleted;
 	
 	public Food(){
 		super();
+	}
+	
+	public Food(User user){
+		this.busId = user.getId();
+		this.busName = user.getName();
+		this.publish = PUBLISH_NO;
+		this.deleted = Constants.DELETED_NO;
 	}
 
 	@Id
@@ -50,11 +65,11 @@ public class Food implements Serializable{
 		this.busId = busId;
 	}
 	@Column(name="bus_name",length=32)
-	public Integer getBusName() {
+	public String getBusName() {
 		return busName;
 	}
 
-	public void setBusName(Integer busName) {
+	public void setBusName(String busName) {
 		this.busName = busName;
 	}
 	@Column(name="name",length=32)
@@ -104,6 +119,22 @@ public class Food implements Serializable{
 
 	public void setDeleted(Integer deleted) {
 		this.deleted = deleted;
+	}
+	@Column(name="img")
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+	@Column(name="publish")
+	public Integer getPublish() {
+		return publish;
+	}
+
+	public void setPublish(Integer publish) {
+		this.publish = publish;
 	}
 	
 	

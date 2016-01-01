@@ -1,20 +1,28 @@
 package com.jeizas.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.jeizas.entity.Food;
 import com.jeizas.entity.User;
+import com.jeizas.service.FoodService;
 import com.jeizas.service.UserService;
 import com.jeizas.utils.ErrorCodes;
 import com.jeizas.utils.SessionKeys;
@@ -27,6 +35,8 @@ public class BusinessAction implements Serializable{
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private FoodService foodService;
 	
 	/**
 	 * 商家登录
@@ -78,12 +88,28 @@ public class BusinessAction implements Serializable{
 	 * @return
 	 */
 	@RequestMapping(value="fadd",method=RequestMethod.GET)
-	public String food(){
-		return "addfood";
+	public String food(Model model,HttpSession session){
+		String retString = null;
+		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
+		if(usrId != null){
+			User user = userService.findRecordByProperty(User.FIELD_ID, usrId);
+			Food food = foodService.findNofinishRecord(user.getId());
+			if(food == null){
+				food = new Food(user);
+				foodService.insert(food);
+			}
+			model.addAttribute("food", food);
+			retString = "addfood";
+		} else{
+			retString = "loginb";
+		}
+		return retString;
 	}
 	/**
 	 * 商家修改店铺名字
-	 * @return
+	 * @returnpublic User findUser(String email, String pwd, Integer type){
+		return getDao().findUser(email, pwd, type);
+	}
 	 */
 	@RequestMapping(value="mname",method=RequestMethod.POST)
 	public @ResponseBody Map<String, Object> modifyMame(HttpSession session, String name){
@@ -164,6 +190,66 @@ public class BusinessAction implements Serializable{
 			errorCode = ErrorCodes.NOT_LOGIN;
 		}
 		retMap.put("errorCode", errorCode);
+		return retMap;
+	}
+	/**
+	 * 商家添加新餐品
+	 */
+	@RequestMapping(value="/addfood",method=RequestMethod.POST)
+	public String addfood(Food food, HttpServletRequest request,Model model) throws IOException{
+		String retString = null;
+		Integer usrId = (Integer) request.getSession().getAttribute(SessionKeys.USER_ID);
+		if(usrId != null){
+			User user = userService.findRecordByProperty(User.FIELD_ID, usrId);
+			if(foodService.save(food)>0){
+				logger.info("商家[USRID:"+user.getId()+"正在增加新的餐品！");//显示要上传的文件名
+				retString = "menub";
+			}
+		} else{
+			retString = "loginb";
+		}
+		return retString;
+	}
+	/**
+	 * 商家上传餐品图片
+	 * @param session
+	 * @param flag
+	 * @return
+	 * @throws IOException 
+	 */
+	@RequestMapping(value="/upface",method=RequestMethod.GET)
+	public @ResponseBody Map<String, Object> upface(HttpSession session, MultipartFile file, HttpServletRequest request,String foodId) throws IOException{
+		Map<String, Object> retMap = new HashMap<String, Object>();
+		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
+		Integer errorCode = ErrorCodes.SUCCESS;
+		String url = null;
+		if(usrId != null){
+			if(file != null && foodId != null){
+				logger.info(file.getName());
+				String realpath = request.getSession().getServletContext().getRealPath("/resource/mealface/")+"12";//得到文件夹路径
+				File tmp = new File(realpath);//判断该学生对应的文件夹是名是否存在
+				if(!tmp.exists()  && !tmp.isDirectory()) {   
+				    	System.out.println("//文件夹不存在，已创建");
+				    	tmp.mkdir();      
+				}
+				String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."), file.getOriginalFilename().length()-1);
+				File f=new File(realpath+"/12"+suffix);//判断文件名是否存在  以要上传的文件路径和新建文件
+				FileUtils.copyInputStreamToFile(file.getInputStream(),f);
+				Food food = foodService.findRecordByProperty("id", foodId);
+				food.setImg(f.getName());
+				if(foodService.update(food) != null){
+					url = "/resource/mealface/12/"+f.getName();
+				} else{
+					errorCode = ErrorCodes.INVALID_DB_INSERT;
+				}
+			} else{
+				errorCode = ErrorCodes.INVALID_PARAM;
+			}
+		} else{
+			errorCode = ErrorCodes.NOT_LOGIN;
+		}
+		retMap.put("errorCode", errorCode);
+		retMap.put("url", url);
 		return retMap;
 	}
 }

@@ -93,4 +93,9 @@
 		<from>^/addrm$</from>
 		<to>maddr</to>
 	</rule>
+	<rule>
+		<note>商家上传餐品图片</note>
+		<from>^/fdface$</from>
+		<to>upface</to>
+	</rule>
 </urlrewrite>

@@ -1,0 +1,455 @@
+/*
+ * 最近修改：hejie-11.05
+ * */
+
+
+body{font-family:"MicroSoft Yahei";}
+input, textarea { color: #000; }
+.placeholder { color: #aaa; }
+
+#main {
+	width:100%;
+	padding-bottom: 1px;
+}
+#main .half {
+	width:50%;
+	float:left;
+	color:#7E7E7E;
+	margin-top:20px;
+}
+#main h3 {
+	display:inline-block;
+	font-size:28px;
+	font-weight:normal;
+	border-bottom:1px solid #7E7E7E;
+	padding-bottom:5px;
+	width:400px;
+}
+.blue {
+	color:#59A7A7;
+}
+#info {
+
+}
+#info div {
+	margin:25px 0;
+	vertical-align:middle;
+}
+#info label.text {
+	font-size:16px;
+	margin-right:10px;
+	vertical-align:middle;
+	display:inline-block;
+	width:100px;
+	text-align:right;
+}
+#info input {
+	height:30px;
+	margin-right:10px;
+	vertical-align:middle;
+	padding-left:5px;
+	padding-right:5px;
+	border:1px solid #7E7E7E;
+}
+#info input.long-input {
+	width:200px;
+}
+#info input.short-input {
+	width:100px;
+}
+#info .sub-name {
+	font-size:20px;
+	color:#333;
+}
+.btn {
+	display:inline-block;
+	padding:8px 10px;
+	border:1px solid #AAA;
+	background:#EEE;
+	cursor:pointer;
+}
+#info .disable {
+	color:#CFCFCF;
+	cursor:default;
+}
+#info .red {
+	color:red;
+	margin:0 3px;
+}
+#info select, #info option {
+	border:1px solid #AAA;
+	margin-right:5px;
+	height:30px;
+}
+#choose {
+	margin-left:5px;
+}
+#good_at {
+	position:absolute;
+	border:1px solid #B5B5B5;
+	left:115px;
+	top:0;
+	width:260px;
+	background:#FFF;
+	padding:0 20px;
+}
+#good_at h6 {
+	text-align:center;
+	font-weight:normal;
+	color:#ADADAD;
+	border-bottom:1px solid #E6E6E6;
+	position:relative;
+	height:15px;
+	margin:5px;
+	margin-bottom:10px;
+}
+#good_at span {
+	display:inline-block;
+	position:absolute;
+	bottom:-8px;
+	right:38%;
+	background:#FFF;
+	padding:0 8px;
+}
+#good_at input {
+	margin:0;
+}
+#good_at label {
+	width:62px;
+	display:inline-block;
+}
+
+#info .reqired {
+	border:1px solid red;
+}
+#info .alert {
+	color:red;
+	font-size:12px;
+	font-weight:bold;
+}
+#upload .wrapper {
+	margin:50px 0;
+}
+#upload .btn {
+	display:inline-block;
+	padding:15px 25px;
+	background:#24272C;
+	color:#FFF;
+	cursor:default;
+}
+
+#upload .upload-btn {
+	cursor:pointer;
+	border:1px solid #DCDCDC;
+	margin:5px 3px;
+}
+#upload figure {
+	margin:5px 3px;
+	display:inline-block;
+	position:relative;
+	width:120px;
+	height:120px;
+	border:1px solid #DCDCDC;
+}
+#upload figure img {
+	height:120px;
+	width:120px;
+}
+#upload figure p {
+	width:55px;
+	height:50px;
+	background:#333;
+	background:rgba(21,21,21,0.8);
+	display:none;
+	position:absolute;
+	top:20px;
+	left:25px;
+}
+#upload figure:hover p {
+	display:block;
+}
+#upload figure span {
+	display:inline-block;
+	margin:0 12px;
+	line-height:50px;
+	cursor:pointer;
+}
+#upload_head {
+	position:fixed;
+	z-index:1001;
+	background:#FFF;
+	width:403px;
+	top:15%;
+	left:50%;
+	margin-left:-290px;
+	height:500px;
+	zoom:80%;
+	opacity:0.2;
+	border-top: 2px solid #fa7f40;
+}
+#upload_head h4 {
+	border-bottom: 1px solid #f2f2f5;
+	line-height: 30px;
+	font-size: 14px;
+	font-weight: 700;
+	padding: 0 0 0 16px;
+	vertical-align: middle;
+	margin-top:5px;
+}
+#upload_head h4 span {
+	float:right;
+	display:inline-block;
+	margin:0 10px;
+	cursor:pointer;
+	color:#666;
+}
+#upload_head h4 span:hover {
+	color:#fa7f40;
+}
+#left {
+	float:left;
+	margin:0 20px;
+}
+#left #target {
+	max-height:320px;
+	max-width:480px;
+	margin:0 auto;
+}
+#left figure {
+	margin:0;
+	height:360px;
+	width:360px;
+	background:#f2f2f5;
+	border:1px solid #f2f2f5;
+	text-align:center;
+}
+#left figure div {
+	margin:0 auto;
+}
+#upload_head #right {
+	float:right;
+	text-align:center;
+	background:#f2f2f5;
+	padding:16px;
+	margin-right:20px;
+}
+#right figure {
+	margin:25px auto;
+	overflow:hidden;
+}
+#right #small {
+	width:30px;
+	height:30px;
+}
+#right #middle {
+	width:80px;
+	height:80px;
+}
+#right #large {
+	width:120px;
+	height:120px;
+}
+#upload_head .btn-wrapper {
+	padding-top:40px;
+}
+#upload_head .btns {
+	background:#f2f2f5;
+	text-align:center;
+}
+#upload_head .btn {
+	display:inline-block;
+	padding:10px 20px;
+	background:#eb7350;
+	margin:10px;
+	cursor:pointer;
+	border-radius:2px;
+	color:#FFF;
+	border:1px solid #eb7350;
+}
+#upload_head #head_ok:hover {
+	background: #fa7f40;
+	border:1px solid #fa7f40;
+}
+#upload_head #head_cancel {
+	background:#fff;;
+	border:1px solid #CCC;
+	color:#333;
+}
+#upload_head #head_choose {
+	position:absolute;
+	top: 360px;
+	left: 172px;
+	background:#fff;;
+	border:1px solid #CCC;
+	color:#333;
+	padding:5px 10px;
+	margin:0;
+}
+
+#upload_head #head_choose .down{
+	top: 402px;
+	left: 50%;
+	margin-left: -39px;
+}
+
+/*apply*/
+.apply{width:552px; height: auto; margin:60px auto 118px; border-radius: 2px;border:1px solid #dcdcdc; background-color: #fff; padding:20px 0px 0px;}
+.apply .apply-avatar{width:125px; height: 182px; margin:0 auto;  text-align: center; cursor:pointer; }
+.apply .apply-avatar img{width:125px; height: 125px; border-radius: 50%; background-color: #eee;  margin:0 auto; margin-bottom:12px;}
+.apply .apply-avatar span{font-size: 18px; color: #9f9f9f;}
+.apply .apply-info{width:400px; height: 430px; padding:50px 76px 40px;border-top: 1px solid #efefef;}
+.apply .apply-info div{ width: 400px; margin-bottom: 20px; border-bottom: 1px solid #efefef;}
+.apply .apply-info div i{width:45px; height:50px; line-height:50px; display: inline-block; margin-right: 20px;vertical-align: middle;text-align: center;}
+.apply .apply-info input[type=text]{font-size:18px; color:#333; border:none; width:330px; height: 20px; line-height: 20px;  outline: none; padding:15px 0px 15px;}
+
+.apply .apply-info .apply-username i{background: url(http://res.alltuu.com/static/images/photographer/icon.png) 0px 0px no-repeat;}
+.apply .apply-info .apply-sex i{background: url(http://res.alltuu.com/static/images/photographer/icon.png) 0px -78px  no-repeat;}
+.apply .apply-info .apply-sex .apply-sex-male{font-size:18px; width:230px; color:#9f9f9f;     background-color: #fff;}
+.apply .apply-info .apply-sex .apply-sex-input{float:right; width:84px; position:relative;  margin-top: 10px; margin-bottom: 0; }
+.apply .apply-info .apply-sex input[type="radio"]{ display:none;}
+.apply .apply-info .apply-sex label{width:42px; height:30px; color:#fff; float:left; text-align:center; line-height:30px; background:#0099E5; cursor:pointer;}
+.apply .apply-info .apply-sex #female{background:#eee; border-bottom-right-radius:2px; border-top-right-radius:2px;}
+.apply .apply-info .apply-sex #male{border-bottom-left-radius:2px; border-top-left-radius:2px;}
+
+.apply .apply-info .apply-domain i{background: url(http://res.alltuu.com/static/images/photographer/icon.png) 0px -156px no-repeat;}
+.apply .apply-info .apply-studio i{background: url(http://res.alltuu.com/static/images/photographer/icon.png) 0px -234px no-repeat;}
+.apply .apply-info .apply-city i{background: url(http://res.alltuu.com/static/images/photographer/icon.png) 0px -310px no-repeat;}
+.apply .apply-info .apply-phone i{background: url(http://res.alltuu.com/static/images/photographer/icon.png) 0px -390px no-repeat;}
+.apply .apply-info .apply-captcha i{background: url(http://res.alltuu.com/static/images/photographer/icon.png) 0px -468px no-repeat;}
+
+.apply .apply-info .apply-domain input{width: 205px;  margin-right: 10px;}
+.apply .apply-info .apply-domain .domain-suf{width:100px; font-size: 20px; color: #414141; float: right; line-height: 50px;}
+.apply .apply-info .apply-city select{border:none; margin-right: 10px;    color: #9f9f9f; font-size: 18px;}
+.apply .apply-info .apply-phone input{width:200px;}
+.apply .apply-info .apply-phone .phone-submit{height: 40px; float:right;padding:0 10px; cursor:pointer; font-size: 16px; text-align:center; line-height: 40px; border-radius: 2px; color: #fff; background-color:#FF4343;border:none; margin-top:5px; }
+.apply .apply-info .apply-phone .phone-submit:hover{background-color:#FF4C4C;}
+.apply .apply-info .apply-phone .disable,
+.apply .apply-info .apply-phone .disable:hover{background:#9f9f9f; cursor: not-allowed;}
+.apply .apply-submit{width:552px; height: 68px;line-height: 68px; text-align: center; background-color: #0099E5; color: #fff; font-size: 24px; border: 0px; border-bottom-left-radius:2px; border-bottom-right-radius:2px; cursor: pointer;}
+.apply .apply-submit:hover{background-color:#11A5EE; /*opacity:0.8; filter:alpha(opacity=80);*/}
+
+.apply-alert{font-size:12px; color:red; text-aling:center; float: left; margin-left:70px;}
+.apply-weixin{width:115px; height:115px ; margin:0px auto 130px; }
+.apply-weixin img{width:115px; height: 115px;}
+.apply-weixin i{height:8px; width:8px; background-color: #0099E5;margin:0px 4px; display: inline-block; border-radius: 50%;}
+.apply-weixin span{font-size: 12px; color:#414141; margin-top: 10px;}
+
+/*apply-win*/
+.apply-win{width:560px; height: 400px; margin:100px auto; background: #FFF;}
+.apply-win-content{width:500px; height: 356px; margin:20px 28px; text-align: center; border:1px dashed #999; position: absolute;}
+.apply-win-content img{margin:36px auto 34px; width:150px; height: 150px;}
+.apply-win-content h2{font-size: 30px; color: #333; margin-bottom: 36px;}
+.apply-win-content span{font-size: 16px; color: #414141;}
+.apply-win-content a{color: #f37611;}
+
+/*设置密码*/
+#password {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 1002;
+	margin-top: -160px;
+	margin-left: -175px;
+	width: 350px;
+	height: auto;
+	background: #fff;
+	background: rgba(255,255,255,0.8);
+	border-radius: 2px;
+	font-family: "microsoft yahei";
+	font-size: 16px;
+	text-align: center;
+	zoom: 80%;
+	opacity: 0.2;
+}
+#password h4 {
+	width: 280px;
+	height: 30px;
+	line-height: 30px;
+	margin: 20px auto 27px;
+	border-bottom: 1px solid #ccc;
+	color: #0099e5;
+	font-weight: normal;
+	text-align: left;
+}
+#password .input {
+	width: 278px;
+    margin: 8px auto 0;
+    border: 1px solid #d8d8d8;
+    font-size: 14px;
+}
+#password input {
+	border: none;
+    outline: none;
+    background: #fff;
+   	width: 254px;
+    height: 18px;
+    line-height: 18px;
+    padding: 12px;
+    vertical-align: middle;
+    color: #666;
+}
+#password input[readonly] { color: #9f9f9f;}
+#password .pwd-btn:hover {  background: #11a5ee;}
+#password .pwd-btn {
+	width: 280px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 auto 20px;
+    background: #0099e5;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    letter-spacing: .5em;
+}
+#password .pwd-close:hover { color: #0099e5;}
+#password .pwd-close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	color: #666;
+	cursor: pointer;
+	font-size: 24px;
+	font-weight: normal;
+}
+#password .info {
+	font-size: 12px;
+	width: 280px;
+	height: 20px;
+	line-height: 20px;
+	margin: 4px auto;
+	text-align: left;
+}
+#password .required {
+	border:1px solid red;
+}
+
+
+@media(max-width:1170px) {
+	#main {
+		width:auto;
+	}
+}
+@media(max-width:850px) {
+	#main .half {
+		width:auto;
+		float:none;
+		padding:10px;
+		margin-top:5px;
+	}
+	.apply .apply-submit{
+		/*margin-left:20px;*/
+	}
+}
+@media(max-width:414px) {
+	#main h3 {
+		width:auto;
+	}
+	#info label.text {
+		display:block;
+		text-align:left;
+		margin:5px 0;
+	}
+}

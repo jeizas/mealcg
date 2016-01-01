@@ -49,6 +49,7 @@ public class User implements Serializable{
 	}
 	public User(String email, String pwd, String loginIp){
 		this.email = email;
+		this.name = "";
 		this.pwd = pwd;
 		this.grpId = 0;
 		this.loginIp = loginIp;
