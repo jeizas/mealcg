@@ -37,5 +37,18 @@
 	}else{
 		$("#s3").attr("checked",false)
 	}
-	
+	$('#s3').click(function(){
+		if($('#s3').is(':checked')) {
+			flag = 1;
+		} else {
+			flag = 0;
+		}
+		$.post("/recive", {flag:flag},function(data) {
+			if(data.errorCode == 0){
+				alert("操作成功!");
+			}else{
+				alert("网络连接错误，请稍候重试...");
+			}
+		});
+	})
 </script>

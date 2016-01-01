@@ -141,4 +141,29 @@ public class BusinessAction implements Serializable{
 		retMap.put("errorCode", errorCode);
 		return retMap;
 	}
+	
+	/**
+	 * 商家选择是否接单
+	 * @param session
+	 * @param flag
+	 * @return
+	 */
+	@RequestMapping(value="isRec",method=RequestMethod.POST)
+	public @ResponseBody Map<String, Object> isRec(HttpSession session, Integer flag){
+		Map<String, Object> retMap = new HashMap<String, Object>();
+		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
+		Integer errorCode = ErrorCodes.SUCCESS;
+		if(usrId != null){
+			if(flag != null){
+				User user = userService.findRecordByProperty(User.FIELD_ID, usrId);
+				user.setFlag(flag);
+			} else {
+				errorCode = ErrorCodes.INVALID_PARAM;
+			}
+		} else{
+			errorCode = ErrorCodes.NOT_LOGIN;
+		}
+		retMap.put("errorCode", errorCode);
+		return retMap;
+	}
 }

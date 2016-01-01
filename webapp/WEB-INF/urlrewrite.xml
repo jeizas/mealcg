@@ -65,7 +65,7 @@
 	<rule>
 		<note>商家个人中心</note>
 		<from>^/homeb$</from>
-		<to>bhome</to>
+		<to>bhome</to>recive
 	</rule>
 	<rule>
 		<note>商家添加新的餐品</note>
@@ -73,6 +73,11 @@
 		<to>fadd</to>
 	</rule>
 	<!-- 商家修改 信息 -->
+	<rule>
+		<note>商家是否接单</note>
+		<from>^/recive$</from>
+		<to>isRec</to>
+	</rule>
 	<rule>
 		<note>商家修改店名</note>
 		<from>^/namem$</from>
