@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,58 +22,25 @@
 	<!-- 内容 -->
 	<h2 style="margin:50px; ">美味蛋糕店<p style="float:right;"><a style=" background-color:orange;border:1px solid orange;" href="/addf" role="button" class="btn btn-primary btn-lg">添加新菜品</a></p> </h2>
 	<div class="container shop-main">
-		<div class="row"  style="border-bottom:1px solid #e3e3e3;">
-			<div class="col-md-6">
-				<div class="thumbnail" style="height:150px;margin-top:24px;">
-				                    <img src="/static/img/cake.jpg" class="pull-left" alt="" style="width:140px;height:140px;">
-				                    <div class="caption">
-				                        <h3 style="line-height:2px;">蛋黄蛋糕</h3>
-				                        <small style="color:#f6be6a;">本店主打餐品，香味浓郁，销量最高</small>
-				                        <p class="sh ps mon">￥8</p>
-				                        <small>销量：</small><span>100</span>
-				                    </div>
+	    <c:forEach items="${foods }" var="f">
+			<div class="row"  style="border-bottom:1px solid #e3e3e3;">
+				<div class="col-md-6">
+					<div class="thumbnail" style="height:150px;margin-top:24px;">
+					                    <img src="/resource/mealface/${f.id }/${f.img }" class="pull-left" alt="" style="width:140px;height:140px;">
+					                    <div class="caption">
+					                        <h3 style="line-height:2px;">${f.name }</h3>
+					                        <small style="color:#f6be6a;">${f.dsc }</small>
+					                        <p class="sh ps mon">￥${f.money }</p>
+					                        <small>销量：</small><span>${f.money }</span>
+					                    </div>
+					</div>
+				</div>
+				<div class="delete col-md-2 col-md-offset-1">
+				    <button class="btn btn-default btn-xs" type="button">删除</button>
+				     <button class="btn btn-default btn-xs" type="button" style="margin-top:5px;">修改</button>
 				</div>
 			</div>
-			<div class="delete col-md-2 col-md-offset-1">
-			    <button class="btn btn-default btn-xs" type="button">删除</button>
-			     <button class="btn btn-default btn-xs" type="button" style="margin-top:5px;">修改</button>
-			</div>
-		</div>
-		<div class="row" style="border-bottom:1px solid #e3e3e3;">
-			<div class="col-md-6">
-				<div class="thumbnail" style="height:150px;margin-top:24px;">
-		            <img src="/static/img/cake.jpg" class="pull-left" alt="" style="width:140px;height:140px;">
-		            <div class="caption">
-		                <h3 style="line-height:2px;">蛋黄蛋糕</h3>
-		                <small style="color:#f6be6a;">本店主打餐品，香味浓郁，销量最高</small>
-		                <p class="sh ps mon">￥8</p>
-		                <small>销量：</small><span>100</span>
-		            </div>
-				</div>
-			</div>
-		
-			<div class="delete col-md-2 col-md-offset-1">
-			    <button class="btn btn-default btn-xs" type="button">删除</button>
-			     <button class="btn btn-default btn-xs" type="button" style="margin-top:5px;">修改</button>
-			</div>
-		</div>
-		<div class="row"  style="border-bottom:1px solid #e3e3e3;">
-			<div class="col-md-6">
-				<div class="thumbnail" style="height:150px;margin-top:24px;">
-                    <img src="/static/img/cake.jpg" class="pull-left" alt="" style="width:140px;height:140px;">
-                    <div class="caption">
-                        <h3 style="line-height:2px;">蛋黄蛋糕</h3>
-                        <small style="color:#f6be6a;">本店主打餐品，香味浓郁，销量最高</small>
-                        <p class="sh ps mon">￥8</p>
-                          <small>销量：</small><span>100</span>
-                    </div>
-				</div>
-			</div>
-			<div class="delete col-md-2 col-md-offset-1">
-			    <button class="btn btn-default btn-xs" type="button">删除</button>
-			     <button class="btn btn-default btn-xs" type="button" style="margin-top:5px;">修改</button>
-			</div>
-		</div>
+		</c:forEach>
 	</div>
 	<!-- 这里是footer开始的地方 -->
 	<footer>

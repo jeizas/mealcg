@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -61,7 +62,15 @@ public class BusinessAction implements Serializable{
 	 * @return
 	 */
 	@RequestMapping(value="bmenu",method=RequestMethod.GET)
-	public String menu(){
+	public String menu(HttpSession session, Model model){
+		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
+		List<Food> tmp = null;
+		if(usrId != null){
+			tmp = foodService.findUndeletedRecordsByProperty(Food.FIELD_BUSID, usrId);
+		} else{
+			tmp = null;
+		}
+		model.addAttribute("foods", tmp);
 		return "menub";
 	}
 	
@@ -196,13 +205,14 @@ public class BusinessAction implements Serializable{
 	 * 商家添加新餐品
 	 */
 	@RequestMapping(value="/addfood",method=RequestMethod.POST)
-	public String addfood(Food food, HttpServletRequest request,Model model) throws IOException{
+	public String addfood(Food food, Integer id, HttpServletRequest request,Model model) throws IOException{
 		String retString = null;
 		Integer usrId = (Integer) request.getSession().getAttribute(SessionKeys.USER_ID);
 		if(usrId != null){
 			User user = userService.findRecordByProperty(User.FIELD_ID, usrId);
-			if(foodService.save(food)>0){
-				logger.info("商家[USRID:"+user.getId()+"正在增加新的餐品！");//显示要上传的文件名
+			Food tmp = foodService.findRecordByProperty("id", id);
+			if(foodService.updateFood(tmp, food) != null){
+				logger.info("商家[USRID:"+user.getId()+"正在增加新的餐品[ID:"+food.getId()+"]！");//显示要上传的文件名
 				retString = "menub";
 			}
 		} else{
@@ -217,8 +227,8 @@ public class BusinessAction implements Serializable{
 	 * @return
 	 * @throws IOException 
 	 */
-	@RequestMapping(value="/upface",method=RequestMethod.GET)
-	public @ResponseBody Map<String, Object> upface(HttpSession session, MultipartFile file, HttpServletRequest request,String foodId) throws IOException{
+	@RequestMapping(value="/upface",method=RequestMethod.POST)
+	public @ResponseBody Map<String, Object> upface(HttpSession session, MultipartFile file, HttpServletRequest request,Integer foodId) throws IOException{
 		Map<String, Object> retMap = new HashMap<String, Object>();
 		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
 		Integer errorCode = ErrorCodes.SUCCESS;
@@ -226,7 +236,7 @@ public class BusinessAction implements Serializable{
 		if(usrId != null){
 			if(file != null && foodId != null){
 				logger.info(file.getName());
-				String realpath = request.getSession().getServletContext().getRealPath("/resource/mealface/")+"12";//得到文件夹路径
+				String realpath = request.getSession().getServletContext().getRealPath("/resource/mealface/")+foodId;//得到文件夹路径
 				File tmp = new File(realpath);//判断该学生对应的文件夹是名是否存在
 				if(!tmp.exists()  && !tmp.isDirectory()) {   
 				    	System.out.println("//文件夹不存在，已创建");
@@ -238,7 +248,7 @@ public class BusinessAction implements Serializable{
 				Food food = foodService.findRecordByProperty("id", foodId);
 				food.setImg(f.getName());
 				if(foodService.update(food) != null){
-					url = "/resource/mealface/12/"+f.getName();
+					url = "/resource/mealface/"+food.getId()+"/"+f.getName();
 				} else{
 					errorCode = ErrorCodes.INVALID_DB_INSERT;
 				}

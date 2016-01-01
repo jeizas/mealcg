@@ -14,11 +14,10 @@ import com.jeizas.utils.Constants;
 public class FoodDao extends BaseHibernateDao<Food>{
 	
 	public Food findNofinishRecord(Integer usrId){
-		String hql = " from Food where busId=? and name=? and deleted=?";
+		String hql = " from Food where busId=? and name is null and deleted=?";
 		Query q = createQuery(hql);
 		q.setParameter(0, usrId);
-		q.setParameter(1, "");
-		q.setParameter(2, Constants.DELETED_NO);
+		q.setParameter(1, Constants.DELETED_NO);
 		List<Food> list = q.list();
 		if(list.isEmpty()){
 			return null;

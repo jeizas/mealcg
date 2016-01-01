@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, minimum-scale=1.0,user-scalable=no" />
 <title>饭来啦</title>
@@ -33,7 +33,7 @@
 	<div class="container" id="addform">
 	    <h2 style="margin:30px; ">美味蛋糕店</h2>
 		<p style="border-bottom:1px solid #e3e3e3;"> </p>
-		<form id="addfood" name="addfood" method="post" action="/addfood" enctype="multipart/form-data">
+		<form id="addfood" name="addfood" method="post" action="/addfood">
 		 	<div class="col-lg-5 add-item">
 			    <div class="thumbnail">
 			      <img id="head" src="/static/img/cake.jpg" alt="...">
@@ -42,14 +42,15 @@
 			  <div class="col-lg-12">
 			  	<div class="input-group add-item">
 			  		<span class="input-group-addon" id="basic-addon1">餐品名称：</span>
-			  		<input type="text" class="form-control" placeholder="餐品名称" name="food.name" aria-describedby="basic-addon1">
+			  		<input type="hidden" name="id" value="${food.id }">
+			  		<input type="text" class="form-control" placeholder="餐品名称" name="name" id="name" required aria-describedby="basic-addon1" value="">
 				</div>
 			  </div>
 			
 			  <div class="col-lg-8">
 			    <div class="input-group add-item">
 			  		<span class="input-group-addon">价格：¥</span>
-			  		<input type="text" class="form-control" placeholder="0" aria-label="Amount (to the nearest dollar)" name="food.money">
+			  		<input type="text" class="form-control" placeholder="0" id="money" aria-label="Amount (to the nearest dollar)" name="money" value="">
 			  		<span class="input-group-addon">.00</span>
 				</div><!-- /input-group -->
 			  </div><!-- /.col-lg-6 -->
@@ -57,7 +58,8 @@
 			  <div class="col-lg-6">
 			    <div class="input-group add-item">
 			      <span class="input-group-addon">
-			        <input type="checkbox" aria-label="...">
+			        <input type="checkbox" aria-label="..." checked id="ischeck">
+			        <input type="hidden" id="isNew" name="isNew" value="">
 			      </span>
 			      <span class="input-group-addon">该菜品是新品</span>
 			    </div>
@@ -66,13 +68,11 @@
 			  <div class="col-lg-12">
 				<div class="input-group add-item">
 				  <span class="input-group-addon" id="basic-addon1">餐品简介：</span>
-				  <input type="text" class="form-control" placeholder="餐品简介" aria-describedby="basic-addon1" name="food.dsc">
+				  <input type="text" class="form-control" placeholder="餐品简介" id="dsc" aria-describedby="basic-addon1" name="dsc" value="">
 				</div>
 			  </div>
-			
-			  
 			  <div class="col-lg-12 add-item">
-			     <button class="btn btn-warning btn-lg btn-block" role="button" style="margin-top:30px;"> 提交</button>
+			     <input type="button" class="btn btn-warning btn-lg btn-block" id="submitF" style="margin-top:30px;background-color:#FF744B" value="提交">
 			  </div>
 		</form>
 	</div>
@@ -110,8 +110,29 @@
 	<!-- 这里是footer结束的地方 -->
 </body>
 <script type="text/javascript">
-/* function judgeFile(target){
-	$('#foodImg').attr("src",target.value.getAsDataURL());
-} */
+$('#submitF').click(function(){
+	if($('#name').val() == ''){
+		$('#name').css("border-color","red");
+		return false;
+	}
+	if($('#money').val() == ''){
+		$('#money').css("border-color","red");
+		return false;
+	}
+	if($('#dsc').val() == ''){
+		$('#dsc').css("border-color","red");
+		return false;
+	}
+	if($('#name').val() == ''){
+		$('#name').css("border-color","red");
+		return false;
+	}
+ 	if($('#ischeck').is(':checked')) {
+		$('#isNew').val('1');
+	} else {
+		$('#isNew').val('0');
+	} 
+	$('#addfood').submit();
+})
 </script>
 </html>

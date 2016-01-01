@@ -20,6 +20,8 @@ public class Food implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	public static final String FIELD_ID = "id";
+	public static final String FIELD_BUSID = "busId";
+	
 	public static final Integer PUBLISH_NO = 0;
 	public static final Integer PUBLISH_YES = 1;
  
@@ -32,6 +34,7 @@ public class Food implements Serializable{
 	private Integer isNew;
 	private Date adate;
 	private String img;
+	private String addr;
 	private Integer publish;
 	private Integer deleted;
 	
@@ -40,6 +43,8 @@ public class Food implements Serializable{
 	}
 	
 	public Food(User user){
+		this.adate = new Date();
+		this.addr = user.getAddr();
 		this.busId = user.getId();
 		this.busName = user.getName();
 		this.publish = PUBLISH_NO;
@@ -135,6 +140,14 @@ public class Food implements Serializable{
 
 	public void setPublish(Integer publish) {
 		this.publish = publish;
+	}
+	@Column(name="addr",length=64)
+	public String getAddr() {
+		return addr;
+	}
+
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 	
 	
