@@ -46,6 +46,11 @@
 		<from>^/addru$</from>
 		<to>uaddr</to>
 	</rule>
+	<rule>
+		<note>热门餐品</note>
+		<from>^/hotf$</from>
+		<to>hotfd</to>
+	</rule>
 	<!--  商家页面 -->
 	<rule>
 		<note>商家登录</note>

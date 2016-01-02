@@ -192,6 +192,7 @@ public class BusinessAction implements Serializable{
 			if(flag != null){
 				User user = userService.findRecordByProperty(User.FIELD_ID, usrId);
 				user.setFlag(flag);
+				userService.update(user);
 			} else {
 				errorCode = ErrorCodes.INVALID_PARAM;
 			}
@@ -212,7 +213,7 @@ public class BusinessAction implements Serializable{
 			User user = userService.findRecordByProperty(User.FIELD_ID, usrId);
 			Food tmp = foodService.findRecordByProperty("id", id);
 			if(foodService.updateFood(tmp, food) != null){
-				logger.info("商家[USRID:"+user.getId()+"正在增加新的餐品[ID:"+food.getId()+"]！");//显示要上传的文件名
+				logger.info("商家[USRID:"+user.getId()+"正在增加新的餐品[ID:"+food.getId()+"],餐品名称["+food.getName()+"]！");//显示要上传的文件名
 				retString = "menub";
 			}
 		} else{
@@ -242,8 +243,8 @@ public class BusinessAction implements Serializable{
 				    	System.out.println("//文件夹不存在，已创建");
 				    	tmp.mkdir();      
 				}
-				String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."), file.getOriginalFilename().length()-1);
-				File f=new File(realpath+"/12"+suffix);//判断文件名是否存在  以要上传的文件路径和新建文件
+				String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."), file.getOriginalFilename().length());
+				File f=new File(realpath+"/"+foodId+suffix);//判断文件名是否存在  以要上传的文件路径和新建文件
 				FileUtils.copyInputStreamToFile(file.getInputStream(),f);
 				Food food = foodService.findRecordByProperty("id", foodId);
 				food.setImg(f.getName());
