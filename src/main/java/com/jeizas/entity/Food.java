@@ -13,6 +13,11 @@ import javax.persistence.Table;
 
 import com.jeizas.utils.Constants;
 
+/**
+ * 餐品 
+ * @author jeizas
+ *
+ */
 @Entity
 @Table(name="food", catalog="meal")
 public class Food implements Serializable{

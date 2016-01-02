@@ -42,6 +42,26 @@
 		<to>ucollect</to>
 	</rule>
 	<rule>
+		<note>用户进入购物车</note>
+		<from>^/cartu$</from>
+		<to>ucart</to>
+	</rule>
+	<rule>
+		<note>加入购物车</note>
+		<from>^/addct$</from>
+		<to>addcart</to>
+	</rule>
+	<rule>
+		<note>订单数量改变</note>
+		<from>^/foodm$</from>
+		<to>mfood</to>
+	</rule>
+	<rule>
+		<note>订单删除</note>
+		<from>^/orderd$</from>
+		<to>dorder</to>
+	</rule>
+	<rule>
 		<note>用户地址</note>
 		<from>^/addru$</from>
 		<to>uaddr</to>

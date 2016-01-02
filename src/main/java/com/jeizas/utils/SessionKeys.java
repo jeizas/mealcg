@@ -9,8 +9,4 @@ public class SessionKeys {
 	public final static String BUS_FLAG = "session_bus_status";
 	public final static String USER_ROLE = "session_user_role";
 	public final static String USER_NAME = "session_user_name";
-	public static final String USER_PHONE_VERIFY = "session_user_phone_verify";
-	public static final String USER_VALID_CODE = "session_user_valid_code";
-	public static final String USER_VALID_CODE_EXPIRE = "session_user_valid_code_expire";
-	
 }
