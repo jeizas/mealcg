@@ -14,7 +14,7 @@
 	<script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="static/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="static/js/index.js"></script>
-	<script type="text/javascript" src="static/js/md5.js"></script>
+	<script type="text/javascript" src="static/js/orderb.js"></script>
 </head>
 <body>
     <%@ include file="/WEB-INF/view/common/navb.jsp"%>
@@ -41,80 +41,22 @@
 				      </div>
 				    </div>
 				  </div>
-				  <div class="col-sm-6 col-md-3">
-				    <div class="thumbnail">
-				      <img src="/static/img/cake.jpg" alt="..." style= "margin:15px;">
-				      <div class="caption" style= "margin:15px;">
-				        <h3>¥10</h3><h4>蛋黄蛋糕</h4>
-				        <p>地址：B区公寓10</p>
-				        <p>信息：武依莎 1586665555</p>
-				        <p><a href="#" class="btn btn-primary" role="button" style="margin-top:10px" >确认订单</a> <a href="#" class="btn btn-default" role="button" style="margin-top:10px">取消订单</a></p>
-				      </div>
-				    </div>
-				  </div>
-				  <div class="col-sm-6 col-md-3">
-				    <div class="thumbnail">
-				      <img src="/static/img/cake.jpg" alt="..." style= "margin:15px;">
-				      <div class="caption" style= "margin:15px;">
-				        <h3>¥10</h3><h4>蛋黄蛋糕</h4>
-				        <p>地址：B区公寓10</p>
-				        <p>信息：武依莎 1586665555</p>
-				        <p><a href="#" class="btn btn-primary" role="button" style="margin-top:10px">确认订单</a> <a href="#" class="btn btn-default" role="button" style="margin-top:10px">取消订单</a></p>
-				      </div>
-				    </div>
-				  </div>
-				  <div class="col-sm-6 col-md-3">
-				    <div class="thumbnail">
-				      <img src="/static/img/cake.jpg" alt="..." style= "margin:15px;">
-				      <div class="caption" style= "margin:15px;">
-				        <h3>¥10</h3><h4>蛋黄蛋糕</h4>
-				        <p>地址：B区公寓10</p>
-				        <p>信息：武依莎 1586665555</p>
-				        <p><a href="#" class="btn btn-primary" role="button" style="margin-top:10px">确认订单</a> <a href="#" class="btn btn-default" role="button" style="margin-top:10px">取消订单</a></p>
-				      </div>
-				    </div>
-				  </div>
-			  </div>
-			
-			  <div class="row">
-				  <div class="col-sm-6 col-md-3">
-				    <div class="thumbnail">
-				      <img src="/static/img/cake.jpg" alt="..." style= "margin:15px;" >
-				      <div class="caption" style= "margin:15px;" >
-				        <h3>¥10</h3><h4>蛋黄蛋糕</h4>
-				        <p>地址：B区公寓10</p>
-				        <p>信息：武依莎 1586665555</p>
-				        <p><a href="#" class="btn btn-primary" role="button" style="margin-top:10px">确认订单</a> <a href="#" class="btn btn-default" role="button" style="margin-top:10px">取消订单</a></p>
-				      </div>
-				    </div>
-				  </div>
 			  </div>
 			</div>
-	 <!-- /*tab1结尾*/ -->
+	 	  <!-- /*tab1结尾*/ -->
 	
-		     <div class="tab-pane " id="tab2">
+		  <div class="tab-pane " id="tab2">
 				<div class="row">
 				  	<div class="col-sm-4 col-md-3">
-				    <div class="thumbnail">
-				      <img src="/static/img/cake.jpg" alt="..." style= "margin:15px;">
-				      <div class="caption" style= "margin:15px;">
-				        <h3>¥10</h3><h4>蛋黄蛋糕</h4>
-				        <p>地址：B区公寓10</p>
-				        <p>信息：武依莎 1586665555</p>
-				        <p><a href="#" class="btn btn-default" role="button" style="margin-top:10px">取消订单</a></p>
-				      </div>
-				    </div>
-				  </div>
-				  <div class="col-sm-6 col-md-3">
-				    <div class="thumbnail">
-				      <img src="/static/img/cake.jpg" alt="..." style= "margin:15px;">
-				      <div class="caption" style= "margin:15px;">
-				        <h3>¥10</h3><h4>蛋黄蛋糕</h4>
-				        <p>地址：B区公寓10</p>
-				        <p>信息：武依莎 1586665555</p>
-				        <p><a href="#" class="btn btn-default" role="button" style="margin-top:10px">取消订单</a></p>
-				      </div>
-				    </div>
+					    <div class="thumbnail">
+					      <img src="/static/img/cake.jpg" alt="..." style= "margin:15px;">
+					      <div class="caption" style= "margin:15px;">
+					        <h3>¥10</h3><h4>蛋黄蛋糕</h4>
+					        <p>地址：B区公寓10</p>
+					        <p>信息：武依莎 1586665555</p>
+					        <p><a href="#" class="btn btn-default" role="button" style="margin-top:10px">取消订单</a></p>
+					      </div>
+					   </div>
 				  </div>
 			  </div>
 		 </div>
@@ -130,16 +72,6 @@
 				        <p>信息：武依莎 1586665555</p>
 				      </div>
 				    </div>
-			  </div>
-			  <div class="col-sm-6 col-md-3">
-			    <div class="thumbnail">
-			      <img src="/static/img/cake.jpg" alt="..." style= "margin:15px;">
-			      <div class="caption" style= "margin:15px;">
-			        <h3>¥10</h3><h4>蛋黄蛋糕</h4>
-			        <p>地址：B区公寓10</p>
-			        <p>信息：武依莎 1586665555</p>
-			      </div>
-			    </div>
 			  </div>
 		 	</div>
 		   </div>

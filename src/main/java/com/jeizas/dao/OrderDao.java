@@ -1,5 +1,7 @@
 package com.jeizas.dao;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
@@ -22,5 +24,14 @@ public class OrderDao extends BaseHibernateDao<Order>{
 		}else{
 			return (Order) q.list().get(0);
 		}
+	}
+	
+	public List<Order> findSubmitOrder(Integer usrId, Integer state){
+		String hql = "from Order o where o.foodId in (select f.id from Food f where f.busId=?) and o.state=? and o.deleted=?";
+		Query q = createQuery(hql);
+		q.setParameter(0, usrId);
+		q.setParameter(1, state);
+		q.setParameter(2, Constants.DELETED_NO);
+		return q.list();
 	}
 }

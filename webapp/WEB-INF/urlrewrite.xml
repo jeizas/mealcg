@@ -90,7 +90,7 @@
 	<rule>
 		<note>商家个人中心</note>
 		<from>^/homeb$</from>
-		<to>bhome</to>recive
+		<to>bhome</to>
 	</rule>
 	<rule>
 		<note>商家添加新的餐品</note>
@@ -122,5 +122,31 @@
 		<note>商家上传餐品图片</note>
 		<from>^/fdface$</from>
 		<to>upface</to>
+	</rule>
+	<!-- 订单管理 -->
+	<rule>
+		<note>商家接受的订单</note>
+		<from>^/orderd$</from>
+		<to>dorder</to>
+	</rule>
+	<rule>
+		<note>商家确定的订单</note>
+		<from>^/ordera$</from>
+		<to>aorder</to>
+	</rule>
+	<rule>
+		<note>商家完成的订单</note>
+		<from>^/orders$</from>
+		<to>sorder</to>
+	</rule>
+	<rule>
+		<note>商家接受订单</note>
+		<from>^/accod$</from>
+		<to>odacc</to>
+	</rule>
+	<rule>
+		<note>商家拒绝订单</note>
+		<from>^/rejod$</from>
+		<to>odrej</to>
 	</rule>
 </urlrewrite>

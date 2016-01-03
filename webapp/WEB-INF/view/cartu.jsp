@@ -52,7 +52,7 @@
 	  <span class="input-group-addon"> 合计：   ￥</span>
 	  <span class="input-group-addon check" id="sum">${sum }</span>
 	  <span class="input-group-btn ">
-	    <button type="button" class="btn checkbtn">结算</button>
+	    <button type="button" class="btn checkbtn">立即下单</button>
 	  </span>
 	</div>
 	

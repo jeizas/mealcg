@@ -1,5 +1,7 @@
 package com.jeizas.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +22,9 @@ public class OrderService extends BaseService<Order>{
 
 	public Order updateCount(Integer usrId, Integer Id){
 		return getDao().updateCount(usrId, Id);
+	}
+	
+	public List<Order> findSubmitOrder(Integer usrId, Integer state){
+		return getDao().findSubmitOrder(usrId, state);
 	}
 }

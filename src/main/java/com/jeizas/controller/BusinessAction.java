@@ -3,6 +3,7 @@ package com.jeizas.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,15 +16,17 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.jeizas.dto.OrderDTO;
 import com.jeizas.entity.Food;
+import com.jeizas.entity.Order;
 import com.jeizas.entity.User;
 import com.jeizas.service.FoodService;
+import com.jeizas.service.OrderService;
 import com.jeizas.service.UserService;
 import com.jeizas.utils.ErrorCodes;
 import com.jeizas.utils.SessionKeys;
@@ -38,6 +41,8 @@ public class BusinessAction implements Serializable{
 	private UserService userService;
 	@Autowired
 	private FoodService foodService;
+	@Autowired
+	private OrderService orderService;
 	
 	/**
 	 * 商家登录
@@ -55,6 +60,125 @@ public class BusinessAction implements Serializable{
 	@RequestMapping(value="border",method=RequestMethod.GET)
 	public String order(){
 		return "orderb";
+	}
+	/**
+	 * 用户提交的订单
+	 * @return
+	 */
+	@RequestMapping(value="dorder",method=RequestMethod.GET)
+	public @ResponseBody Map<String, Object> dorder(HttpSession session){
+		Integer errorCode = ErrorCodes.SUCCESS;
+		Map<String, Object> retMap = new HashMap<String, Object>();
+		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
+		List<OrderDTO> retDto = new ArrayList<OrderDTO>(); 
+		if(usrId != null){
+			User user = userService.findRecordByProperty(User.FIELD_ID, usrId);
+			List<Order> order = orderService.findSubmitOrder(user.getId(), Order.STATE_DEF);
+			for(Order o:order){
+				Food food = foodService.findRecordByProperty(Food.FIELD_ID, o.getId());
+				if(food != null){
+					OrderDTO dto = new OrderDTO(o, food, user);
+					retDto.add(dto);
+				}
+			}
+		} else{
+			errorCode = ErrorCodes.NOT_LOGIN;
+		}
+		retMap.put("list", retDto);
+		retMap.put("errorCode", errorCode);
+		return retMap;
+	}
+	/**
+	 * 商家已经接受的订单
+	 * @return
+	 */
+	@RequestMapping(value="aorder",method=RequestMethod.GET)
+	public @ResponseBody Map<String, Object> corder(HttpSession session){
+		Integer errorCode = ErrorCodes.SUCCESS;
+		Map<String, Object> retMap = new HashMap<String, Object>();
+		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
+		List<OrderDTO> retDto = new ArrayList<OrderDTO>(); 
+		if(usrId != null){
+			User user = userService.findRecordByProperty(User.FIELD_ID, usrId);
+			List<Order> order = orderService.findSubmitOrder(user.getId(), Order.STATE_ACC);
+			for(Order o:order){
+				Food food = foodService.findRecordByProperty(Food.FIELD_ID, o.getId());
+				if(food != null){
+					OrderDTO dto = new OrderDTO(o, food, user);
+					retDto.add(dto);
+				}
+			}
+		} else{
+			errorCode = ErrorCodes.NOT_LOGIN;
+		}
+		retMap.put("list", retDto);
+		retMap.put("errorCode", errorCode);
+		return retMap;
+	}
+	/**
+	 * 商家已经完成的订单
+	 * @return
+	 */
+	@RequestMapping(value="sorder",method=RequestMethod.GET)
+	public @ResponseBody Map<String, Object> forder(HttpSession session){
+		Integer errorCode = ErrorCodes.SUCCESS;
+		Map<String, Object> retMap = new HashMap<String, Object>();
+		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
+		List<OrderDTO> retDto = new ArrayList<OrderDTO>(); 
+		if(usrId != null){
+			User user = userService.findRecordByProperty(User.FIELD_ID, usrId);
+			List<Order> order = orderService.findSubmitOrder(user.getId(), Order.STATE_SUC);
+			for(Order o:order){
+				Food food = foodService.findRecordByProperty(Food.FIELD_ID, o.getId());
+				if(food != null){
+					OrderDTO dto = new OrderDTO(o, food, user);
+					retDto.add(dto);
+				}
+			}
+		} else{
+			errorCode = ErrorCodes.NOT_LOGIN;
+		}
+		retMap.put("list", retDto);
+		retMap.put("errorCode", errorCode);
+		return retMap;
+	}
+	
+	/**
+	 * 商家接受订单
+	 */
+	@RequestMapping(value="odacc",method=RequestMethod.POST)
+	public @ResponseBody Map<String, Object> odacc(HttpSession session, Integer id){
+		Integer errorCode = ErrorCodes.SUCCESS;
+		Map<String, Object> retMap = new HashMap<String, Object>();
+		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
+		if(usrId != null){
+			Order order = orderService.findRecordByProperty(User.FIELD_ID, id);
+			order.setState(Order.STATE_ACC);
+			orderService.update(order);
+		} else{
+			errorCode = ErrorCodes.NOT_LOGIN;
+		}
+		retMap.put("errorCode", errorCode);
+		return retMap;
+	}
+	
+	/**
+	 * 商家拒绝订单
+	 */
+	@RequestMapping(value="odrj",method=RequestMethod.POST)
+	public @ResponseBody Map<String, Object> odrej(HttpSession session, Integer id){
+		Integer errorCode = ErrorCodes.SUCCESS;
+		Map<String, Object> retMap = new HashMap<String, Object>();
+		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
+		if(usrId != null){
+			Order order = orderService.findRecordByProperty(User.FIELD_ID, id);
+			order.setState(Order.STATE_REJ);
+			orderService.update(order);
+		} else{
+			errorCode = ErrorCodes.NOT_LOGIN;
+		}
+		retMap.put("errorCode", errorCode);
+		return retMap;
 	}
 	
 	/**
@@ -238,7 +362,7 @@ public class BusinessAction implements Serializable{
 			if(file != null && foodId != null){
 				logger.info(file.getName());
 				String realpath = request.getSession().getServletContext().getRealPath("/resource/mealface/")+foodId;//得到文件夹路径
-				File tmp = new File(realpath);//判断该学生对应的文件夹是名是否存在
+				File tmp = new File(realpath);//判断该文件夹是名是否存在
 				if(!tmp.exists()  && !tmp.isDirectory()) {   
 				    	System.out.println("//文件夹不存在，已创建");
 				    	tmp.mkdir();      

@@ -26,13 +26,19 @@ public class Order implements Serializable{
 	
 	public static final String FIELD_ID = "id";
 	public static final String FIELD_USR_ID = "usrId";
-
+	
+	public static final Integer STATE_DEF = 0;
+	public static final Integer STATE_ACC = 1;
+	public static final Integer STATE_SUC = 2;
+	public static final Integer STATE_REJ = 3;
+	
 	private Integer id;
 	private Integer usrId;
 	private Integer foodId;
 	private Integer count;
 	private Date adate;
 	private Integer isPay;
+    private Integer state;
 	private Integer deleted;
 	
 	public Order(){
@@ -46,6 +52,7 @@ public class Order implements Serializable{
 		this.adate = new Date();
 		this.isPay = Constants.NO;
 		this.deleted = Constants.DELETED_NO;
+		this.state = STATE_DEF;
 	}
 
 	@Id
@@ -105,6 +112,14 @@ public class Order implements Serializable{
 
 	public void setDeleted(Integer deleted) {
 		this.deleted = deleted;
+	}
+	@Column(name="state")
+	public Integer getState() {
+		return state;
+	}
+
+	public void setState(Integer state) {
+		this.state = state;
 	}
 	
 	

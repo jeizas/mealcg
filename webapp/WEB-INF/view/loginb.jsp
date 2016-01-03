@@ -88,7 +88,7 @@
 			<div class="in"><td><input id="email" type="text" placeholder="手机号／邮箱／用户名"  style="padding-left:10px;font-size:16px;color:grey;"class="textInput"/></td></div>
 			<div id="blank"></div>
 			<div class="in"><td><input type="password" id="password" style="padding-left:10px;font-size:16px;color:grey;"class="textInput"/></td></div>
-			<a href="#"><div id="btn-log" class="login">登陆</div></a>
+			<a href="#"><div id="btn-log" class="login">登录</div></a>
 			<a href="#"><div id="btn-reg" class="login">注册</div></a>	
 		</div>
 	</div>
