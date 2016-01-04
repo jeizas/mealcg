@@ -34,4 +34,11 @@ public class OrderDao extends BaseHibernateDao<Order>{
 		q.setParameter(2, Constants.DELETED_NO);
 		return q.list();
 	}
+	public void deletedOrderByFoodId(Integer foodId){
+		String hql = "update Order set deleted=? where foodId=? ";
+		Query q = createQuery(hql);
+		q.setParameter(0, Constants.DELETED_YES);
+		q.setParameter(1, foodId);
+		q.executeUpdate();
+	}
 }

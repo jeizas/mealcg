@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="static/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="static/js/index.js"></script>
-	<script type="text/javascript" src="static/js/md5.js"></script>
+	<script type="text/javascript" src="static/js/menub.js"></script>
 </head>
 <body>
     <%@ include file="/WEB-INF/view/common/navb.jsp"%>
@@ -36,7 +36,7 @@
 					</div>
 				</div>
 				<div class="delete col-md-2 col-md-offset-1">
-				    <button class="btn btn-default btn-xs" type="button">删除</button>
+				    <button class="btn btn-default btn-xs" type="button" onclick="delFod(${f.id })">删除</button>
 				     <button class="btn btn-default btn-xs" type="button" style="margin-top:5px;">修改</button>
 				</div>
 			</div>

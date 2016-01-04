@@ -154,4 +154,10 @@
 		<from>^/sucod$</from>
 		<to>odsuc</to>
 	</rule>
+	<!-- 食品管理 -->
+	<rule>
+		<note>删除食品</note>
+		<from>^/delfood$</from>
+		<to>dfood</to>
+	</rule>
 </urlrewrite>

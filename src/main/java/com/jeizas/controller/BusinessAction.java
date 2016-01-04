@@ -28,6 +28,7 @@ import com.jeizas.entity.User;
 import com.jeizas.service.FoodService;
 import com.jeizas.service.OrderService;
 import com.jeizas.service.UserService;
+import com.jeizas.utils.Constants;
 import com.jeizas.utils.ErrorCodes;
 import com.jeizas.utils.SessionKeys;
 
@@ -404,6 +405,26 @@ public class BusinessAction implements Serializable{
 		}
 		retMap.put("errorCode", errorCode);
 		retMap.put("url", url);
+		return retMap;
+	}
+	
+	/**
+	 * 商家删除食物
+	 */
+	@RequestMapping(value="dfood",method=RequestMethod.POST)
+	public @ResponseBody Map<String, Object> dfood(HttpSession session, Integer id){
+		Integer errorCode = ErrorCodes.SUCCESS;
+		Map<String, Object> retMap = new HashMap<String, Object>();
+		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
+		if(usrId != null){
+			Food food = foodService.findRecordByProperty(Food.FIELD_ID, id);
+			food.setDeleted(Constants.DELETED_YES);
+			foodService.update(food);
+			orderService.deletedOrderByFoodId(id);
+		} else{
+			errorCode = ErrorCodes.NOT_LOGIN;
+		}
+		retMap.put("errorCode", errorCode);
 		return retMap;
 	}
 }

@@ -27,4 +27,7 @@ public class OrderService extends BaseService<Order>{
 	public List<Order> findSubmitOrder(Integer usrId, Integer state){
 		return getDao().findSubmitOrder(usrId, state);
 	}
+	public void deletedOrderByFoodId(Integer foodId){
+		getDao().deletedOrderByFoodId(foodId);
+	}
 }
