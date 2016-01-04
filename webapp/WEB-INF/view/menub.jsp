@@ -26,13 +26,13 @@
 			<div class="row"  style="border-bottom:1px solid #e3e3e3;">
 				<div class="col-md-6">
 					<div class="thumbnail" style="height:150px;margin-top:24px;">
-					                    <img src="/resource/mealface/${f.id }/${f.img }" class="pull-left" alt="" style="width:140px;height:140px;">
-					                    <div class="caption">
-					                        <h3 style="line-height:2px;">${f.name }</h3>
-					                        <small style="color:#f6be6a;">${f.dsc }</small>
-					                        <p class="sh ps mon">￥${f.money }</p>
-					                        <small>销量：</small><span>${f.money }</span>
-					                    </div>
+	                    <img src="/resource/mealface/${f.id }/${f.img }" class="pull-left" alt="" style="width:140px;height:140px;">
+	                    <div class="caption">
+	                        <h3 style="line-height:2px;">${f.name }</h3>
+	                        <small style="color:#f6be6a;">${f.dsc }</small>
+	                        <p class="sh ps mon">￥${f.money }</p>
+	                        <small>销量：</small><span>${f.money }</span>
+	                    </div>
 					</div>
 				</div>
 				<div class="delete col-md-2 col-md-offset-1">

@@ -149,4 +149,9 @@
 		<from>^/rejod$</from>
 		<to>odrej</to>
 	</rule>
+	<rule>
+		<note>商家完成订单</note>
+		<from>^/sucod$</from>
+		<to>odsuc</to>
+	</rule>
 </urlrewrite>

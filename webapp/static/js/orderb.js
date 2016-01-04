@@ -44,7 +44,7 @@ $(function() {
 								+'<h3>¥10</h3><h4>'+data.list[i].name+'</h4>'
 								+'<p>'+data.list[i].addr+'</p>'
 								+'<p>'+data.list[i].user+'</p>'
-								+'<p><a href="#" class="btn btn-primary" role="button" style="margin-top:10px" onclick="accOrder('+data.list[i].id+')">确认订单</a> <a href="#" class="btn btn-default" role="button" style="margin-top:10px" onclick="rejOrder('+data.list[i].id+')">取消订单</a></p>'
+								+'<p><a href="#" class="btn btn-primary" role="button" style="margin-top:10px" onclick="sucOrder('+data.list[i].id+')">完成订单</a> <a href="#" class="btn btn-default" role="button" style="margin-top:10px" onclick="rejOrder('+data.list[i].id+')">取消订单</a></p>'
 							+'</div>'
 						+'</div>'
 					+'</div>';
@@ -74,7 +74,7 @@ $(function() {
 								+'<h3>¥10</h3><h4>'+data.list[i].name+'</h4>'
 								+'<p>'+data.list[i].addr+'</p>'
 								+'<p>'+data.list[i].user+'</p>'
-								+'<p><a href="#" class="btn btn-primary" role="button" style="margin-top:10px" onclick="accOrder('+data.list[i].id+')">确认订单</a> <a href="#" class="btn btn-default" role="button" style="margin-top:10px" onclick="rejOrder('+data.list[i].id+')">取消订单</a></p>'
+								+'<p> <a href="#" class="btn btn-default" role="button" style="margin-top:10px" onclick="rejOrder('+data.list[i].id+')">删除订单</a></p>'
 							+'</div>'
 						+'</div>'
 					+'</div>';
@@ -99,7 +99,16 @@ function accOrder(id){
 	});
 }
 function rejOrder(id){
-	$.post("/rejod", {d:id},function(data) {
+	$.post("/rejod", {id:id},function(data) {
+		if(data.errorCode == 0){
+			window.location.reload()
+		}else{
+			alert("网络连接错误，请稍候重试...");
+		}
+	});
+}
+function sucOrder(id){
+	$.post("/sucod", {id:id},function(data) {
 		if(data.errorCode == 0){
 			window.location.reload()
 		}else{

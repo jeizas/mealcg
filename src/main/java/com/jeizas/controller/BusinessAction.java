@@ -165,14 +165,33 @@ public class BusinessAction implements Serializable{
 	/**
 	 * 商家拒绝订单
 	 */
-	@RequestMapping(value="odrj",method=RequestMethod.POST)
+	@RequestMapping(value="odrej",method=RequestMethod.POST)
 	public @ResponseBody Map<String, Object> odrej(HttpSession session, Integer id){
 		Integer errorCode = ErrorCodes.SUCCESS;
 		Map<String, Object> retMap = new HashMap<String, Object>();
 		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
 		if(usrId != null){
-			Order order = orderService.findRecordByProperty(User.FIELD_ID, id);
+			Order order = orderService.findRecordByProperty(Order.FIELD_ID, id);
 			order.setState(Order.STATE_REJ);
+			orderService.update(order);
+		} else{
+			errorCode = ErrorCodes.NOT_LOGIN;
+		}
+		retMap.put("errorCode", errorCode);
+		return retMap;
+	}
+	
+	/**
+	 * 商家完成订单
+	 */
+	@RequestMapping(value="odsuc",method=RequestMethod.POST)
+	public @ResponseBody Map<String, Object> odsuc(HttpSession session, Integer id){
+		Integer errorCode = ErrorCodes.SUCCESS;
+		Map<String, Object> retMap = new HashMap<String, Object>();
+		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
+		if(usrId != null){
+			Order order = orderService.findRecordByProperty(Order.FIELD_ID, id);
+			order.setState(Order.STATE_SUC);
 			orderService.update(order);
 		} else{
 			errorCode = ErrorCodes.NOT_LOGIN;
