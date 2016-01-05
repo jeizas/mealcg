@@ -20,8 +20,8 @@
 	        </ul>   
 		   <p class="jd"> 是否接单</p>
 		   <div class="wrap">
-			  	<input type="checkbox" id="s3"> 
-				<label class="slider-v2" for="s3"> </label>  
+			  	<input type="checkbox" id="s3" style="margin-top:20px;display:none"> 
+				<label class="slider-v2" for="s3" style="margin-top:20px"> </label>  
  		   </div>
  		</div>  
  	</div>
@@ -31,4 +31,24 @@
 	if(name != "null" ){
 		$('.navbar-brand').text(name);
 	}
+	var flag = "<%=session.getAttribute(SessionKeys.BUS_FLAG)%>";
+	if(flag == 1){
+		$("#s3").attr("checked",true)
+	}else{
+		$("#s3").attr("checked",false)
+	}
+	$('#s3').click(function(){
+		if($('#s3').is(':checked')) {
+			flag = 1;
+		} else {
+			flag = 0;
+		}
+		$.post("/recive", {flag:flag},function(data) {
+			if(data.errorCode == 0){
+				alert("操作成功!");
+			}else{
+				alert("网络连接错误，请稍候重试...");
+			}
+		});
+	})
 </script>

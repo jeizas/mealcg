@@ -25,7 +25,7 @@
 		<from>^/alogout$</from>
 		<to>logout</to>
 	</rule>
-	<!-- 用户 -->
+	<!-- 用户页面 -->
 	<rule>
 		<note>用户个人中心</note>
 		<from>^/homeu$</from>
@@ -42,11 +42,36 @@
 		<to>ucollect</to>
 	</rule>
 	<rule>
+		<note>用户进入购物车</note>
+		<from>^/cartu$</from>
+		<to>ucart</to>
+	</rule>
+	<rule>
+		<note>加入购物车</note>
+		<from>^/addct$</from>
+		<to>addcart</to>
+	</rule>
+	<rule>
+		<note>订单数量改变</note>
+		<from>^/foodm$</from>
+		<to>mfood</to>
+	</rule>
+	<rule>
+		<note>订单删除</note>
+		<from>^/orderd$</from>
+		<to>dorder</to>
+	</rule>
+	<rule>
 		<note>用户地址</note>
 		<from>^/addru$</from>
 		<to>uaddr</to>
 	</rule>
-	<!--  商家 -->
+	<rule>
+		<note>热门餐品</note>
+		<from>^/hotf$</from>
+		<to>hotfd</to>
+	</rule>
+	<!--  商家页面 -->
 	<rule>
 		<note>商家登录</note>
 		<from>^/bus$</from>
@@ -71,5 +96,68 @@
 		<note>商家添加新的餐品</note>
 		<from>^/addf$</from>
 		<to>fadd</to>
+	</rule>
+	<!-- 商家修改 信息 -->
+	<rule>
+		<note>商家是否接单</note>
+		<from>^/recive$</from>
+		<to>isRec</to>
+	</rule>
+	<rule>
+		<note>商家修改店名</note>
+		<from>^/namem$</from>
+		<to>mname</to>
+	</rule>
+	<rule>
+		<note>商家修改电话号码</note>
+		<from>^/phonem$</from>
+		<to>mphone</to>
+	</rule>
+	<rule>
+		<note>商家修地址</note>
+		<from>^/addrm$</from>
+		<to>maddr</to>
+	</rule>
+	<rule>
+		<note>商家上传餐品图片</note>
+		<from>^/fdface$</from>
+		<to>upface</to>
+	</rule>
+	<!-- 订单管理 -->
+	<rule>
+		<note>商家接受的订单</note>
+		<from>^/orderd$</from>
+		<to>dorder</to>
+	</rule>
+	<rule>
+		<note>商家确定的订单</note>
+		<from>^/ordera$</from>
+		<to>aorder</to>
+	</rule>
+	<rule>
+		<note>商家完成的订单</note>
+		<from>^/orders$</from>
+		<to>sorder</to>
+	</rule>
+	<rule>
+		<note>商家接受订单</note>
+		<from>^/accod$</from>
+		<to>odacc</to>
+	</rule>
+	<rule>
+		<note>商家拒绝订单</note>
+		<from>^/rejod$</from>
+		<to>odrej</to>
+	</rule>
+	<rule>
+		<note>商家完成订单</note>
+		<from>^/sucod$</from>
+		<to>odsuc</to>
+	</rule>
+	<!-- 食品管理 -->
+	<rule>
+		<note>删除食品</note>
+		<from>^/delfood$</from>
+		<to>dfood</to>
 	</rule>
 </urlrewrite>

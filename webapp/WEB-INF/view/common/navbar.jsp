@@ -16,7 +16,7 @@
 	    <div class="collapse navbar-collapse" id="bs-Dropdown-navbar-collapse-1">
 	        <ul class="nav navbar-nav">
 	            <li class="active"><a href="/index">首页</a></li>
-	            <li><a href="orderu">购物车 <span class=badge>0</span> </a> </li>
+	            <li><a href="cartu">购物车 <span class=badge>0</span> </a> </li>
 	            <!-- 下拉菜单 -->
 	            <li class="dropdown ">
 		            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span id="username">登录/注册</span><span class="caret"></span></a>

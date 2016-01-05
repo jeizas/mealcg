@@ -31,7 +31,7 @@
     <div class="tab-content">
         <!-- <p>人气餐品内容</p> -->
         <div class="tab-pane active" id="tab1">
-           <div class="row" style="margin-top:30px;">
+           <div class="row" style="margin-top:30px;" id="hotFood">
             <div class="col-md-6">
                 <div class="thumbnail">
                     <img src="/static/img/cake.jpg" class="pull-left" alt="" style="width:180px;height:180px;">
@@ -59,98 +59,8 @@
                     <button class="btn btn-large btn-block no-margin" type="button">加入购物车</button>
                 </div>
             </div>
-            </div> 
-
-            <div class="row">
-            <div class="col-md-6">
-                <div class="thumbnail">
-                    <img src="/static/img/cake.jpg" class="pull-left" alt="" style="width:180px;height:180px;">
-                    <div class="caption">
-                        <h3 style="line-height:2px;">蛋黄蛋糕</h3>
-                        <small style="color:#f6be6a;">自家烘焙</small>
-                        <p class="sh ps">￥8</p>
-                        <p class="sh">12元起送</p>
-                        <p class="sh">月销量11938份</p>
-                    </div>
-                    <button class="btn btn-large btn-block no-margin" type="button">加入购物车</button>
-                </div>
-            </div>
-            
-             <div class="col-md-6">
-                <div class="thumbnail">
-                    <img src="/static/img/cake.jpg" class="pull-left" alt="" style="width:180px;height:180px;">
-                    <div class="caption">
-                        <h3 style="line-height:2px;">蛋黄蛋糕</h3>
-                        <small style="color:#f6be6a;">自家烘焙</small>
-                        <p class="sh ps">￥8</p>
-                        <p class="sh">12元起送</p>
-                        <p class="sh">月销量11938份</p>
-                    </div>
-                    <button class="btn btn-large btn-block no-margin" type="button">加入购物车</button>
-                </div>
-            </div>
-            </div> 
-
-            <div class="row">
-            <div class="col-md-6">
-                <div class="thumbnail">
-                    <img src="/static/img/cake.jpg" class="pull-left" alt="" style="width:180px;height:180px;">
-                    <div class="caption">
-                        <h3 style="line-height:2px;">蛋黄蛋糕</h3>
-                        <small style="color:#f6be6a;">自家烘焙</small>
-                        <p class="sh ps">￥8</p>
-                        <p class="sh">12元起送</p>
-                        <p class="sh">月销量11938份</p>
-                    </div>
-                    <button class="btn btn-large btn-block no-margin" type="button">加入购物车</button>
-                </div>
-            </div>
-            
-             <div class="col-md-6">
-                <div class="thumbnail">
-                    <img src="/static/img/cake.jpg" class="pull-left" alt="" style="width:180px;height:180px;">
-                    <div class="caption">
-                        <h3 style="line-height:2px;">蛋黄蛋糕</h3>
-                        <small style="color:#f6be6a;">自家烘焙</small>
-                        <p class="sh ps">￥8</p>
-                        <p class="sh">12元起送</p>
-                        <p class="sh">月销量11938份</p>
-                    </div>
-                    <button class="btn btn-large btn-block no-margin" type="button">加入购物车</button>
-                </div>
-            </div>
-            </div> 
-            <div class="row">
-            <div class="col-md-6">
-                <div class="thumbnail">
-                    <img src="/static/img/cake.jpg" class="pull-left" alt="" style="width:180px;height:180px;">
-                    <div class="caption">
-                        <h3 style="line-height:2px;">蛋黄蛋糕</h3>
-                        <small style="color:#f6be6a;">自家烘焙</small>
-                        <p class="sh ps">￥8</p>
-                        <p class="sh">12元起送</p>
-                        <p class="sh">月销量11938份</p>
-                    </div>
-                    <button class="btn btn-large btn-block no-margin" type="button">加入购物车</button>
-                </div>
-            </div>
-            
-             <div class="col-md-6">
-                <div class="thumbnail">
-                    <img src="/static/img/cake.jpg" class="pull-left" alt="" style="width:180px;height:180px;">
-                    <div class="caption">
-                        <h3 style="line-height:2px;">蛋黄蛋糕</h3>
-                        <small style="color:#f6be6a;">自家烘焙</small>
-                        <p class="sh ps">￥8</p>
-                        <p class="sh">12元起送</p>
-                        <p class="sh">月销量11938份</p>
-                    </div>
-                    <button class="btn btn-large btn-block no-margin" type="button">加入购物车</button>
-                </div>
-            </div>
-            </div> 
-
         </div>
+     </div>
 
 
         <div class="tab-pane" id="tab2">
