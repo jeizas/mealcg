@@ -1,6 +1,6 @@
 $(function() {
 	$.ajax({
-		url:'/odtl',
+		url:'/dtll',
 		success:function(data){
 			if(data.errorCode == 0){
 				$('.row').empty();
@@ -13,7 +13,7 @@ $(function() {
 							+'<div class="caption">'
 								+'<h3>名称：'+data.list[i].name+'</h3>'
 								+'<p>地址：'+data.list[i].addr+'</p>'
-								+'<span>状态：'+data.list[i].state+'</span> <a href="#" class="btn btn-default" role="button" onclick="likeIt('+data.list[i].id+')">收藏</a></p>'
+								+'<a href="#" class="btn btn-default" role="button" onclick="likeIt('+data.list[i].id+')">取消收藏</a></p>'
 							+'</div>'
 						+'</div>'
 					+'</div>'
