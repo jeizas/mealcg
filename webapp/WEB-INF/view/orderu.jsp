@@ -20,7 +20,7 @@
     <%@ include file="/WEB-INF/view/common/navbar.jsp"%>
 	<!-- 内容 -->
 	<div class="container user3">
-	   <br> <span class="title info-collect2"><strong>我的订单：</strong></span>
+	    <br> <span class="title info-collect2"><strong>我的订单：</strong></span>
 	    <div class="row">
 		  <div class="col-sm-6 col-md-4">
 		    <div class="thumbnail">
@@ -32,83 +32,8 @@
 		      </div>
 		    </div>
 		  </div>
-		  <div class="col-sm-6 col-md-4">
-		    <div class="thumbnail">
-		      <img src="/static/img/cake.jpg" alt="...">
-		      <div class="caption">
-		        <h3>蛋黄蛋糕</h3>
-		        <p>地址：大西门五排六号</p>
-		        <p><a href="#" class="btn btn-primary" role="button">加入购物车</a> <a href="#" class="btn btn-default" role="button">评价</a></p>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="col-sm-6 col-md-4">
-		    <div class="thumbnail">
-		      <img src="/static/img/cake.jpg" alt="...">
-		      <div class="caption">
-		        <h3>蛋黄蛋糕</h3>
-		        <p>地址：大西门五排六号</p>
-		        <p><a href="#" class="btn btn-primary" role="button">加入购物车</a> <a href="#" class="btn btn-default" role="button">评价</a></p>
-		      </div>
-		    </div>
-	  	  </div>
-	  </div>
-	 <div class="row">
-	  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	      <img src="/static/img/cake.jpg" alt="...">
-	      <div class="caption">
-	        <h3>蛋黄蛋糕</h3>
-	        <p>地址：大西门五排六号</p>
-	        <p><a href="#" class="btn btn-primary" role="button">加入购物车</a> <a href="#" class="btn btn-default" role="button">评价</a></p>
-	      </div>
 	    </div>
-	  </div>
-	  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	      <img src="/static/img/cake.jpg" alt="...">
-	      <div class="caption">
-	        <h3>蛋黄蛋糕</h3>
-	        <p>地址：大西门五排六号</p>
-	        <p><a href="#" class="btn btn-primary" role="button">加入购物车</a> <a href="#" class="btn btn-default" role="button">评价</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	      <img src="/static/img/cake.jpg" alt="...">
-	      <div class="caption">
-	        <h3>蛋黄蛋糕</h3>
-	        <p>地址：大西门五排六号</p>
-	        <p><a href="#" class="btn btn-primary" role="button">加入购物车</a> <a href="#" class="btn btn-default" role="button">评价</a></p>
-	      </div>
-	    </div>
-	  </div>
 	</div>
-	 <div class="row">
-	  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	      <img src="/static/img/cake.jpg" alt="...">
-	      <div class="caption">
-	        <h3>蛋黄蛋糕</h3>
-	        <p>地址：大西门五排六号</p>
-	        <p><a href="#" class="btn btn-primary" role="button">加入购物车</a> <a href="#" class="btn btn-default" role="button">评价</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	      <img src="/static/img/cake.jpg" alt="...">
-	      <div class="caption">
-	        <h3>蛋黄蛋糕</h3>
-	        <p>地址：大西门五排六号</p>
-	        <p><a href="#" class="btn btn-primary" role="button">加入购物车</a> <a href="#" class="btn btn-default" role="button">评价</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  </div>
-	</div>
-	<%@ include file="/WEB-INF/view/common/login.jsp"%>
 	<!-- 这里是footer开始的地方 -->
 	<footer>
 	    <div class="container-fluid btm-ftr">

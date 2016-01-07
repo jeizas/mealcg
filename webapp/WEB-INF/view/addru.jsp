@@ -23,12 +23,12 @@
 	    <div class="row">
 	    <img src="/static/img/cake.jpg" class="col-md-4 user-img ">
 	    <div class="col-md-8 info">
-	       <span class="title"><strong>用户ID：</strong></span><span class="info-con">wuyisha</span><a href="＃"><small>［修改］</small></a>
+	       <span class="title"><strong>用户：</strong></span><span class="info-con">wuyisha</span>
 	        <br><span class="title"><strong>手机号码：</strong></span><span class="info-con">1582345806</span>
 	        <br><span class="title"><strong>积分：</strong></span><span class="info-con">1200</span></div>
 	    </div>
 	    <div class="row info-sec">
-	        <span class="title"><strong>收货地址：</strong></span><span class="info-con">环城北路88号B10-417宿舍</span><a href="＃"><small>［修改］</small></a>
+	        <span class="title"><strong>收货地址：</strong></span><span class="info-con">环城北路88号B10-417宿舍</span>
 	        <br><span class="title"><strong>最近订单：</strong></span>
 	            <ul class="info-order">
 	                <li><a href="">张麻子大饼</a></li>

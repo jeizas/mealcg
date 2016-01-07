@@ -17,10 +17,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jeizas.dto.CartDTO;
+import com.jeizas.dto.OrderDTO;
 import com.jeizas.entity.Food;
 import com.jeizas.entity.Order;
+import com.jeizas.entity.User;
 import com.jeizas.service.FoodService;
 import com.jeizas.service.OrderService;
+import com.jeizas.service.UserService;
 import com.jeizas.utils.Constants;
 import com.jeizas.utils.ErrorCodes;
 import com.jeizas.utils.SessionKeys;
@@ -36,13 +39,25 @@ public class UserAction implements Serializable{
 	private OrderService orderService;
 	@Autowired
 	private FoodService foodService;
+	@Autowired
+	private UserService userService;
+	
 	/**
 	 * 用户个人中心
 	 * @return
 	 */
 	@RequestMapping(value="/uhome",method=RequestMethod.GET)
-	public String home(){
-		return "homeu";
+	public String home(HttpSession session, Model model){
+		String retString = null;
+		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
+		if(usrId > 0){
+			User user = userService.findRecordByProperty(User.FIELD_ID, usrId);
+			model.addAttribute("user", user);
+			retString = "homeu";
+		} else{
+			retString = "index";
+		}
+		return retString;
 	}
 
 	/**
@@ -50,8 +65,34 @@ public class UserAction implements Serializable{
 	 * @return
 	 */
 	@RequestMapping(value="/uorder",method=RequestMethod.GET)
-	public String order(){
+	public String order(HttpSession session, Model model){
 		return "orderu";
+	}
+	
+	/**
+	 * 我的订单页面的数据
+	 * @return
+	 */
+	@RequestMapping(value="/dtlo",method=RequestMethod.GET)
+	public @ResponseBody Map<String, Object> orderd(HttpSession session, Model model){
+		Integer errorCode = ErrorCodes.SUCCESS;
+		Map<String, Object> retMap = new HashMap<String, Object>();
+		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
+		List<OrderDTO> retDto = new ArrayList<OrderDTO>();
+		if(usrId != null){
+			User user = userService.findRecordByProperty(User.FIELD_ID, usrId);
+			List<Order> list = orderService.findUndeletedRecordsByProperty(Order.FIELD_USR_ID, usrId);
+			for(Order o:list){
+				Food food = foodService.findRecordByProperty(Food.FIELD_ID, o.getFoodId());
+				OrderDTO od = new OrderDTO(o, food, user);
+				retDto.add(od);
+			}
+		} else{
+			errorCode = ErrorCodes.NOT_LOGIN;
+		}
+		retMap.put("errorCode", errorCode);
+		retMap.put("list", retDto);
+		return retMap;
 	}
 	
 	/**
@@ -165,4 +206,5 @@ public class UserAction implements Serializable{
 		retMap.put("money", money);
 		return retMap;
 	}
+	
 }

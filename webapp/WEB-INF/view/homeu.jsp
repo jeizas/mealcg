@@ -15,22 +15,22 @@
 	<script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="static/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="static/js/index.js"></script>
-	<script type="text/javascript" src="static/js/md5.js"></script>
+	<script type="text/javascript" src="static/js/homeu.js"></script>
 </head>
 <body>
 	<%@ include file="/WEB-INF/view/common/navbar.jsp"%>
 	<!-- 内容 -->
 	<div class="container user">
 	    <div class="row">
-	    <img src="/static/img/cake.jpg" class="col-md-4 user-img ">
+	    <img src="/static/img/cake.jpg" class="col-md-4 user-img">
 		    <div class="col-md-8 info">
-		       <span class="title"><strong>用户ID：</strong></span><span class="info-con">wuyisha</span><a href="＃"><small>［修改］</small></a>
-		        <br><span class="title"><strong>手机号码：</strong></span><span class="info-con">1582345806</span>
-		        <br><span class="title"><strong>积分：</strong></span><span class="info-con">1200</span>
+		       <span class="title"><strong>用户名</strong></span><span class="info-con">${user.nick }</span><a href="javascript:;" id="modifyName"><small>［修改］</small></a>
+		        <br><span class="title"><strong>手机号码：</strong></span><span class="info-con">${user.phone }</span><a href="javascript:;" id="modifyPhone"><small>［修改］</small></a>
+		        <br><span class="title"><strong>积分：</strong></span><span class="info-con">${user.phone }</span>
 		    </div>
 	    </div>
 	    <div class="row info-sec">
-	        <span class="title"><strong>收货地址：</strong></span><span class="info-con">环城北路88号B10-417宿舍</span><a href="＃"><small>［修改］</small></a>
+	        <span class="title"><strong>收货地址：</strong></span><span class="info-con">${user.addr }</span><a href="javascript:;" id="modifyAddr"><small>［修改］</small></a>
 	        <br><span class="title"><strong>最近订单：</strong></span>
 	            <ul class="info-order">
 	                <li><a href="">张麻子大饼</a></li>

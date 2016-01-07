@@ -37,6 +37,11 @@
 		<to>uorder</to>
 	</rule>
 	<rule>
+		<note>用户订单数据</note>
+		<from>^/odtl$</from>
+		<to>dtlo</to>
+	</rule>
+	<rule>
 		<note>用户收藏</note>
 		<from>^/collectu$</from>
 		<to>ucollect</to>
