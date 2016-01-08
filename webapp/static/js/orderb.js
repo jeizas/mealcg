@@ -21,7 +21,7 @@ $(function() {
 					$('#tab1').children().append(str);
 				}
 			}else{
-				alert(errorCodes[data.errorCode]);
+				alert(data.errorCode);
 			}
 		},
 		error:function(){
@@ -51,7 +51,7 @@ $(function() {
 					$('#tab2').children().append(str);
 				}
 			}else{
-				alert(errorCodes[data.errorCode]);
+				alert(data.errorCode);
 			}
 		},
 		error:function(){
@@ -81,7 +81,7 @@ $(function() {
 					$('#tab3').children().append(str);
 				}
 			}else{
-				alert(errorCodes[data.errorCode]);
+				alert(data.errorCode);
 			}
 		},
 		error:function(){

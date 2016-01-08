@@ -26,7 +26,7 @@
 			<div class="row"  style="border-bottom:1px solid #e3e3e3;">
 				<div class="col-md-6">
 					<div class="thumbnail" style="height:150px;">
-			            <img src="./static/img/cake.jpg" class="pull-left" alt="" style="width:140px;height:140px;">
+			            <img src="${o.url }" class="pull-left" alt="" style="width:140px;height:140px;">
 			            <div class="caption">
 			                <h3 style="line-height:2px;">${o.name }</h3>
 			                <small style="color:#f6be6a;">${o.dsc }</small>
