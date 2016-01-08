@@ -76,7 +76,7 @@ public class BusinessAction implements Serializable{
 			User user = userService.findRecordByProperty(User.FIELD_ID, usrId);
 			List<Order> order = orderService.findSubmitOrder(user.getId(), Order.STATE_DEF);
 			for(Order o:order){
-				Food food = foodService.findRecordByProperty(Food.FIELD_ID, o.getId());
+				Food food = foodService.findRecordByProperty(Food.FIELD_ID, o.getFoodId());
 				if(food != null){
 					OrderDTO dto = new OrderDTO(o, food, user);
 					retDto.add(dto);
@@ -103,7 +103,7 @@ public class BusinessAction implements Serializable{
 			User user = userService.findRecordByProperty(User.FIELD_ID, usrId);
 			List<Order> order = orderService.findSubmitOrder(user.getId(), Order.STATE_ACC);
 			for(Order o:order){
-				Food food = foodService.findRecordByProperty(Food.FIELD_ID, o.getId());
+				Food food = foodService.findRecordByProperty(Food.FIELD_ID, o.getFoodId());
 				if(food != null){
 					OrderDTO dto = new OrderDTO(o, food, user);
 					retDto.add(dto);
@@ -130,7 +130,7 @@ public class BusinessAction implements Serializable{
 			User user = userService.findRecordByProperty(User.FIELD_ID, usrId);
 			List<Order> order = orderService.findSubmitOrder(user.getId(), Order.STATE_SUC);
 			for(Order o:order){
-				Food food = foodService.findRecordByProperty(Food.FIELD_ID, o.getId());
+				Food food = foodService.findRecordByProperty(Food.FIELD_ID, o.getFoodId());
 				if(food != null){
 					OrderDTO dto = new OrderDTO(o, food, user);
 					retDto.add(dto);
@@ -381,7 +381,7 @@ public class BusinessAction implements Serializable{
 		if(usrId != null){
 			if(file != null && foodId != null){
 				logger.info(file.getName());
-				String realpath = request.getSession().getServletContext().getRealPath("/resource/mealface1/")+foodId;//得到文件夹路径
+				String realpath = request.getSession().getServletContext().getRealPath(Constants.FOOD_URL)+foodId;//得到文件夹路径
 				File tmp = new File(realpath);//判断该文件夹是名是否存在
 				if(!tmp.exists()  && !tmp.isDirectory()) {   
 				    	System.out.println("//文件夹不存在，已创建");

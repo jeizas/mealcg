@@ -14,7 +14,6 @@
     <script type="text/javascript" src="static/bootstrap/js/jquery.min.js"></script>
 	<script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="static/js/jquery-1.8.3.min.js"></script>
-	<script type="text/javascript" src="static/js/index.js"></script>
 	<script type="text/javascript" src="static/js/orderb.js"></script>
 </head>
 <body>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.jeizas.utils.Constants"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,7 +28,7 @@
 			<div class="row"  style="border-bottom:1px solid #e3e3e3;">
 				<div class="col-md-6">
 					<div class="thumbnail" style="height:150px;margin-top:24px;">
-	                    <img src="/resource/mealface1/${f.id }/${f.img }" class="pull-left" alt="" style="width:140px;height:140px;">
+	                    <img src="<%=Constants.FOOD_URL%>${f.id }/${f.img }" class="pull-left" alt="" style="width:140px;height:140px;">
 	                    <div class="caption">
 	                        <h3 style="line-height:2px;">${f.name }</h3>
 	                        <small style="color:#1abc9c;">${f.dsc }</small>
