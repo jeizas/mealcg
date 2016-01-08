@@ -37,6 +37,11 @@
 		<to>uorder</to>
 	</rule>
 	<rule>
+		<note>用户订单数据</note>
+		<from>^/odtl$</from>
+		<to>dtlo</to>
+	</rule>
+	<rule>
 		<note>用户收藏</note>
 		<from>^/collectu$</from>
 		<to>ucollect</to>
@@ -70,6 +75,16 @@
 		<note>热门餐品</note>
 		<from>^/hotf$</from>
 		<to>hotfd</to>
+	</rule>
+	<rule>
+		<note>添加收藏</note>
+		<from>^/like$</from>
+		<to>likeIt</to>
+	</rule>
+	<rule>
+		<note>收藏数据</note>
+		<from>^/dtll$</from>
+		<to>ldtl</to>
 	</rule>
 	<!--  商家页面 -->
 	<rule>

@@ -4,6 +4,7 @@ $(function() {
 		success:function(data){
 			if(data.errorCode == 0){
 				var str;
+				$('#hotFood').empty();
 				for(var i=0;i<data.list.length;i++){
 					str = ''
 					+'<div class="col-md-6">'
