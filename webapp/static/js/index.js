@@ -9,7 +9,7 @@ $(function() {
 					str = ''
 					+'<div class="col-md-6">'
 						+'<div class="thumbnail">'
-							+'<img src="/resource/mealface/'+data.list[i].id+'/'+data.list[i].img+' " class="pull-left" alt="" style="width:180px;height:180px;">'
+							+'<img src="'+data.list[i].url+'" class="pull-left" alt="" style="width:180px;height:180px;">'
 							+'<div class="caption">'
 								+'<h3 style="line-height:2px;">'+data.list[i].name+'</h3>'
 								+'<small style="color:#f6be6a;">'+data.list[i].dsc+'</small>'

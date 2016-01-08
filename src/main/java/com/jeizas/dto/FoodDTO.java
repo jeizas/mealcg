@@ -1,31 +1,33 @@
 package com.jeizas.dto;
 
 import com.jeizas.entity.Food;
+import com.jeizas.entity.Like;
 import com.jeizas.entity.Order;
+import com.jeizas.entity.User;
 import com.jeizas.utils.Constants;
 
-public class CartDTO {
+public class FoodDTO {
 	
 	private Integer id;
 	private String name;
-	private String dsc;
-	private Integer count;
-	private Integer money;
 	private String url;
+	private String addr;
+	private String dsc;
+	private Integer money;
 	
-	public CartDTO(){
+	public FoodDTO(){
 		super();
 	}
 	 
-	public CartDTO(Order o, Food food){
-		this.id = o.getId();
-		this.name = food.getName();
-		this.dsc = food.getDsc();
-		this.money = food.getMoney();
-		this.count = o.getCount();
-		this.url = Constants.FOOD_URL + food.getId()+"/"+food.getImg();
+	public FoodDTO(Food f){
+		this.id = f.getId();
+		this.name = f.getName();
+		this.dsc = f.getDsc();
+		this.money = f.getMoney();
+		this.url = Constants.FOOD_URL + f.getId()+"/"+f.getImg();
+		this.addr = f.getAddr();
+		
 	}
-	
 	
 	public Integer getId() {
 		return id;
@@ -52,14 +54,6 @@ public class CartDTO {
 		this.money = money;
 	}
 
-	public Integer getCount() {
-		return count;
-	}
-
-	public void setCount(Integer count) {
-		this.count = count;
-	}
-
 	public String getUrl() {
 		return url;
 	}
@@ -67,7 +61,12 @@ public class CartDTO {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	
-	
 
+	public String getAddr() {
+		return addr;
+	}
+
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
 }
