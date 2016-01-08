@@ -30,7 +30,7 @@
 			            <img src="${o.url }" class="pull-left" alt="" style="width:140px;height:140px;">
 			            <div class="caption">
 			                <h3 style="line-height:2px;">${o.name }</h3>
-			                <small style="color:#f6be6a;">${o.dsc }</small>
+			                <small style="color:#1abc9c;">${o.dsc }</small>
 			                <p class="sh ps mon">￥<span class="money">${o.money }</span></p>
 			            </div>
 					</div>

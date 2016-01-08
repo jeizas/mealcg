@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-        <a href="orderb" class="navbar-brand" style="border-right:1px solid #f6be6a;">饭来啦商家管理</a>
+        <a href="orderb" class="navbar-brand" style="">饭来啦商家管理</a>
         </div> 
         <div class="collapse navbar-collapse" id="bs-Dropdown-navbar-collapse-1">
 	        <ul class="nav navbar-nav">
@@ -27,6 +27,7 @@
  	</div>
 </nav>
 <script type="text/javascript">
+
 	var name =  "<%=session.getAttribute(SessionKeys.USER_NAME)%>";
 	if(name != "null" ){
 		$('.navbar-brand').text(name);

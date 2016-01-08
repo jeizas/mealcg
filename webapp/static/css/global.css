@@ -13,5 +13,7 @@
 	z-index: 50;
 }
 li a span{margin-left:8px;margin-right:6px;}
-.dropdown-toggle{width: 128px;}
+.dropdown-toggle{width: 128px; line-height: 53px;}
 .nav ul li a:hover{color: #ffe9b3;font-weight: bold;}
+
+.dropdown-menu{margin-top:0; margin-right:-10px;}
