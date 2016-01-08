@@ -22,7 +22,7 @@
 		left: 450px;
 		width: 300px;
 		height: 440px;
-		background-color: #f6be6a;
+		background-color: #1abc9c;
 		border-radius: 10px;
 		opacity: 0.9;
 	}
@@ -57,16 +57,7 @@
 		width: 220px;
 	}
 	.login{
-		width: 110px;
-		height: 40px;
-		background-color: #fbe1cd;
-		color: #dd8140;
-		float: left;
-		margin-top: 55px;
-		font-size: 20px;
-		opacity: 0.8;
-		padding-left: 35px;
-		padding-top: 5px;
+		float:left;
 	}
 	#new{
 		margin-left: 1px;

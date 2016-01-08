@@ -38,7 +38,7 @@
                     <img src="/static/img/cake.jpg" class="pull-left" alt="" style="width:180px;height:180px;">
                     <div class="caption">
                         <h3 style="line-height:2px;">蛋黄蛋糕</h3>
-                        <small style="color:#f6be6a;">自家烘焙</small>
+                        <small style="color:#1abc9c;">自家烘焙</small>
                         <p class="sh ps">￥8</p>
                         <p class="sh">12元起送</p>
                         <p class="sh">月销量11938份</p>
@@ -52,7 +52,7 @@
                     <img src="/static/img/cake.jpg" class="pull-left" alt="" style="width:180px;height:180px;">
                     <div class="caption">
                         <h3 style="line-height:2px;">蛋黄蛋糕</h3>
-                        <small style="color:#f6be6a;">自家烘焙</small>
+                        <small style="color:#1abc9c;">自家烘焙</small>
                         <p class="sh ps">￥8</p>
                         <p class="sh">12元起送</p>
                         <p class="sh">月销量11938份</p>

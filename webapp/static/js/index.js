@@ -12,7 +12,7 @@ $(function() {
 							+'<img src="'+data.list[i].url+'" class="pull-left" alt="" style="width:180px;height:180px;">'
 							+'<div class="caption">'
 								+'<h3 style="line-height:2px;">'+data.list[i].name+'</h3>'
-								+'<small style="color:#f6be6a;">'+data.list[i].dsc+'</small>'
+								+'<small style="color:#1abc9c;">'+data.list[i].dsc+'</small>'
 								+'<p class="sh ps">￥'+data.list[i].money+'</p>'
 								+'<p class="sh">12元起送</p>'
 								+'<p class="sh">月销量'+data.list[i].money+'份</p>'

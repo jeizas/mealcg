@@ -7,7 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>饭来啦</title>
 	<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
-	<link href="static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">  
+    <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="static/bootstrap/css/flat-ui.min.css" rel="stylesheet" type="text/css">
     <link href="static/css/style.css" rel="stylesheet">
     <link href="static/css/global.css" rel="stylesheet">
     
@@ -20,7 +21,7 @@
 <body>
     <%@ include file="/WEB-INF/view/common/navb.jsp"%>
 	<!-- 内容 -->
-	<h2 style="margin:50px; ">美味蛋糕店<p style="float:right;"><a style=" background-color:orange;border:1px solid orange;" href="/addf" role="button" class="btn btn-primary btn-lg">添加新菜品</a></p> </h2>
+	<h2 style="margin:50px; ">美味蛋糕店<p style="float:right;"><a style=" background-color:#1abc9c;border:1px solid #1abc9c;" href="/addf" role="button" class="btn btn-primary btn-lg">添加新菜品</a></p> </h2>
 	<div class="container shop-main">
 	    <c:forEach items="${foods }" var="f">
 			<div class="row"  style="border-bottom:1px solid #e3e3e3;">
@@ -29,7 +30,7 @@
 	                    <img src="/resource/mealface1/${f.id }/${f.img }" class="pull-left" alt="" style="width:140px;height:140px;">
 	                    <div class="caption">
 	                        <h3 style="line-height:2px;">${f.name }</h3>
-	                        <small style="color:#f6be6a;">${f.dsc }</small>
+	                        <small style="color:#1abc9c;">${f.dsc }</small>
 	                        <p class="sh ps mon">￥${f.money }</p>
 	                        <small>销量：</small><span>${f.money }</span>
 	                    </div>

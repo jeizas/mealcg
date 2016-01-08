@@ -1,5 +1,5 @@
 #bs-Dropdown-navbar-collapse-1 a:hover{
-        background-color: #f6be6a;
+        background-color: #1abc9c;
         color: white;
     }
     .no-padding{
@@ -14,21 +14,21 @@
         margin-bottom: 20px;
     }   
     #tabb a{
-        color: #f6be6a;
+        color: #1abc9c;
     }
     #tabb .active a{
-        color: orange;
+        color: #1abc9c;
         font-weight: bold;
     }
 
     .tab-content samll{
-        color: #f6be6a;
+        color: #1abc9c;
     }
     .thumbnail{
         margin-top: 10px;
     }
     .thumbnail button{
-        background-color: #f6be6a;
+        background-color: #1abc9c;
         color: #fff;
         border-radius: 0px;
     }
@@ -46,7 +46,7 @@
     }
     .badge{
         margin-left: 3px;   
-        color: orange;
+        color: #1abc9c;
     }
 
     .btm-ftr{
@@ -69,7 +69,7 @@
         width:30px;
         padding: 4px 0px;
         text-align: center;
-        color: #f6be6a;
+        color: #1abc9c;
     }
 
 
@@ -95,13 +95,13 @@
         border: 1px solid #e3e3e3;
     }
     .mon{
-        color: orange;
+        color: #1abc9c;
     }
     .total{
         margin-top: 100px;
     }
     .check{
-        color:#f6be6a; 
+        color:#1abc9c;
         font-size: 24px;
         padding: 30px;
         text-align:center;
@@ -114,23 +114,23 @@
         margin-top: 30px;
     }
     .checkbtn{
-        background-color: #f6be6a;
+        background-color: #1abc9c;
         height: 86px;
         color: white;
         font-size: 22px;
         width: 120px;
     }
     .user{
-        width: 720px;
-        height: 420px;
+        /*width: 720px;*/
+        /*height: 420px;*/
         border: 1px solid #e3e3e3;
         border-radius: 5px;
         background-color: #f2f0ec;
         margin-top: 5px;
     }
     .user2{
-        width: 720px;
-        height: 460px;
+        /*width: 720px;*/
+        /*height: 460px;*/
         border: 1px solid #e3e3e3;
         border-radius: 5px;
         background-color: #f2f0ec;
