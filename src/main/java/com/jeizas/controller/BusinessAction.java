@@ -381,7 +381,7 @@ public class BusinessAction implements Serializable{
 		if(usrId != null){
 			if(file != null && foodId != null){
 				logger.info(file.getName());
-				String realpath = request.getSession().getServletContext().getRealPath("/resource/mealface/")+foodId;//得到文件夹路径
+				String realpath = request.getSession().getServletContext().getRealPath("/resource/mealface1/")+foodId;//得到文件夹路径
 				File tmp = new File(realpath);//判断该文件夹是名是否存在
 				if(!tmp.exists()  && !tmp.isDirectory()) {   
 				    	System.out.println("//文件夹不存在，已创建");

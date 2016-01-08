@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.jeizas.dto.FoodDTO;
 import com.jeizas.entity.Food;
 import com.jeizas.entity.User;
 import com.jeizas.service.FoodService;
 import com.jeizas.service.UserService;
+import com.jeizas.utils.Constants;
 import com.jeizas.utils.ErrorCodes;
 
 @Controller
@@ -56,10 +58,15 @@ public class IndexAction implements Serializable{
 	@RequestMapping(value="/hotfd",method=RequestMethod.GET)
 	public @ResponseBody Map<String, Object> hotfood(){
 		List<Food> list = foodService.findAllRecords();
-		Map<String, Object> retMap = new HashMap<String, Object>();
+		List<FoodDTO> retDTO = new ArrayList<FoodDTO>();
+		for(Food f:list){
+			FoodDTO dto = new FoodDTO(f);
+			retDTO.add(dto);
+		}
+ 		Map<String, Object> retMap = new HashMap<String, Object>();
 		Integer errorCode = ErrorCodes.SUCCESS;
 		retMap.put("errorCode", errorCode);
-		retMap.put("list", list);
+		retMap.put("list", retDTO);
 		return retMap;
 	}
 }

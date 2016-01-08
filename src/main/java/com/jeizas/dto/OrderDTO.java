@@ -4,6 +4,7 @@ import com.jeizas.entity.Food;
 import com.jeizas.entity.Like;
 import com.jeizas.entity.Order;
 import com.jeizas.entity.User;
+import com.jeizas.utils.Constants;
 
 public class OrderDTO {
 	
@@ -25,7 +26,7 @@ public class OrderDTO {
 		this.name = food.getName();
 		this.dsc = food.getDsc();
 		this.money = food.getMoney();
-		this.url = "/resource/mealface/"+food.getId()+"/"+food.getImg();
+		this.url = Constants.FOOD_URL + food.getId()+"/"+food.getImg();
 		this.user = user.getNick()+" "+user.getPhone();
 		this.addr = user.getAddr();
 		switch(o.getState()){
