@@ -6,7 +6,8 @@
 <title>饭来啦</title>
 
 	<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
-	<link href="static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">  
+    <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="static/bootstrap/css/flat-ui.min.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="static/bootstrap/js/jquery.min.js"></script>
 	<script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="static/js/jquery-1.8.3.min.js"></script>

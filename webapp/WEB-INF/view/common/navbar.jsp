@@ -11,7 +11,7 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 	      	</button>
-	        <a href="/" class="navbar-brand" style="border-right:1px solid #f6be6a;">饭来啦</a>
+	        <a href="/" class="navbar-brand" style="">饭来啦</a>
 	    </div> 
 	    <div class="collapse navbar-collapse" id="bs-Dropdown-navbar-collapse-1">
 	        <ul class="nav navbar-nav">
