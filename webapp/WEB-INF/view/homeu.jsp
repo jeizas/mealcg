@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>饭来啦</title>
+<title>饭来啦-dfkj</title>
 	<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
-	<link href="static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">  
+    <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="static/bootstrap/css/flat-ui.min.css" rel="stylesheet" type="text/css">
     <link href="static/css/style.css" rel="stylesheet">
     <link href="static/css/login.css" rel="stylesheet">
     <link href="static/css/global.css" rel="stylesheet">
@@ -89,7 +90,6 @@
 		<br>   
 		<a href="collection.html" class="pull-right">More……</a>
 	</div>
-	<%@ include file="/WEB-INF/view/common/navbar.jsp"%>
 	<!-- 这里是footer开始的地方 -->
 	<footer>
 	    <div class="container-fluid btm-ftr">

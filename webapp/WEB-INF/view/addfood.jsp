@@ -7,9 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, minimum-scale=1.0,user-scalable=no" />
 <title>饭来啦</title>
 	<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
-	
-	<link href="static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"> 
-	 <link href="static/css/jquery.Jcrop.min.css" rel="stylesheet"> 
+
+    <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="static/bootstrap/css/flat-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="static/css/jquery.Jcrop.min.css" rel="stylesheet">
     <link href="static/css/style.css" rel="stylesheet">
     <link href="static/css/global.css" rel="stylesheet">
     <link href="static/css/addfood.css" rel="stylesheet">
