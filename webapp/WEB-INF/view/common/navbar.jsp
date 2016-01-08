@@ -42,8 +42,9 @@
     </div>  
 </nav>
 <script type="text/javascript">
+	var role = "<%=session.getAttribute(SessionKeys.USER_ROLE)%>";
 	var nick =  "<%=session.getAttribute(SessionKeys.USER_NICK)%>";
-	if(nick != "null" ){
+	if(role == 1 && nick != "null" ){
 		$('#username').text(nick);
 		$('.glyphicon-log-in').next("span").text('用户已登录');
 	}

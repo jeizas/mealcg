@@ -41,4 +41,20 @@ public class OrderDao extends BaseHibernateDao<Order>{
 		q.setParameter(1, foodId);
 		q.executeUpdate();
 	}
+	
+	public void updateState(Integer usrId){
+		String hql = "update Order set state=? where usrId=? ";
+		Query q = createQuery(hql);
+		q.setParameter(0, Order.STATE_DEF);
+		q.setParameter(1, usrId);
+		q.executeUpdate();
+	}
+	public List<Order> cartOrder(Integer usrId){
+		String hql = "from Order where usrId=? and state=? and deleted=?";
+		Query q = createQuery(hql);
+		q.setParameter(0, usrId);
+		q.setParameter(1, Order.STATE_SUB);
+		q.setParameter(2, Constants.DELETED_NO);
+		return q.list();
+	}
 }

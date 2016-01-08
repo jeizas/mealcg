@@ -33,19 +33,14 @@ public class IndexAction implements Serializable{
 	@Autowired
 	private FoodService foodService;
 	
+	/**
+	 * 默认页面
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="/index",method=RequestMethod.GET)
 	public String index(Model model){
-		List<Food> list = foodService.findAllRecords();
-		List<List<Food>> foods = new ArrayList<List<Food>>();
-		List<Food> food = new ArrayList<Food>();
-		for(int i=0;i<list.size();i++){
-			food.add(list.get(i));
-			if(i%2 == 1){
-				foods.add(food);
-				food = new ArrayList<Food>();
-			}
-		}
-		model.addAttribute("foods", foods);
+		model.addAttribute("pageType", "index");
 		return "index";
 	}
 	@RequestMapping(value="/hello",method=RequestMethod.GET)
@@ -55,6 +50,10 @@ public class IndexAction implements Serializable{
 		return "index";
 	}
 	
+	/**
+	 * 首页数据
+	 * @return
+	 */
 	@RequestMapping(value="/hotfd",method=RequestMethod.GET)
 	public @ResponseBody Map<String, Object> hotfood(){
 		List<Food> list = foodService.findAllRecords();

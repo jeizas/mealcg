@@ -67,6 +67,11 @@
 		<to>dorder</to>
 	</rule>
 	<rule>
+		<note>用户购物车订单</note>
+		<from>^/cartsub$</from>
+		<to>subcart</to>
+	</rule>
+	<rule>
 		<note>用户地址</note>
 		<from>^/addru$</from>
 		<to>uaddr</to>
