@@ -47,16 +47,17 @@
 	if(role == 1 && nick != "null" ){
 		$('#username').text(nick);
 		$('.glyphicon-log-in').next("span").text('用户已登录');
+		$.get("/urdCnt",function(data) {
+			if(data.errorCode == 0){
+				$('.badge').text(data.count);
+			}else{
+				alert("网络连接错误，请稍候重试...");
+			}
+		});
 	}
 	$('.navbar-nav li a').click(function(e){
 		<%--$('.navbar-nav li').removeClass("active");--%>
 		$(this).parents("li").siblings().removeClass("active").addClass("active");
 	})
-	$.get("/urdCnt",function(data) {
-		if(data.errorCode == 0){
-			$('.badge').text(data.count);
-		}else{
-			alert("网络连接错误，请稍候重试...");
-		}
-	});
+	
 </script>

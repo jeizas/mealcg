@@ -32,6 +32,13 @@
 	
 	if(role == 2 && name != "null" ){
 		$('.navbar-brand').text(name);
+		$.get("/rdCnt",function(data) {
+			if(data.errorCode == 0){
+				$('.badge').text(data.count);
+			}else{
+				alert("网络连接错误，请稍候重试...");
+			}
+		});
 	}
 	var flag = "<%=session.getAttribute(SessionKeys.BUS_FLAG)%>";
 	if(flag == 1){
@@ -53,11 +60,5 @@
 			}
 		});
 	})
-	$.get("/rdCnt",function(data) {
-			if(data.errorCode == 0){
-				$('.badge').text(data.count);
-			}else{
-				alert("网络连接错误，请稍候重试...");
-			}
-		});
+	
 </script>
