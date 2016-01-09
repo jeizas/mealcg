@@ -17,7 +17,7 @@
 	<script type="text/javascript" src="static/js/index.js"></script>
 	<script type="text/javascript" src="static/js/md5.js"></script>
 	<script type="text/javascript">
-		var pageType = ${pageType }
+		var pageType = "${pageType }";
 	</script>
 </head>
 <body>
@@ -68,13 +68,22 @@
 
 
         <div class="tab-pane" id="tab2">
-            <p>特价餐品内容写在这里</p>
+            <div class="work-null-data">
+            	<img src="http://res.alltuu.com/static/images/photographer/noData.png"/>
+            	<p>管理员太懒，还没有添加任何东西！</p>
+            </div>
         </div>
          <div class="tab-pane" id="tab3">
-            <p>新增餐品内容写在这里</p>
+            <div class="work-null-data">
+            	<img src="http://res.alltuu.com/static/images/photographer/noData.png"/>
+            	<p>管理员太懒，还没有添加任何东西！</p>
+            </div>
         </div>
          <div class="tab-pane" id="tab4">
-            <p>特别推荐内容写在这里</p>
+            <div class="work-null-data">
+            	<img src="http://res.alltuu.com/static/images/photographer/noData.png"/>
+            	<p>管理员太懒，还没有添加任何东西！</p>
+            </div>
         </div>
         </div>
     </div>
@@ -95,7 +104,7 @@
 	<!-- 这里是footer开始的地方 -->
 	<footer>
 	    <div class="container-fluid btm-ftr">
-	    <p>© copyright lily 2015.5</p></div>
+	    <p>© copyright jeizas 2015.12</p></div>
 	</footer>
 	<!-- 这里是footer结束的地方 -->
 </body>

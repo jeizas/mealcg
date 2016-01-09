@@ -42,6 +42,7 @@ public class User implements Serializable{
 	private Date sdate;
 	private Integer grpId;
 	private Integer flag;
+	private Integer count;
 	private Integer deleted;
 	
 	public User(){
@@ -59,6 +60,7 @@ public class User implements Serializable{
 		this.flag = FLAG_NO;
 		this.phone = "130000000";
 		this.addr = "沈阳";
+		this.count = 0;
 	}
 	
 	@Id
@@ -147,4 +149,12 @@ public class User implements Serializable{
 	public void setDeleted(Integer deleted) {
 		this.deleted = deleted;
 	}
+	@Column(name = "count")
+	public Integer getCount() {
+		return count;
+	}
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+	
 }
