@@ -53,7 +53,7 @@ public class Food implements Serializable{
 		this.busId = user.getId();
 		this.busName = user.getName();
 		this.publish = PUBLISH_NO;
-		this.deleted = Constants.DELETED_NO;
+		this.deleted = Constants.DELETED_YES;
 	}
 
 	@Id

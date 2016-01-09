@@ -261,7 +261,7 @@ public class BusinessAction implements Serializable{
 	/**
 	 * 商家修改店铺名字
 	 * @returnpublic User findUser(String email, String pwd, Integer type){
-		return getDao().findUser(email, pwd, type);
+		return getDao().findUser(email, pwd, type);List<Order> order = orderService.findSubmitOrder(user.getId(), Order.STATE_DEF);
 	}
 	 */
 	@RequestMapping(value="mname",method=RequestMethod.POST)
@@ -336,7 +336,9 @@ public class BusinessAction implements Serializable{
 			if(flag != null){
 				User user = userService.findRecordByProperty(User.FIELD_ID, usrId);
 				user.setFlag(flag);
-				userService.update(user);
+				if(userService.update(user) != null){
+					session.setAttribute(SessionKeys.BUS_FLAG, user.getFlag());
+				}
 			} else {
 				errorCode = ErrorCodes.INVALID_PARAM;
 			}
@@ -358,7 +360,7 @@ public class BusinessAction implements Serializable{
 			Food tmp = foodService.findRecordByProperty("id", id);
 			if(foodService.updateFood(tmp, food) != null){
 				logger.info("商家[USRID:"+user.getId()+"正在增加新的餐品[ID:"+food.getId()+"],餐品名称["+food.getName()+"]！");//显示要上传的文件名
-				retString = "menub";
+				retString = "redirect:/menub";
 			}
 		} else{
 			retString = "loginb";
@@ -393,7 +395,7 @@ public class BusinessAction implements Serializable{
 				Food food = foodService.findRecordByProperty("id", foodId);
 				food.setImg(f.getName());
 				if(foodService.update(food) != null){
-					url = "/resource/mealface/"+food.getId()+"/"+f.getName();
+					url = Constants.FOOD_URL +food.getId()+"/"+f.getName();
 				} else{
 					errorCode = ErrorCodes.INVALID_DB_INSERT;
 				}
@@ -425,6 +427,25 @@ public class BusinessAction implements Serializable{
 			errorCode = ErrorCodes.NOT_LOGIN;
 		}
 		retMap.put("errorCode", errorCode);
+		return retMap;
+	}
+	
+	/**
+	 * 商家订单数量
+	 */
+	@RequestMapping(value="cntOd",method=RequestMethod.POST)
+	public @ResponseBody Map<String, Object> orderCount(HttpSession session, Integer id){
+		Integer errorCode = ErrorCodes.SUCCESS;
+		Map<String, Object> retMap = new HashMap<String, Object>();
+		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
+		List<Order> list = null;
+		if(usrId != null){
+			list = orderService.findSubmitOrder(usrId, Order.STATE_DEF);
+		} else{
+			errorCode = ErrorCodes.NOT_LOGIN;
+		}
+		retMap.put("errorCode", errorCode);
+		retMap.put("count",list == null ? 0 : list.size());
 		return retMap;
 	}
 }

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.jeizas.utils.Constants"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,6 +26,7 @@
 	
 	<script type="text/javascript">
 		var foodId = "${food.id}";
+		<%-- var foodUrl = <%=Constants.FOOD_URL%>; --%>
 	</script>
 </head>
 <body>
@@ -36,7 +38,7 @@
 		<form id="addfood" name="addfood" method="post" action="/addfood">
 		 	<div class="col-lg-5 add-item">
 			    <div class="thumbnail">
-			      <img id="head" src="/static/img/cake.jpg" alt="...">
+			      <img id="head" src="/static/img/def.jpg" alt="..." style="margin-right: 5px;">
 			    </div>
 			  </div>
 			  <div class="col-lg-12">
@@ -105,7 +107,7 @@
 	<!-- 这里是footer开始的地方 -->
 	<footer>
 	    <div class="container-fluid btm-ftr">
-	    <p>© copyright lily 2015.5</p></div>
+	    <p>© copyright jeizas 2015.12</p></div>
 	</footer>
 	<!-- 这里是footer结束的地方 -->
 </body>

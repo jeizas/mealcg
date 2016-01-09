@@ -17,7 +17,7 @@
 	<script type="text/javascript" src="static/js/index.js"></script>
 	<script type="text/javascript" src="static/js/md5.js"></script>
 	<script type="text/javascript">
-		var pageType = ${pageType }
+		var pageType = "${pageType }";
 	</script>
 </head>
 <body>
@@ -95,7 +95,7 @@
 	<!-- 这里是footer开始的地方 -->
 	<footer>
 	    <div class="container-fluid btm-ftr">
-	    <p>© copyright lily 2015.5</p></div>
+	    <p>© copyright jeizas 2015.12</p></div>
 	</footer>
 	<!-- 这里是footer结束的地方 -->
 </body>

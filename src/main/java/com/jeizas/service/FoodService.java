@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.jeizas.dao.FoodDao;
 import com.jeizas.entity.Food;
 import com.jeizas.utils.BaseService;
+import com.jeizas.utils.Constants;
 
 @Service("foodService")
 public class FoodService extends BaseService<Food>{
@@ -28,6 +29,7 @@ public class FoodService extends BaseService<Food>{
 		tmp.setIsNew(food.getIsNew());
 		tmp.setName(food.getName());
 		tmp.setPublish(Food.PUBLISH_YES);
+		tmp.setDeleted(Constants.DELETED_NO);
 		return getDao().update(tmp);
 	}
 }

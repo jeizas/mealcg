@@ -14,7 +14,7 @@
         </div> 
         <div class="collapse navbar-collapse" id="bs-Dropdown-navbar-collapse-1">
 	        <ul class="nav navbar-nav">
-	            <li class="active"><a href="orderb">订单管理<span class=badge>5</span> </a></li>
+	            <li class="active"><a href="orderb">订单管理<span class=badge>0</span> </a></li>
 	            <li > <a href="menub">餐品管理 </a> </li>
 	            <li><a href="homeb"> 商家信息 </a></li>
 	        </ul>   
@@ -53,4 +53,11 @@
 			}
 		});
 	})
+	$.get("/rdCnt",function(data) {
+			if(data.errorCode == 0){
+				$('.badge').text(date.count);
+			}else{
+				alert("网络连接错误，请稍候重试...");
+			}
+		});
 </script>

@@ -91,6 +91,11 @@
 		<from>^/dtll$</from>
 		<to>ldtl</to>
 	</rule>
+	<rule>
+		<note>用户购物车数量</note>
+		<from>^/urdCnt$</from>
+		<to>cntUrd</to>
+	</rule>
 	<!--  商家页面 -->
 	<rule>
 		<note>商家登录</note>
@@ -179,5 +184,10 @@
 		<note>删除食品</note>
 		<from>^/delfood$</from>
 		<to>dfood</to>
+	</rule>
+	<rule>
+		<note>商家订单数量</note>
+		<from>^/odCnt$</from>
+		<to>cntOd</to>
 	</rule>
 </urlrewrite>
