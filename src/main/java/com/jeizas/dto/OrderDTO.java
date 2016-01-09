@@ -14,6 +14,7 @@ public class OrderDTO {
 	private String addr;
 	private String dsc;
 	private Integer money;
+	private Integer count;
 	private String user;
 	private String state;
 	
@@ -29,6 +30,7 @@ public class OrderDTO {
 		this.url = Constants.FOOD_URL + food.getId()+"/"+food.getImg();
 		this.user = user.getNick()+" "+user.getPhone();
 		this.addr = user.getAddr();
+		this.count = o.getCount() == null ? 1 : o.getCount();
 		switch(o.getState()){
 		    case 0: this.state = "待店铺接单";break;
 		    case 1: this.state = "店铺已接单";break;
@@ -42,7 +44,7 @@ public class OrderDTO {
 		this.name = food.getName();
 		this.dsc = food.getDsc();
 		this.money = food.getMoney();
-		this.url = "/resource/mealface/"+food.getId()+"/"+food.getImg();
+		this.url = Constants.FOOD_URL + food.getId()+"/"+food.getImg();
 		this.user = user.getNick()+" "+user.getPhone();
 		this.addr = user.getAddr();
 	}
@@ -102,6 +104,14 @@ public class OrderDTO {
 
 	public void setState(String state) {
 		this.state = state;
+	}
+
+	public Integer getCount() {
+		return count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
 	}
 	
 }

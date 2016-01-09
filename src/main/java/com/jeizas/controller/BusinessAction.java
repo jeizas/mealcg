@@ -433,7 +433,7 @@ public class BusinessAction implements Serializable{
 	/**
 	 * 商家订单数量
 	 */
-	@RequestMapping(value="cntOd",method=RequestMethod.POST)
+	@RequestMapping(value="cntrd",method=RequestMethod.GET)
 	public @ResponseBody Map<String, Object> orderCount(HttpSession session, Integer id){
 		Integer errorCode = ErrorCodes.SUCCESS;
 		Map<String, Object> retMap = new HashMap<String, Object>();

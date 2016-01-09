@@ -87,6 +87,11 @@
 		<to>likeIt</to>
 	</rule>
 	<rule>
+		<note>取消收藏</note>
+		<from>^/notlike$</from>
+		<to>likenot</to>
+	</rule>
+	<rule>
 		<note>收藏数据</note>
 		<from>^/dtll$</from>
 		<to>ldtl</to>
@@ -187,7 +192,7 @@
 	</rule>
 	<rule>
 		<note>商家订单数量</note>
-		<from>^/odCnt$</from>
-		<to>cntOd</to>
+		<from>^/rdCnt$</from>
+		<to>cntrd</to>
 	</rule>
 </urlrewrite>

@@ -11,7 +11,7 @@ $(function() {
 						+'<div class="thumbnail">'
 							+'<img src="'+data.list[i].url+'" class="pull-left" alt="" style="width:180px;height:180px;">'
 							+'<div class="caption">'
-								+'<h3 style="line-height:2px;">'+data.list[i].name+'</h3>'
+								+'<h5 style="line-height:2px;">'+data.list[i].name+'</h5>'
 								+'<small style="color:#1abc9c;">'+data.list[i].dsc+'</small>'
 								+'<p class="sh ps">￥'+data.list[i].money+'</p>'
 								+'<p class="sh">12元起送</p>'

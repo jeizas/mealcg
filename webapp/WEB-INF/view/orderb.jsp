@@ -32,7 +32,7 @@
 			    <div class="row">
 				  <div class="col-sm-4 col-md-3">
 				    <div class="thumbnail">
-				      <img src="/static/img/cake.jpg" alt="..." style= "margin:15px;">
+				      <img src="/static/img/cake.jpg" alt="..." >
 				      <div class="caption" style= "margin:15px;">
 				        <h3>¥10</h3><h4>蛋黄蛋糕</h4>
 				        <p>地址：B区公寓10</p>

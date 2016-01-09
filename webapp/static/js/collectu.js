@@ -11,9 +11,9 @@ $(function() {
 						+'<div class="thumbnail">'
 							+'<img src="'+data.list[i].url+'" alt="...">'
 							+'<div class="caption">'
-								+'<h3>名称：'+data.list[i].name+'</h3>'
+								+'<h5>名称：'+data.list[i].name+'</h5>'
 								+'<p>地址：'+data.list[i].addr+'</p>'
-								+'<a href="#" class="btn btn-default" role="button" onclick="likeIt('+data.list[i].id+')">取消收藏</a></p>'
+								+'<a href="#" class="btn btn-default" role="button" onclick="notlike('+data.list[i].id+')">取消收藏</a></p>'
 							+'</div>'
 						+'</div>'
 					+'</div>'
@@ -28,10 +28,10 @@ $(function() {
 		}
 	});
 })
-function likeIt(id){
-	$.post("/like", {id:id},function(data) {
+function notlike(id){
+	$.post("/notlike", {id:id},function(data) {
 		if(data.errorCode == 0){
-			alert("添加收藏成功！");
+			alert("取消收藏成功！");
 		}else{
 			alert("网络连接错误，请稍候重试...");
 		}

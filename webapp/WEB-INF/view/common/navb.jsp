@@ -55,7 +55,7 @@
 	})
 	$.get("/rdCnt",function(data) {
 			if(data.errorCode == 0){
-				$('.badge').text(date.count);
+				$('.badge').text(data.count);
 			}else{
 				alert("网络连接错误，请稍候重试...");
 			}
