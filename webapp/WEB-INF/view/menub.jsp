@@ -22,7 +22,7 @@
 <body>
     <%@ include file="/WEB-INF/view/common/navb.jsp"%>
 	<!-- 内容 -->
-	<h2 style="margin:50px; ">美味蛋糕店<p style="float:right;"><a style=" background-color:#1abc9c;border:1px solid #1abc9c;" href="/addf" role="button" class="btn btn-primary btn-lg">添加新菜品</a></p> </h2>
+	<p style="float:right;"><a style=" background-color:#1abc9c;border:1px solid #1abc9c;" href="/addf" role="button" class="btn btn-primary btn-lg">添加新菜品</a></p>
 	<div class="container shop-main">
 	    <c:forEach items="${foods }" var="f">
 			<div class="row"  style="border-bottom:1px solid #e3e3e3;">
@@ -30,7 +30,7 @@
 					<div class="thumbnail" style="height:150px;margin-top:24px;">
 	                    <img src="<%=Constants.FOOD_URL%>${f.id }/${f.img }" class="pull-left" alt="" style="width:140px;height:140px;">
 	                    <div class="caption">
-	                        <h3 style="line-height:2px;">${f.name }</h3>
+	                        <h5 style="line-height:2px;">${f.name }</h5>
 	                        <small style="color:#1abc9c;">${f.dsc }</small>
 	                        <p class="sh ps mon">￥${f.money }</p>
 	                        <small>销量：</small><span>${f.money }</span>
@@ -47,7 +47,7 @@
 	<!-- 这里是footer开始的地方 -->
 	<footer>
 	    <div class="container-fluid btm-ftr">
-	    <p>© copyright lily 2015.5</p></div>
+	    <p>© copyright jeizas 2015.12</p></div>
 	</footer>
 	<!-- 这里是footer结束的地方 -->
 </body>

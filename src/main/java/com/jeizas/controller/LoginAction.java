@@ -74,18 +74,22 @@ public class LoginAction implements Serializable{
 		Map<String,Object> retMap = new HashMap<String, Object>();
 		if(StringUtil.isValid(email) && StringUtil.isAllValid(pwd) && type !=null && type > 0){
 			logger.info("Email["+email+"]正在注册...");
-			User user = new User(email, pwd,request.getRemoteAddr());
-			user.setGrpId(type);
-			if(type == User.TYPE_BUSINESS){
-				user.setName("我的店铺");
-				user.setFlag(User.FLAG_NO);
-			}
-			User tmp = userService.insert(user);
-			if(tmp != null){
-				session.setAttribute(SessionKeys.USER_ID, tmp.getId());
-				session.setAttribute(SessionKeys.USER_NICK, tmp.getNick());
-				session.setAttribute(SessionKeys.USER_ROLE, tmp.getGrpId());
-			}else{
+			if(userService.findRecordByProperty("email", email) == null){
+				User user = new User(email, pwd,request.getRemoteAddr());
+				user.setGrpId(type);
+				if(type == User.TYPE_BUSINESS){
+					user.setName("我的店铺");
+					user.setFlag(User.FLAG_NO);
+				}
+				User tmp = userService.insert(user);
+				if(tmp != null){
+					session.setAttribute(SessionKeys.USER_ID, tmp.getId());
+					session.setAttribute(SessionKeys.USER_NICK, tmp.getNick());
+					session.setAttribute(SessionKeys.USER_ROLE, tmp.getGrpId());
+				}else{
+					errorCode = ErrorCodes.HAS_USER;
+				}
+			} else{
 				errorCode = ErrorCodes.INVALID_DB_INSERT;
 			}
 		}else{

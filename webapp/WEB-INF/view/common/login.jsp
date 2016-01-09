@@ -3,6 +3,7 @@
     <%@ page import="com.jeizas.utils.SessionKeys"%>
 <!-- 登录div -->
 	<link href="static/css/login.css" rel="stylesheet">
+	<script type="text/javascript" src="/static/js/common.js"></script>
 	
 	<div id="half_gray" class="hide"></div>
 	<div id="alogin" class="hide">
@@ -12,6 +13,7 @@
 			<div class="in"><td><input id="email" type="text"placeholder="邮箱"  style="padding-left:10px;font-size:16px;color:grey;"class="textInput"/></td></div>
 			<div id="blank"></div>
 			<div class="in"><td><input type="password" id="password"  placeholder="密码"  style="padding-left:10px;font-size:16px;color:grey;"class="textInput"/></td></div>
+			<span class="error" style="color:red;margin:10px 0 0 0;display:block;padding:0;border:none;font-size:12px;margin-left:40px">&nbsp;</span>
 			<a href="#"><div id="btn-log" class="login">登录</div></a>
 			<a href="#"><div id="btn-reg" class="login">注册</div></a>	
 		</div>
@@ -33,6 +35,11 @@ $(function() {
 	$('#btn-log').click(function(){
 		var email = $('#email').val();
 		var password = hex_md5($('#password').val());
+		var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+		if(!reg.test(email.trim())){
+			$('.error').text("邮箱格式不正确！");
+			return false;
+		}
 		$.ajax({
     		type:"post",
     		asyn:false,
@@ -47,9 +54,9 @@ $(function() {
     					var name = email.split("@");
     					$('#username').text(name[0]);
     					break;
-    				case 1: alert("参数错误！"); break;
-    				case 2: $alert("没有登录！"); break;
-    				case 3: alert("没有如此的用户！"); break;
+    				case 1: $('.error').text("参数错误！"); break;
+    				case 2: $('.error').text("没有登录！"); break;
+    				case 3: $('.error').text("用户名或密码错误！"); break;
     			}
     		},
     	});
@@ -58,6 +65,11 @@ $(function() {
 	$('#btn-reg').click(function(){
 		var email = $('#email').val();
 		var password = hex_md5($('#password').val());
+	    var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+		if(!reg.test(email.trim())){
+			$('.error').text("邮箱格式不正确！");
+			return false;
+		}
 		$.ajax({
     		type:"post",
     		asyn:false,
@@ -72,9 +84,10 @@ $(function() {
 						var name = email.split("@");
 						$('#username').text(name[0]);
 						break;
-    				case 1: alert("参数错误！"); break;
-    				case 2: $alert("没有登录！"); break;
-    				case 3: alert("没有如此的用户！"); break;
+    				case 1: $('.error').text("参数错误！"); break;
+    				case 2: $('.error').text("没有登录！"); break;
+    				case 3: $('.error').text("没有如此的用户！"); break;
+    				case 11: $('.error').text("该邮箱已经注册！"); break;
     			}
     		},
     	});

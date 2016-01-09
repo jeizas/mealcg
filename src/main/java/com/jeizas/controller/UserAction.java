@@ -147,6 +147,25 @@ public class UserAction implements Serializable{
 	}
 	
 	/**
+	 * 用户打开购物车
+	 * @return
+	 */
+	@RequestMapping(value="cntUrd",method=RequestMethod.GET)
+	public @ResponseBody Map<String, Object> cntUrd(HttpSession session, Integer id){
+		Integer errorCode = ErrorCodes.SUCCESS;
+		Map<String, Object> retMap = new HashMap<String, Object>();
+		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
+		List<Order> list = null;
+		if(usrId != null){
+			list = orderService.cartOrder(usrId);
+		} else{
+			errorCode = ErrorCodes.NOT_LOGIN;
+		}
+		retMap.put("errorCode", errorCode);
+		retMap.put("count",list == null ? 0 : list.size());
+		return retMap;
+	}
+	/**
 	 * 添加购物车
 	 * @return
 	 */
@@ -232,6 +251,25 @@ public class UserAction implements Serializable{
 		retMap.put("errorCode", errorCode);
 		return retMap;
 	}
+	
+	/**
+	 * 添加收藏
+	 * @return
+	 */
+	@RequestMapping(value="/likenot",method=RequestMethod.POST)
+	public @ResponseBody Map<String, Object> likenot(HttpSession session, Integer id){
+		Integer errorCode = ErrorCodes.SUCCESS;
+		Map<String, Object> retMap = new HashMap<String, Object>();
+		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
+		if(usrId != null){
+			errorCode = likeService.likenot(usrId, id);
+		} else{
+			errorCode = ErrorCodes.NOT_LOGIN;
+		}
+		retMap.put("errorCode", errorCode);
+		return retMap;
+	}
+	
 	/**
 	 * 我的收藏页面的数据
 	 * @return
