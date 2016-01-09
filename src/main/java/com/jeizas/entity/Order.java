@@ -31,6 +31,7 @@ public class Order implements Serializable{
 	public static final Integer STATE_ACC = 1;
 	public static final Integer STATE_SUC = 2;
 	public static final Integer STATE_REJ = 3;
+	public static final Integer STATE_SUB = 4;
 	
 	private Integer id;
 	private Integer usrId;
@@ -52,7 +53,7 @@ public class Order implements Serializable{
 		this.adate = new Date();
 		this.isPay = Constants.NO;
 		this.deleted = Constants.DELETED_NO;
-		this.state = STATE_DEF;
+		this.state = STATE_SUB;
 	}
 
 	@Id

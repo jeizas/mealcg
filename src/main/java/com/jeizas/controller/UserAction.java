@@ -37,6 +37,9 @@ public class UserAction implements Serializable{
 
 	private Logger logger = Logger.getLogger(UserAction.class); 
 	
+	public static final String INDEX = "index";
+	public static final String CART = "cart";
+	
 	@Autowired
 	private OrderService orderService;
 	@Autowired
@@ -126,7 +129,7 @@ public class UserAction implements Serializable{
 		List<CartDTO> carts = new ArrayList<CartDTO>();
 		Integer sum = 0;
 		if(usrId != null){
-			List<Order> list = orderService.findUndeletedRecordsByProperty(Order.FIELD_USR_ID, usrId);
+			List<Order> list = orderService.cartOrder(usrId);
 			for(int i=0; i<list.size();i++){
 				Food food = foodService.findRecordByProperty(Food.FIELD_ID, list.get(i).getFoodId());
 				CartDTO cart = new CartDTO(list.get(i) ,food);
@@ -135,10 +138,11 @@ public class UserAction implements Serializable{
 			}
 			retString = "cartu";
 		} else{
-			retString = "homeu";
+			retString = "index";
 		}
 		model.addAttribute("carts", carts);
 		model.addAttribute("sum", sum);
+		model.addAttribute("pageType", CART);
 		return retString;
 	}
 	
@@ -164,7 +168,7 @@ public class UserAction implements Serializable{
 	}
 	
 	/**
-	 * 添加购物车
+	 * 删除购物车中的食物
 	 * @return
 	 */
 	@RequestMapping(value="/mfood",method=RequestMethod.POST)
@@ -251,6 +255,26 @@ public class UserAction implements Serializable{
 		}
 		retMap.put("errorCode", errorCode);
 		retMap.put("list", retDto);
+		return retMap;
+	}
+	
+	/**
+	 * 删除订单
+	 * @param session
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/subcart",method=RequestMethod.GET)
+	public @ResponseBody Map<String, Object> subcart(HttpSession session){
+		Integer errorCode = ErrorCodes.SUCCESS;
+		Map<String, Object> retMap = new HashMap<String, Object>();
+		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
+		if(usrId != null){
+			orderService.subCart(usrId);
+		} else{
+			errorCode = ErrorCodes.NOT_LOGIN;
+		}
+		retMap.put("errorCode", errorCode);
 		return retMap;
 	}
 }

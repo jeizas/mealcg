@@ -84,6 +84,7 @@ public class LoginAction implements Serializable{
 			if(tmp != null){
 				session.setAttribute(SessionKeys.USER_ID, tmp.getId());
 				session.setAttribute(SessionKeys.USER_NICK, tmp.getNick());
+				session.setAttribute(SessionKeys.USER_ROLE, tmp.getGrpId());
 			}else{
 				errorCode = ErrorCodes.INVALID_DB_INSERT;
 			}

@@ -27,9 +27,10 @@
  	</div>
 </nav>
 <script type="text/javascript">
-
+	var role = "<%=session.getAttribute(SessionKeys.USER_ROLE)%>";
 	var name =  "<%=session.getAttribute(SessionKeys.USER_NAME)%>";
-	if(name != "null" ){
+	
+	if(role == 2 && name != "null" ){
 		$('.navbar-brand').text(name);
 	}
 	var flag = "<%=session.getAttribute(SessionKeys.BUS_FLAG)%>";

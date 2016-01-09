@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.jeizas.dao.OrderDao;
 import com.jeizas.entity.Order;
 import com.jeizas.utils.BaseService;
+import com.jeizas.utils.ErrorCodes;
 
 @Service("orderService")
 public class OrderService extends BaseService<Order>{
@@ -29,5 +30,12 @@ public class OrderService extends BaseService<Order>{
 	}
 	public void deletedOrderByFoodId(Integer foodId){
 		getDao().deletedOrderByFoodId(foodId);
+	}
+	
+	public void subCart(Integer usrId){
+		getDao().updateState(usrId);
+	}
+	public List<Order> cartOrder(Integer usrId){
+		return getDao().cartOrder(usrId);
 	}
 }

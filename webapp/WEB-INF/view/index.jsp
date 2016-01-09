@@ -16,6 +16,9 @@
 	<script type="text/javascript" src="static/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="static/js/index.js"></script>
 	<script type="text/javascript" src="static/js/md5.js"></script>
+	<script type="text/javascript">
+		var pageType = ${pageType }
+	</script>
 </head>
 <body>
     <%@ include file="/WEB-INF/view/common/navbar.jsp"%>

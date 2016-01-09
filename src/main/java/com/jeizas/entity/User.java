@@ -57,6 +57,8 @@ public class User implements Serializable{
 		this.nick = email.split("@")[0];
 		this.grpId = TYPE_DEFAULT;
 		this.flag = FLAG_NO;
+		this.phone = "130000000";
+		this.addr = "沈阳";
 	}
 	
 	@Id

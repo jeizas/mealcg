@@ -1,6 +1,12 @@
 $(function() {
 	$('.checkbtn').click(function(){
-		alert("支付宝转账到13332420972");
+		$.get("/cartsub",function(data) {
+			if(data.errorCode == 0){
+				alert("支付宝转账到13332420972");
+			}else{
+				alert("网络连接错误，请稍候重试...");
+			}
+		});
 	})
 })
 function foodm(id,money){
