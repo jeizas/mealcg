@@ -104,22 +104,22 @@ over{
     .check{
         color:#1abc9c;
         font-size: 24px;
-        padding: 30px;
         text-align:center;
         background-color: #fdfdfd;
     }
     .checkall{
-        padding: 76px;
         position: fixed;
         bottom: 0px;
         margin-top: 30px;
     }
     .checkbtn{
         background-color: #1abc9c;
-        height: 86px;
+        height: 50px;
         color: white;
         font-size: 22px;
         width: 120px;
+        border-top-left-radius:0px;
+        border-bottom-left-radius:0px;
     }
     .user{
         /*width: 720px;*/
