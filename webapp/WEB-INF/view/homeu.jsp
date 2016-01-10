@@ -28,7 +28,7 @@
 	<!-- 内容 -->
 	<div class="container user">
 	    <div class="row">
-	        <img id="head" src="${url }" class="col-md-4 user-img">
+	        <img id="head" src="${url }" class="col-md-4 user-img" onerror="imgError(this);">
 		    <div class="col-md-6 info">
 		       <span class="title"><strong>用户名</strong></span><span class="info-con">${user.nick }</span><a href="javascript:;" id="modifyName"><small>［修改］</small></a>
 		        <br><span class="title"><strong>手机号码：</strong></span><span class="info-con">${user.phone }</span><a href="javascript:;" id="modifyPhone"><small>［修改］</small></a>

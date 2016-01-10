@@ -260,9 +260,6 @@ public class BusinessAction implements Serializable{
 	}
 	/**
 	 * 商家修改店铺名字
-	 * @returnpublic User findUser(String email, String pwd, Integer type){
-		return getDao().findUser(email, pwd, type);List<Order> order = orderService.findSubmitOrder(user.getId(), Order.STATE_DEF);
-	}
 	 */
 	@RequestMapping(value="mname",method=RequestMethod.POST)
 	public @ResponseBody Map<String, Object> modifyMame(HttpSession session, String name){
@@ -273,7 +270,11 @@ public class BusinessAction implements Serializable{
 			User user = userService.findRecordByProperty(User.FIELD_ID, usrId);
 			logger.info("用户ID["+user.getId()+"]正在修改店铺名字“"+name+"”");
 			user.setName(name);
-			userService.update(user);
+			if(userService.update(user) != null){
+				session.setAttribute(SessionKeys.USER_NAME, name);
+			}else{
+				errorCode = ErrorCodes.INVALID_DB_UPDATE;
+			}
 		} else {
 			errorCode = ErrorCodes.NOT_LOGIN;
 		}

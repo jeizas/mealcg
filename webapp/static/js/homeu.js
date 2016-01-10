@@ -1,5 +1,4 @@
 $(function() {
-	/*用户修改信息*/
 	$('#modifyName').click(function(){
 		var p = $(this).prev();
 		var name = p.text();
@@ -105,7 +104,7 @@ $(function() {
         silverlight_xap_url:'static/js/fileupload/Moxie.xap',
         filters:{
         	  mime_types:[ //只允许上传图片
-        	    { title:"Image files", extensions : "jpg,png" }
+        	    { title:"Image files", extensions : "jpg" }
         	  ],
         	  max_file_size:'10mb' //最大只能上传10MB的文件
         },
@@ -164,3 +163,7 @@ $(function() {
 		close();
 	});
 })
+function imgError(image){
+//	image.style.display = 'none'; 
+	document.getElementById("head").setAttribute("src", "/static/img/def.jpg");
+}
