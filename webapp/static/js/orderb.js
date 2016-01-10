@@ -6,7 +6,7 @@ $(function() {
 				$('#tab1').children().empty();
 				var str;
 				if(data.list == null || data.list.length <= 0){
-					$('$('#tab1').children()').append('<div class="work-null-data"><img src="http://res.alltuu.com/static/images/photographer/noData.png"/><p>您还没有任何东西哦，赶快新增吧！</p><button id="addWork">新建相册</button></div>');
+					$('#tab1').children().append('<div class="work-null-data"><img src="http://res.alltuu.com/static/images/photographer/noData.png"/><p>您还没有任何东西哦，赶快新增吧！</p></div>');
 				}else{
 					for(var i=0;i<data.list.length;i++){
 						str = ''
@@ -41,7 +41,7 @@ $(function() {
 				var str;
 				$('#tab2').children().empty();
 				if(data.list == null || data.list.length <= 0){
-					$('$('#tab1').children()').append('<div class="work-null-data"><img src="http://res.alltuu.com/static/images/photographer/noData.png"/><p>您还没有任何东西哦，赶快新增吧！</p><button id="addWork">新建相册</button></div>');
+					$('#tab2').children().append('<div class="work-null-data"><img src="http://res.alltuu.com/static/images/photographer/noData.png"/><p>您还没有任何东西哦，赶快新增吧！</p></div>');
 				}else{
 					for(var i=0;i<data.list.length;i++){
 						str = ''
@@ -76,7 +76,7 @@ $(function() {
 				var str;
 				$('#tab3').children().empty();
 				if(data.list == null || data.list.length <= 0){
-					$('$('#tab1').children()').append('<div class="work-null-data"><img src="http://res.alltuu.com/static/images/photographer/noData.png"/><p>您还没有任何东西哦，赶快新增吧！</p><button id="addWork">新建相册</button></div>');
+					$('#tab3').children().append('<div class="work-null-data"><img src="http://res.alltuu.com/static/images/photographer/noData.png"/><p>您还没有任何东西哦，赶快新增吧！</p></div>');
 				}else{
 					for(var i=0;i<data.list.length;i++){
 						str = ''
