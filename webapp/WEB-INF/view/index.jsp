@@ -5,20 +5,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>饭来啦</title>
-	<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
-	<link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="static/bootstrap/css/flat-ui.min.css" rel="stylesheet" type="text/css">
-    <link href="static/css/style.css" rel="stylesheet">
-    <link href="static/css/global.css" rel="stylesheet">
-    
-    <script type="text/javascript" src="static/bootstrap/js/jquery.min.js"></script>
-	<script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="static/js/jquery-1.8.3.min.js"></script>
-	<script type="text/javascript" src="static/js/index.js"></script>
-	<script type="text/javascript" src="static/js/md5.js"></script>
-	<script type="text/javascript">
-		var pageType = "${pageType }";
-	</script>
+<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+<link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="static/bootstrap/css/flat-ui.min.css" rel="stylesheet" type="text/css">
+<link href="static/css/style.css" rel="stylesheet">
+<link href="static/css/global.css" rel="stylesheet">
+
+<script type="text/javascript" src="static/bootstrap/js/jquery.min.js"></script>
+<script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="static/js/lib/jquery.fly.min.js"></script>
+
+<script type="text/javascript" src="static/js/index.js"></script>
+<script type="text/javascript" src="static/js/md5.js"></script>
+<script type="text/javascript">
+    var pageType = "${pageType }";
+</script>
 </head>
 <body>
     <%@ include file="/WEB-INF/view/common/navbar.jsp"%>

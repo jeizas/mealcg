@@ -20,7 +20,8 @@ $(function() {
 									+'<p class="sh">12元起送</p>'
 									+'<p class="sh">月销量'+data.list[i].money+'份</p>'
 								+'</div>'
-								+'<button class="btn btn-large btn-block no-margin" onclick="addCart('+data.list[i].id+')" type="button">加入购物车</button>'
+                                +'<input type="hidden" value="'+data.list[i].id+'"/>'
+								+'<button class="btn btn-large btn-block no-margin" type="button">加入购物车</button>'
 							+'</div>'
 						+'</div>'
 						$('#hotFood').append(str);
@@ -36,13 +37,34 @@ $(function() {
 	});
 })
 
-function addCart(id){
+$(document).on("click",".btn-block",function(e){
+    var id = $(this).prev().val();
+    addCart(id,e);
+});
+
+function addCart(id,event){
 	$.post("/addct", {foodId:id},function(data) {
 		if(data.errorCode == 0){
-			$('.badge').text(parseInt($('.badge').text()) + 1);
-			alert("操作成功!");
+            /*飞入购物车动画*/
+            var offset = $(".badge").offset(),
+                flyer = $('<img class="u-flyer" src="../favicon.ico"/>');
+            flyer.fly({
+                start:{
+                    left: event.pageX,
+                    top: event.pageY
+                },
+                end: {
+                    left: offset.left,
+                    top: 10,
+                    width:20,
+                    height:20,
+                }
+            });
+            $('.badge').text(parseInt($('.badge').text()) + 1);
+
 		}else{
 			alert("网络连接错误，请稍候重试...");
 		}
 	});
 }
+
