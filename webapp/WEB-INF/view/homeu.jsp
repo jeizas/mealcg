@@ -8,22 +8,27 @@
 	<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
     <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="static/bootstrap/css/flat-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="static/css/jquery.Jcrop.min.css" rel="stylesheet">
     <link href="static/css/style.css" rel="stylesheet">
     <link href="static/css/login.css" rel="stylesheet">
     <link href="static/css/global.css" rel="stylesheet">
+    <link href="static/css/addfood.css" rel="stylesheet">
     
     <script type="text/javascript" src="static/bootstrap/js/jquery.min.js"></script>
 	<script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="static/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="static/js/index.js"></script>
 	<script type="text/javascript" src="static/js/homeu.js"></script>
+	<script src="static/js/fileupload/moxie.js"></script>
+	<script src="static/js/fileupload/plupload.dev.js"></script>
+	<script src="static/js/jquery.Jcrop.min.js"></script>
 </head>
 <body>
 	<%@ include file="/WEB-INF/view/common/navbar.jsp"%>
 	<!-- 内容 -->
 	<div class="container user">
 	    <div class="row">
-	        <img src="/static/img/cake.jpg" class="col-md-4 user-img">
+	        <img id="head" src="${url }" class="col-md-4 user-img">
 		    <div class="col-md-6 info">
 		       <span class="title"><strong>用户名</strong></span><span class="info-con">${user.nick }</span><a href="javascript:;" id="modifyName"><small>［修改］</small></a>
 		        <br><span class="title"><strong>手机号码：</strong></span><span class="info-con">${user.phone }</span><a href="javascript:;" id="modifyPhone"><small>［修改］</small></a>
@@ -43,53 +48,34 @@
 	        </div>
         </div>
 	</div>
-	<div class="container user2">
-	   <br> <span class="title info-collect"><strong>我的收藏：</strong></span>
-	    <div class="row">
-		  <div class="col-sm-6 col-md-3">
-		    <div class="thumbnail">
-		      <img src="/static/img/cake.jpg" alt="...">
-		      <div class="caption">
-		        <h3>蛋黄蛋糕</h3>
-		        <p>地址：大西门五排六号</p>
-		        <p><a href="#" class="btn btn-primary" role="button">购买</a> <a href="#" class="btn btn-default" role="button">删除</a></p>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="col-sm-6 col-md-3">
-		    <div class="thumbnail">
-		      <img src="/static/img/cake.jpg" alt="...">
-		      <div class="caption">
-		        <h3>蛋黄蛋糕</h3>
-		        <p>地址：大西门五排六号</p>
-		        <p><a href="#" class="btn btn-primary" role="button">购买</a> <a href="#" class="btn btn-default" role="button">删除</a></p>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="col-sm-6 col-md-3">
-		    <div class="thumbnail">
-		      <img src="/static/img/cake.jpg" alt="...">
-		      <div class="caption">
-		        <h3>蛋黄蛋糕</h3>
-		        <p>地址：大西门五排六号</p>
-		        <p><a href="#" class="btn btn-primary" role="button">购买</a> <a href="#" class="btn btn-default" role="button">删除</a></p>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="col-sm-6 col-md-3">
-		    <div class="thumbnail">
-		      <img src="/static/img/cake.jpg" alt="...">
-		      <div class="caption">
-		        <h3>蛋黄蛋糕</h3>
-		        <p>地址：大西门五排六号</p>
-		        <p><a href="#" class="btn btn-primary" role="button">购买</a> <a href="#" class="btn btn-default" role="button">删除</a></p>
-		      </div>
-		    </div>
-		  </div>
-		</div><!-- row -->
-		<br>   
-		<a href="collection.html" class="pull-right">More……</a>
+	
+	<div id="half_gray" class="hide"></div>
+	<div id="upload_head" class="hide">
+		<h4>头像设置<span class="head-cancel"> X </span></h4>
+		<div id="left">
+			<figure>
+				<img id="target" src=""/>
+			</figure>
+		</div>
+		<!-- <div id="right">
+			<figure id="small" class="img-circle">
+				<img class="head head-small" src=""/>
+			</figure>
+			<figure id="middle" class="img-circle">
+				<img class="head head-middle" src=""/>
+			</figure>
+			<figure id="large">
+				<img class="head head-large" src=""/>
+			</figure>
+		</div> -->
+		<div id="head_choose" class="btn">选择图片</div>
+		<div class="btn-wrapper clearfix">
+			<div class="btns">
+				<div id="head_ok" class="btn">确定</div><div id="head_cancel" class="btn">取消</div>
+			</div>
+		</div>
 	</div>
+	
 	<!-- 这里是footer开始的地方 -->
 	<footer>
 	    <div class="container-fluid btm-ftr">

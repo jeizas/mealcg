@@ -25,6 +25,11 @@
 		<from>^/alogout$</from>
 		<to>logout</to>
 	</rule>
+	<rule>
+		<note>用户修改头像</note>
+		<from>^/profile$</from>
+		<to>filepro</to>
+	</rule>
 	<!-- 用户页面 -->
 	<rule>
 		<note>用户个人中心</note>

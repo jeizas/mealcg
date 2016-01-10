@@ -20,6 +20,7 @@
 <script type="text/javascript" src="static/js/cartu.js"></script>
 <script type="text/javascript">
     var pageType = "${pageType }";
+    var count = "${count}";
 </script>
 </head>
 <body>
@@ -27,30 +28,38 @@
 	
 	<!-- 内容 -->
 	<div class="container shop-main">
-		<c:forEach items="${carts }" var="o">
-			<div class="row"  style="border-bottom:1px solid #e3e3e3;">
-				<div class="col-md-6">
-					<div class="thumbnail" style="height:150px;">
-			            <img src="${o.url }" class="pull-left" alt="" style="width:140px;height:140px;">
-			            <div class="caption">
-			                <h3 style="line-height:2px;">${o.name }</h3>
-			                <small style="color:#1abc9c;">${o.dsc }</small>
-			                <p class="sh ps mon">￥<span class="money">${o.money }</span></p>
-			            </div>
+		<c:if test="${count != 0 }">
+			<c:forEach items="${carts }" var="o">
+				<div class="row"  style="border-bottom:1px solid #e3e3e3;">
+					<div class="col-md-6">
+						<div class="thumbnail" style="height:150px;">
+				            <img src="${o.url }" class="pull-left" alt="" style="width:140px;height:140px;">
+				            <div class="caption">
+				                <h5 style="line-height:2px;">${o.name }</h5>
+				                <small style="color:#1abc9c;">${o.dsc }</small>
+				                <p class="sh ps mon">￥<span class="money">${o.money }</span></p>
+				            </div>
+						</div>
+					</div>
+					
+					<div class="col-md-2 count col-md-offset-1">
+				        <button type="button" class="btn btn-default min" onclick="foodm(${o.id },${o.money })">-</button>
+				        <input type="text" value="${o.count }" id="cnt${o.id }" class="amount">
+				        <button type="button" class="btn btn-default plus" onclick="foodp(${o.id },${o.money })">+</button>
+					</div>
+					
+					<div class="delete col-md-2 col-md-offset-1">
+					    <button class="btn btn-default btn-xs" type="button" onclick="delorder(${o.id })">删除</button>
 					</div>
 				</div>
-				
-				<div class="col-md-2 count col-md-offset-1">
-			        <button type="button" class="btn btn-default min" onclick="foodm(${o.id },${o.money })">-</button>
-			        <input type="text" value="${o.count }" id="cnt${o.id }" class="amount">
-			        <button type="button" class="btn btn-default plus" onclick="foodp(${o.id },${o.money })">+</button>
-				</div>
-				
-				<div class="delete col-md-2 col-md-offset-1">
-				    <button class="btn btn-default btn-xs" type="button" onclick="delorder(${o.id })">删除</button>
-				</div>
-			</div>
-		</c:forEach>
+			</c:forEach>
+		</c:if>
+		<c:if test="${count == 0 }">
+			<div class="work-null-data">
+            	<img src="http://res.alltuu.com/static/images/photographer/noData.png"/>
+            	<p><a href="/">饿了就添加东西吧，还没有添加任何东西！</a></p>
+           </div>
+		</c:if>
 	</div>
 	<!-- 合计 -->
 	<div class="input-group col-md-5 col-md-offset-7 checkall ">

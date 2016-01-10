@@ -6,7 +6,7 @@ $(function() {
 				var str;
 				$('#hotFood').empty();
 				if(data.list == null || data.list.length <= 0){
-					$('#hotFood').append('<div class="work-null-data"><img src="http://res.alltuu.com/static/images/photographer/noData.png"/><p>您还没有任何相册哦，赶快创建吧！</p><button id="addWork">新建相册</button></div>');
+					$('#hotFood').append('<div class="work-null-data"><img src="http://res.alltuu.com/static/images/photographer/noData.png"/><p>您还没有任何东西哦，赶快新增吧！</p><button id="addWork">新建相册</button></div>');
 				}else{
 					for(var i=0;i<data.list.length;i++){
 						str = ''
@@ -21,7 +21,7 @@ $(function() {
 									+'<p class="sh">月销量'+data.list[i].money+'份</p>'
 								+'</div>'
                                 +'<input type="hidden" value="'+data.list[i].id+'"/>'
-								+'<button class="btn btn-large btn-block no-margin" type="button">加入购物车</button>'
+								+'<button class="btn btn-large btn-block no-margin" '+data.list[i].isCart+' type="button">加入购物车</button>'
 							+'</div>'
 						+'</div>'
 						$('#hotFood').append(str);
@@ -40,6 +40,7 @@ $(function() {
 $(document).on("click",".btn-block",function(e){
     var id = $(this).prev().val();
     addCart(id,e);
+    $(this).attr('disabled',true);
 });
 
 function addCart(id,event){

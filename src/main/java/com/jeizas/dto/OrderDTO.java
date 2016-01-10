@@ -36,6 +36,7 @@ public class OrderDTO {
 		    case 1: this.state = "店铺已接单";break;
 		    case 2: this.state = "订单已完成";break;
 		    case 3: this.state = "店铺已拒单";break;
+		    case 4: this.state = "尚在购物车";break;
 		}
 	}
 	

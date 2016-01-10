@@ -49,6 +49,7 @@ public class LoginAction implements Serializable{
 				session.setAttribute(SessionKeys.USER_NICK, user.getNick());
 				session.setAttribute(SessionKeys.USER_NAME, user.getName());
 				session.setAttribute(SessionKeys.BUS_FLAG, user.getFlag());
+				session.setAttribute(SessionKeys.USER_ROLE, user.getGrpId());
 			}else {
 				errorCode = ErrorCodes.INVALID_LOGIN;
 			}

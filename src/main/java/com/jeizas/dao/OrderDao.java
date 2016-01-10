@@ -57,4 +57,25 @@ public class OrderDao extends BaseHibernateDao<Order>{
 		q.setParameter(2, Constants.DELETED_NO);
 		return q.list();
 	}
+	public List<Order> selectOrderByUserId(Integer usrId){
+		String hql = "from Order where usrId=? and state in (0,1,2,3) and deleted=? order by id desc";
+		Query q = createQuery(hql);
+		q.setParameter(0, usrId);
+		q.setParameter(1, Constants.DELETED_NO);
+		return q.list();
+	}
+	public boolean isCart(Integer usrId, Integer foodId){
+		String hql = "from Order where usrId=? and foodId=? and state=? and deleted=?";
+		Query q = createQuery(hql);
+		q.setParameter(0, usrId);
+		q.setParameter(1, foodId);
+		q.setParameter(2, 4);
+		q.setParameter(3, Constants.NO);
+		if(q.list() != null && q.list().size() > 0){
+			return true;
+		} else{
+			return false;
+		}
+		
+	}
 }

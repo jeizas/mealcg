@@ -15,8 +15,8 @@
 	    </div> 
 	    <div class="collapse navbar-collapse" id="bs-Dropdown-navbar-collapse-1">
 	        <ul class="nav navbar-nav">
-	            <li class="active"><a href="/index">首页</a></li>
-	            <li><a href="cartu">购物车 <span class=badge>0</span> </a> </li>
+	            <li ><a href="/index">首页</a></li>
+	            <li ><a href="cartu">购物车 <span class=badge>0</span> </a> </li>
                 <!-- 搜索功能 -->
                 <form class="navbar-search pull-right" style="display:inline;margin-top:12px;margin-right:20px;border:1px solid #1abc9c;">
                     <input type="text" class="span2" style="height:30px;padding:0px;margin:0px;border:0px;">
@@ -44,7 +44,7 @@
 <script type="text/javascript">
 	var role = "<%=session.getAttribute(SessionKeys.USER_ROLE)%>";
 	var nick =  "<%=session.getAttribute(SessionKeys.USER_NICK)%>";
-	if(role == 1 && nick != "null" ){
+	if(role == "1" && nick != "null" ){
 		$('#username').text(nick);
 		$('.glyphicon-log-in').next("span").text('用户已登录');
 		$.get("/urdCnt",function(data) {
@@ -55,9 +55,5 @@
 			}
 		});
 	}
-	$('.navbar-nav li a').click(function(e){
-		<%--$('.navbar-nav li').removeClass("active");--%>
-		$(this).parents("li").siblings().removeClass("active").addClass("active");
-	})
 	
 </script>

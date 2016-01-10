@@ -3,7 +3,6 @@
     <%@ page import="com.jeizas.utils.SessionKeys"%>
 <!-- 登录div -->
 	<link href="static/css/login.css" rel="stylesheet">
-	<script type="text/javascript" src="/static/js/common.js"></script>
 	
 	<div id="half_gray" class="hide"></div>
 	<div id="alogin" class="hide">

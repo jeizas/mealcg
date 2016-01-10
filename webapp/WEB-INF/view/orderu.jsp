@@ -23,16 +23,10 @@
 	<div class="container user3">
 	    <br> <span class="title info-collect2"><strong>我的订单：</strong></span>
 	    <div class="row">
-		  <div class="col-sm-6 col-md-4">
-		    <div class="thumbnail">
-		      <img src="/static/img/cake.jpg" alt="...">
-		      <div class="caption">
-		        <h3>蛋黄蛋糕</h3>
-		        <p>地址：大西门五排六号</p>
-		        <p><a href="#" class="btn btn-primary" role="button">加入购物车</a> <a href="#" class="btn btn-default" role="button">评价</a></p>
-		      </div>
-		    </div>
-		  </div>
+		   <div class="work-null-data">
+            	<img src="http://res.alltuu.com/static/images/photographer/noData.png"/>
+            	<p>管理员太懒，还没有添加任何东西！</p>
+           </div>
 	    </div>
 	</div>
 	<!-- 这里是footer开始的地方 -->

@@ -38,4 +38,10 @@ public class OrderService extends BaseService<Order>{
 	public List<Order> cartOrder(Integer usrId){
 		return getDao().cartOrder(usrId);
 	}
+	public List<Order> selectOrderByUserId(Integer usrId){
+		return getDao().selectOrderByUserId(usrId);
+	}
+	public boolean isCart(Integer usrId, Integer foodId){
+		return getDao().isCart(usrId, foodId);
+	}
 }

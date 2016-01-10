@@ -14,6 +14,7 @@ public class FoodDTO {
 	private String addr;
 	private String dsc;
 	private Integer money;
+	private String isCart;
 	
 	public FoodDTO(){
 		super();
@@ -26,7 +27,6 @@ public class FoodDTO {
 		this.money = f.getMoney();
 		this.url = Constants.FOOD_URL + f.getId()+"/"+f.getImg();
 		this.addr = f.getAddr();
-		
 	}
 	
 	public Integer getId() {
@@ -69,4 +69,13 @@ public class FoodDTO {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
+
+	public String getIsCart() {
+		return isCart;
+	}
+
+	public void setIsCart(String isCart) {
+		this.isCart = isCart;
+	}
+	
 }

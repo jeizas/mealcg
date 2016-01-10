@@ -3,6 +3,7 @@ $(function() {
 		$.get("/cartsub",function(data) {
 			if(data.errorCode == 0){
 				alert("支付宝转账到13332420972");
+				location.replace('/orderu');   
 			}else{
 				alert("网络连接错误，请稍候重试...");
 			}

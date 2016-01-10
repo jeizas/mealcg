@@ -1,13 +1,17 @@
 package com.jeizas.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.jeizas.dto.CartDTO;
 import com.jeizas.dto.OrderDTO;
@@ -60,6 +65,7 @@ public class UserAction implements Serializable{
 		if(usrId > 0){
 			User user = userService.findRecordByProperty(User.FIELD_ID, usrId);
 			model.addAttribute("user", user);
+			model.addAttribute("url", Constants.URER_FACE_URL+usrId+"/"+usrId+".jpg");
 			retString = "homeu";
 		} else{
 			retString = "index";
@@ -88,7 +94,7 @@ public class UserAction implements Serializable{
 		List<OrderDTO> retDto = new ArrayList<OrderDTO>();
 		if(usrId != null){
 			User user = userService.findRecordByProperty(User.FIELD_ID, usrId);
-			List<Order> list = orderService.findUndeletedRecordsByProperty(Order.FIELD_USR_ID, usrId);
+			List<Order> list = orderService.selectOrderByUserId(usrId);
 			for(Order o:list){
 				Food food = foodService.findRecordByProperty(Food.FIELD_ID, o.getFoodId());
 				OrderDTO od = new OrderDTO(o, food, user);
@@ -136,6 +142,7 @@ public class UserAction implements Serializable{
 				carts.add(cart);
 				sum = sum + food.getMoney()*list.get(i).getCount(); 
 			}
+			model.addAttribute("count", carts == null ? 0 : carts.size());
 			retString = "cartu";
 		} else{
 			retString = "index";
@@ -283,9 +290,9 @@ public class UserAction implements Serializable{
 		if(usrId != null){
 			User user = userService.findRecordByProperty(User.FIELD_ID, usrId);
 			List<Like> list = likeService.findUndeletedRecordsByProperty(Order.FIELD_USR_ID, usrId);
-			for(Like o:list){
-				Food food = foodService.findRecordByProperty(Food.FIELD_ID, o.getFoodId());
-				OrderDTO od = new OrderDTO(o, food, user);
+			for(Like l:list){
+				Food food = foodService.findRecordByProperty(Food.FIELD_ID, l.getFoodId());
+				OrderDTO od = new OrderDTO(l, food, user);
 				retDto.add(od);
 			}
 		} else{
@@ -313,6 +320,43 @@ public class UserAction implements Serializable{
 			errorCode = ErrorCodes.NOT_LOGIN;
 		}
 		retMap.put("errorCode", errorCode);
+		return retMap;
+	}
+	
+	/**
+	 * 用户修改头像
+	 * @param session
+	 * @param flag
+	 * @return
+	 * @throws IOException 
+	 */
+	@RequestMapping(value="/filepro",method=RequestMethod.POST)
+	public @ResponseBody Map<String, Object> filepro(HttpSession session, MultipartFile file, HttpServletRequest request) throws IOException{
+		Map<String, Object> retMap = new HashMap<String, Object>();
+		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
+		Integer errorCode = ErrorCodes.SUCCESS;
+		String url = null;
+		if(usrId != null){
+			if(file != null){
+				logger.info(file.getName());
+				String realpath = request.getSession().getServletContext().getRealPath(Constants.URER_FACE_URL)+usrId;//得到文件夹路径
+				File tmp = new File(realpath);//判断该文件夹是名是否存在
+				if(!tmp.exists()  && !tmp.isDirectory()) {   
+				    	System.out.println("//文件夹不存在，已创建");
+				    	tmp.mkdir();      
+				}
+				String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."), file.getOriginalFilename().length());
+				File f=new File(realpath+"/"+usrId+suffix);//判断文件名是否存在  以要上传的文件路径和新建文件
+				FileUtils.copyInputStreamToFile(file.getInputStream(),f);
+				url = Constants.URER_FACE_URL +usrId+"/"+f.getName();
+			} else{
+				errorCode = ErrorCodes.INVALID_PARAM;
+			}
+		} else{
+			errorCode = ErrorCodes.NOT_LOGIN;
+		}
+		retMap.put("errorCode", errorCode);
+		retMap.put("url", url);
 		return retMap;
 	}
 }

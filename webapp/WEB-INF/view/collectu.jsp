@@ -23,17 +23,11 @@
 	<div class="container user3">
 	   <br> <span class="title info-collect2"><strong>我的收藏：</strong></span>
 	    <div class="row">
-		  <div class="col-sm-6 col-md-4">
-		    <div class="thumbnail">
-		      <img src="/static/img/cake.jpg" alt="...">
-		      <div class="caption">
-		        <h3>蛋黄蛋糕</h3>
-		        <p>地址：大西门五排六号</p>
-		        <p><a href="#" class="btn btn-default" role="button">删除</a></p>
-		      </div>
-		    </div>
-		  </div>
-	  </div>
+			<div class="work-null-data">
+            	<img src="http://res.alltuu.com/static/images/photographer/noData.png"/>
+            	<p>您还没有收藏过任何东西，还没有添加任何东西！</p>
+           </div>		
+	    </div>
 	</div><!-- row -->  
 	<%@ include file="/WEB-INF/view/common/login.jsp"%>
 	<!-- 这里是footer开始的地方 -->
