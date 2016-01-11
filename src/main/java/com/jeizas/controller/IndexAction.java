@@ -66,15 +66,15 @@ public class IndexAction implements Serializable{
 		List<FoodDTO> retDTO = new ArrayList<FoodDTO>();
 		Integer usrId = (Integer) session.getAttribute(SessionKeys.USER_ID);
 		for(Food f:list){
-			FoodDTO dto = new FoodDTO(f);
-			if(orderService.isCart(usrId, f.getId())){
-				dto.setIsCart("disabled");
-				System.out.println(11);
-			}else{
-				dto.setIsCart("");
-				System.out.println(22);
+			if(f.getDeleted() == 0){
+				FoodDTO dto = new FoodDTO(f);
+				if(orderService.isCart(usrId, f.getId())){
+					dto.setIsCart("disabled");
+				}else{
+					dto.setIsCart("");
+				}
+				retDTO.add(dto);
 			}
-			retDTO.add(dto);
 		}
  		Map<String, Object> retMap = new HashMap<String, Object>();
 		Integer errorCode = ErrorCodes.SUCCESS;

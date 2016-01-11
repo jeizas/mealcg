@@ -33,7 +33,7 @@
 	<%@ include file="/WEB-INF/view/common/navb.jsp"%>
 	<!-- 内容 -->
 	<div class="container" id="addform">
-	    <h2 style="margin:30px; ">美味蛋糕店</h2>
+	    <h4 style="margin:13px; ">美味蛋糕店</h4>
 		<p style="border-bottom:1px solid #e3e3e3;"> </p>
 		<form id="addfood" name="addfood" method="post" action="/addfood">
 		 	<div class="col-lg-5 add-item">
@@ -74,7 +74,7 @@
 				</div>
 			  </div>
 			  <div class="col-lg-12 add-item">
-			     <input type="button" class="btn btn-warning btn-lg btn-block" id="submitF" style="margin-top:30px;background-color:#FF744B" value="提交">
+			     <input type="button" class="btn btn-warning btn-lg btn-block" id="submitF" style="margin-top:30px;background-color:#1abc9c;" value="提交">
 			  </div>
 		</form>
 	</div>

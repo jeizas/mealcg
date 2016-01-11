@@ -22,7 +22,7 @@
 <body>
     <%@ include file="/WEB-INF/view/common/navb.jsp"%>
 	<!-- 内容 -->
-	<p style="float:right;"><a style=" background-color:#1abc9c;border:1px solid #1abc9c;" href="/addf" role="button" class="btn btn-primary btn-lg">添加新菜品</a></p>
+	<p style="float:right;margin:100px 95px; 0;"><a style=" background-color:#1abc9c;border:1px solid #1abc9c;" href="/addf" role="button" class="btn btn-primary btn-lg">添加新菜品</a></p>
 	<div class="container shop-main">
 	    <c:forEach items="${foods }" var="f">
 			<div class="row"  style="border-bottom:1px solid #e3e3e3;">

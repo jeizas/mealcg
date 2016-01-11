@@ -24,6 +24,7 @@ public class FoodService extends BaseService<Food>{
 		return getDao().findNofinishRecord(usrId);
 	}
 	public Food updateFood(Food tmp, Food food){
+		tmp.setId(food.getId());
 		tmp.setDsc(food.getDsc());
 		tmp.setMoney(food.getMoney());
 		tmp.setIsNew(food.getIsNew());
